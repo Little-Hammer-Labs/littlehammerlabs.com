@@ -3,72 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Little Hammer Labs</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #ffffff;
-      color: #1e2d3a;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 600px;
-      padding: 2rem;
-    }
-
-    img {
-      max-width: 140px;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #444;
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 0.8rem 1.6rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-      background: #e85a2c;
-      border-radius: 8px;
-      transition: background 0.2s ease;
-    }
-
-    .cta:hover {
-      background: #d44c22;
-    }
-
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #777;
-    }
-  </style>
+  
+  <!-- Primary Meta Tags -->
+  <title>Little Hammer Labs - Innovative Software Solutions & Development Services</title>
+  <meta name="title" content="Little Hammer Labs - Innovative Software Solutions & Development Services" />
+  <meta name="description" content="Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses. Expert software engineering and consulting." />
+  <meta name="keywords" content="software development, custom software, software consulting, digital transformation, software engineering, Little Hammer Labs, LLC, business software solutions" />
+  <meta name="author" content="Little Hammer Labs, LLC" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://littlehammerlabs.github.io/" />
+  <meta property="og:title" content="Little Hammer Labs - Innovative Software Solutions" />
+  <meta property="og:description" content="Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses." />
+  <meta property="og:image" content="https://littlehammerlabs.github.io/lhlfull.png" />
+  <meta property="og:site_name" content="Little Hammer Labs" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://littlehammerlabs.github.io/" />
+  <meta property="twitter:title" content="Little Hammer Labs - Innovative Software Solutions" />
+  <meta property="twitter:description" content="Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses." />
+  <meta property="twitter:image" content="https://littlehammerlabs.github.io/lhlfull.png" />
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#e85a2c" />
+  <meta name="msapplication-TileColor" content="#e85a2c" />
+  <link rel="canonical" href="https://littlehammerlabs.github.io/" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="preload" href="lhlfull.png" as="image" />
+  <link rel="preload" href="dgalogo.png" as="image" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Structured Data for Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Little Hammer Labs",
+    "url": "https://littlehammerlabs.github.io",
+    "logo": "https://littlehammerlabs.github.io/lhlfull.png",
+    "description": "Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@littlehammerlabs.com",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://littlehammerlabs.github.io"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Little Hammer Labs Logo">
-    <h1>Little Hammer Labs</h1>
-    <p>Crafting innovative software solutions.<br>Full site coming soon.</p>
-    <a href="mailto:contact@littlehammerlabs.com" class="cta">Contact Us</a>
-    <div class="footer">© 2025 Little Hammer Labs</div>
+  <div class="main-container">
+    <div class="content-wrapper">
+      <div class="left-section">
+        <div class="logo-container">
+          <img src="lhlfull.png" alt="Little Hammer Labs Logo" class="logo" loading="eager">
+        </div>
+        
+        <div class="contact-section">
+          <h3 class="contact-title">Get in Touch</h3>
+          <a href="mailto:contact@littlehammerlabs.com" class="contact-email">
+            contact@littlehammerlabs.com
+          </a>
+        </div>
+      </div>
+      
+      <div class="right-section">
+        <h2 class="section-title">Our Customers</h2>
+        
+        <div class="customer-list">
+          <div class="customer-item">
+            <a href="https://www.diehlgroup.com/" target="_blank" rel="noopener noreferrer">
+              <img src="dgalogo.png" alt="Diehl Group Architects Logo" class="customer-logo" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  
+  <footer class="footer">
+    © 2025 Little Hammer Labs, LLC. All rights reserved.
+  </footer>
 </body>
 </html>
 
