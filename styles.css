@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+/* Performance optimizations */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: linear-gradient(225deg, #e85a2c 0%, #1e2d3a 60%, #1e2d3a 100%);
@@ -14,6 +19,25 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Performance optimizations */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(225deg, #e85a2c 0%, #1e2d3a 60%, #1e2d3a 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Performance optimizations */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===== LAYOUT CONTAINERS ===== */
@@ -60,6 +84,9 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
   transform: translateZ(0);
+  /* Performance optimizations */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .logo:hover {

@@ -65,6 +65,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
   
+  <!-- Explicit favicon for Firefox and other browsers -->
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="icon" href="favicon/favicon.ico" />
+  
   <!-- Apple Touch Icons - iOS devices -->
   <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
   
@@ -77,6 +81,11 @@
   <meta name="msapplication-TileColor" content="#e85a2c" />
   <meta name="msapplication-config" content="none" />
   
+  <!-- Safari-specific fixes -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Little Hammer Labs" />
+  
   <!-- Web App Manifest -->
   <link rel="manifest" href="manifest.json" />
   
@@ -87,6 +96,9 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
+  
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="//www.diehlgroup.com" />
   
   <!-- Structured Data for Business -->
   <script type="application/ld+json">
