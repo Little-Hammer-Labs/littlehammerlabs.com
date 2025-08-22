@@ -13,45 +13,53 @@
       align-items: center;
       height: 100vh;
       text-align: center;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f1f1f1;
+      background: #fdfcf9; /* light warm tone to match logo bg */
+      color: #1e2d3a; /* navy text */
     }
 
     .container {
-      max-width: 600px;
+      max-width: 700px;
       padding: 2rem;
+    }
+
+    img {
+      max-width: 120px;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #ffffff;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-      color: #dcdcdc;
+      color: #1e2d3a;
     }
 
     .tagline {
-      font-style: italic;
-      color: #9be7ff;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #e85a2c; /* orange accent from hammer */
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .footer {
       margin-top: 3rem;
       font-size: 0.9rem;
-      color: #bbb;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Swap "logo.png" with the actual path to your logo file -->
+    <img src="logo.png" alt="Little Hammer Labs Logo">
     <h1>Little Hammer Labs</h1>
-    <p class="tagline">Building custom apps that hit hard.</p>
-    <p>We’re crafting innovative software solutions. Full site coming soon.</p>
+    <div class="tagline">Building custom apps that hit hard.</div>
+    <p>We’re crafting innovative software solutions.<br>Full site coming soon.</p>
     <div class="footer">© 2025 Little Hammer Labs</div>
   </div>
 </body>
