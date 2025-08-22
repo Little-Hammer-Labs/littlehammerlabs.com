@@ -1,0 +1,30 @@
+{
+  "name": "Little Hammer Labs",
+  "short_name": "LHL",
+  "description": "Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e2d3a",
+  "theme_color": "#e85a2c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "lhlfull.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "lhlfull.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "lhlfull.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
