@@ -154,7 +154,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: #F5F2E9;
   border: 1px solid #e9ecef;
   border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -163,7 +163,7 @@ body {
 }
 
 .customer-item:hover {
-  background: #fff;
+  background: #F5F2E9;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transform: translateY(-3px) translateZ(0);
 }
