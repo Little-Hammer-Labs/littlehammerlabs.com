@@ -8,31 +8,23 @@
 /* Performance optimizations */
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  background: linear-gradient(225deg, #e85a2c 0%, #1e2d3a 60%, #1e2d3a 100%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 body {
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: linear-gradient(225deg, #e85a2c 0%, #1e2d3a 60%, #1e2d3a 100%);
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
-  /* Performance optimizations */
-  text-rendering: optimizeSpeed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: linear-gradient(225deg, #e85a2c 0%, #1e2d3a 60%, #1e2d3a 100%);
-  background-attachment: fixed;
-  background-size: cover;
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   /* Performance optimizations */
   text-rendering: optimizeSpeed;
