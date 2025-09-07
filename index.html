@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://littlehammerlabs.github.io/lhlfull.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Little Hammer Labs Logo" />
+  <meta property="og:image:alt" content="Little Hammer Labs, LLC Logo" />
   <meta property="og:site_name" content="Little Hammer Labs" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:type" content="image/webp" />
@@ -32,7 +32,7 @@
   <meta property="twitter:title" content="Little Hammer Labs" />
   <meta property="twitter:description" content="Little Hammer Labs LLC specializes in crafting innovative software solutions, custom development, and digital transformation services for businesses." />
   <meta property="twitter:image" content="https://littlehammerlabs.github.io/lhlfull.webp" />
-  <meta property="twitter:image:alt" content="Little Hammer Labs Logo" />
+  <meta property="twitter:image:alt" content="Little Hammer Labs, LLC Logo" />
   <meta name="twitter:image:width" content="1200" />
   <meta name="twitter:image:height" content="630" />
   
@@ -93,6 +93,22 @@
   
   <!-- DNS Prefetch for external resources -->
   <link rel="dns-prefetch" href="//www.diehlgroup.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   
   <!-- Structured Data for Business -->
   <script type="application/ld+json">

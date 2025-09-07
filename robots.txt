@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (you can add this later if needed)
+# Sitemap: https://littlehammerlabs.com/sitemap.xml
