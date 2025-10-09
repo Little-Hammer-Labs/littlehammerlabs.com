@@ -187,6 +187,58 @@ body {
   font-size: 0.8rem;
 }
 
+/* ===== LOGO PAGE STYLES ===== */
+.logo-page .content-wrapper {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.centered-logo {
+  max-width: 80%;
+  min-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Logo page responsive adjustments */
+@media (max-width: 1200px) {
+  .logo-page .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+  }
+  
+  .centered-logo {
+    min-width: 500px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .centered-logo {
+    min-width: 300px;
+    max-width: 95%;
+  }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Large Desktop (1600px+) */
