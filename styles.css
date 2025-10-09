@@ -189,40 +189,20 @@ body {
 
 /* ===== LOGO PAGE STYLES ===== */
 .logo-page .main-container {
-  display: flex !important;
+  display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
-.logo-page .content-wrapper {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  text-align: center;
-  grid-template-columns: none !important;
-  gap: 0 !important;
-}
-
-.logo-wrapper {
+.logo-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 1200px;
-}
-
-.logo-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   text-align: center;
 }
 
@@ -234,7 +214,7 @@ body {
 
 /* Logo page responsive adjustments */
 @media (max-width: 1200px) {
-  .logo-page .content-wrapper {
+  .logo-content {
     max-width: 800px;
   }
   
