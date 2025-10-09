@@ -188,9 +188,21 @@ body {
 }
 
 /* ===== LOGO PAGE STYLES ===== */
+.logo-page .main-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
 .logo-page .content-wrapper {
-  grid-template-columns: 1fr;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
   text-align: center;
 }
 
@@ -221,8 +233,6 @@ body {
 /* Logo page responsive adjustments */
 @media (max-width: 1200px) {
   .logo-page .content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2rem;
     max-width: 800px;
   }
   
