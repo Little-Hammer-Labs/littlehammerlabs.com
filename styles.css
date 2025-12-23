@@ -42,11 +42,11 @@ body {
 }
 
 .content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
   max-width: 1600px;
   gap: 4rem;
 }
@@ -74,6 +74,8 @@ body {
   object-fit: contain;
   border-radius: 20px;
   min-width: 750px;
+  margin: 0 auto;
+  display: block;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
   transform: translateZ(0);
@@ -299,8 +301,6 @@ body {
 /* Tablet & Small Desktop (1200px and below) */
 @media (max-width: 1200px) {
   .content-wrapper {
-    grid-template-columns: 1fr;
-    justify-items: center;
     gap: 2rem;
     max-width: 800px;
   }
@@ -330,7 +330,7 @@ body {
 @media (max-width: 768px) {
   .content-wrapper {
     gap: 2rem;
-    padding: 1rem;
+    padding: 0;
   }
   
   .logo {
