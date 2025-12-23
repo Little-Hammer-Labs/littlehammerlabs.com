@@ -43,8 +43,9 @@ body {
 
 .content-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
+  justify-items: center;
   width: 90%;
   max-width: 1600px;
   gap: 4rem;
@@ -299,6 +300,7 @@ body {
 @media (max-width: 1200px) {
   .content-wrapper {
     grid-template-columns: 1fr;
+    justify-items: center;
     gap: 2rem;
     max-width: 800px;
   }
