@@ -1,0 +1,51 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+Static marketing website for Little Hammer Labs LLC (littlehammerlabs.com). No build tools, no package manager, no dependencies — just HTML, CSS, and minimal JS (Google Analytics only).
+
+## Business Context
+
+LHL is an AI consultancy focused on **Agentic Ops** — building and deploying autonomous AI agents that handle multi-step business workflows (beyond basic LLM chat interfaces).
+
+- **Target verticals:** Hospitality and Property Management (San Diego local focus)
+- **Differentiator:** Privacy-first approach with local/private LLM deployments — clients in data-sensitive industries can use AI without exposing data to public APIs
+- **Infrastructure:** Hybrid model — local Mac Mini for orchestration, cloud GPU bursting for heavy compute
+- **Agent runtime:** OpenClaw
+- **Services:** Agentic Ops implementation, custom AI automation, local LLM deployment
+- **Tone:** Professional, lean, technically credible but focused on business ROI
+
+## Local Development
+
+Run a local server to preview changes:
+```bash
+python3 -m http.server 8000
+```
+Then visit http://localhost:8000
+
+## Deployment
+
+Push to `main` branch — GitHub Pages auto-deploys to littlehammerlabs.com (custom domain via CNAME file).
+
+## Architecture
+
+Two pages sharing one stylesheet:
+- **index.html** — Single-page landing site with sections: nav, hero, services, differentiators, industries, CTA, footer
+- **logo.html** — Dedicated logo showcase page (uses `.logo-page` body class for scoped styles)
+- **styles.css** — All styles using CSS custom properties (`:root` vars), grid/flexbox layout
+
+Key responsive breakpoints: ≤1024px (tablet), ≤768px (mobile), ≤480px (small mobile).
+
+## Assets
+
+- **assets/images/** — WebP primary with PNG fallbacks
+- **assets/favicons/** — Both PNG and WebP variants in multiple sizes
+
+## Conventions
+
+- Brand colors defined as CSS vars: `--orange: #e85a2c`, `--dark: #1e2d3a`
+- Both pages include comprehensive SEO meta tags (Open Graph, Twitter Cards, Schema.org JSON-LD)
+- Performance: preload critical resources, `will-change` and `translateZ(0)` for animations, image rendering optimizations
+- Contact email: contact@littlehammerlabs.com
