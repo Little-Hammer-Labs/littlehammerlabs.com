@@ -10,11 +10,12 @@ Static marketing website for Little Hammer Labs LLC (littlehammerlabs.com). No b
 
 LHL is an AI consultancy focused on **Agentic Ops** — building and deploying autonomous AI agents that handle multi-step business workflows (beyond basic LLM chat interfaces).
 
-- **Target verticals:** Hospitality and Property Management (San Diego local focus)
+- **Target market:** General — any business with repetitive, automatable workflows
 - **Differentiator:** Privacy-first approach with local/private LLM deployments — clients in data-sensitive industries can use AI without exposing data to public APIs
 - **Infrastructure:** Hybrid model — local Mac Mini for orchestration, cloud GPU bursting for heavy compute
 - **Agent runtime:** OpenClaw
 - **Services:** Agentic Ops implementation, custom AI automation, local LLM deployment
+- **Customers:** Diehl Group Architects (DGA) — custom AI transcription tool
 - **Tone:** Professional, lean, technically credible but focused on business ROI
 
 ## Local Development
@@ -32,7 +33,7 @@ Push to `main` branch — GitHub Pages auto-deploys to littlehammerlabs.com (cus
 ## Architecture
 
 Two pages sharing one stylesheet:
-- **index.html** — Single-page landing site with sections: nav, hero, services, differentiators, industries, CTA, footer
+- **index.html** — Single-page landing site with sections: nav, hero, services, differentiators, customers, CTA, footer
 - **logo.html** — Dedicated logo showcase page (uses `.logo-page` body class for scoped styles)
 - **styles.css** — All styles using CSS custom properties (`:root` vars), grid/flexbox layout
 
