@@ -2,506 +2,498 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Design — Little Hammer Labs</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-    :root {
-      --bg:       #0d1117;
-      --bg-dark:  #111820;
-      --bg-card:  #141c26;
-      --orange:   #e85d20;
-      --orange-h: #d44f14;
-      --muted:    #8a9ab0;
-      --dim:      #c0cdd8;
-      --border:   rgba(255,255,255,0.08);
-      --border-c: rgba(255,255,255,0.06);
-      --font:     'Inter', sans-serif;
-    }
+  <!-- Primary Meta Tags -->
+  <title>AI-Powered Web Design | Little Hammer Labs</title>
+  <meta name="title" content="AI-Powered Web Design | Little Hammer Labs" />
+  <meta name="description" content="Custom, high-performance websites built with AI-assisted design. No templates. No lock-in. Built for San Diego small businesses." />
+  <meta name="keywords" content="AI web design, custom website design, San Diego web design, small business website, high performance websites, SEO optimization, web development" />
+  <meta name="author" content="Little Hammer Labs, LLC" />
+  <meta name="robots" content="index, follow" />
 
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: #fff;
-      font-family: var(--font);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://littlehammerlabs.com/webdesign/" />
+  <meta property="og:title" content="AI-Powered Web Design | Little Hammer Labs" />
+  <meta property="og:description" content="Custom, high-performance websites built with AI-assisted design. No templates. No lock-in. Built for San Diego small businesses." />
+  <meta property="og:image" content="https://littlehammerlabs.com/assets/images/lhlfull.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Little Hammer Labs — AI-Powered Web Design" />
+  <meta property="og:site_name" content="Little Hammer Labs" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image:type" content="image/png" />
 
-    /* ── BUTTONS ── */
-    .btn-orange {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: var(--orange); color: #fff; font-weight: 700; font-size: 14px;
-      padding: .7rem 1.6rem; border-radius: 9px; text-decoration: none; border: none; cursor: pointer;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 0 22px rgba(232,93,32,.28);
-    }
-    .btn-orange:hover { background: var(--orange-h); transform: translateY(-1px); box-shadow: 0 0 32px rgba(232,93,32,.42); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: transparent; color: #fff; font-weight: 600; font-size: 14px;
-      padding: .7rem 1.6rem; border-radius: 9px; border: 1px solid rgba(255,255,255,.22);
-      text-decoration: none; cursor: pointer; transition: border-color .2s, background .2s;
-    }
-    .btn-ghost:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.05); }
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://littlehammerlabs.com/webdesign/" />
+  <meta property="twitter:title" content="AI-Powered Web Design | Little Hammer Labs" />
+  <meta property="twitter:description" content="Custom, high-performance websites built with AI-assisted design. No templates. No lock-in. Built for San Diego small businesses." />
+  <meta property="twitter:image" content="https://littlehammerlabs.com/assets/images/lhlfull.png" />
+  <meta property="twitter:image:alt" content="Little Hammer Labs — AI-Powered Web Design" />
+  <meta name="twitter:domain" content="littlehammerlabs.com" />
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(13,17,23,.9); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-      height: 66px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
-    .nav-logo-img {
-      width: 44px; height: 44px; background: #fff; border-radius: 7px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .nav-logo-img img { width: 36px; height: 36px; object-fit: contain; }
-    .nav-wordmark { line-height: 1.2; }
-    .nav-w1 { font-size: 13.5px; font-weight: 700; color: #fff; display: block; }
-    .nav-w2 { font-size: 10.5px; font-weight: 600; color: var(--orange); letter-spacing: .05em; text-transform: uppercase; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
-    .nav-links a { font-size: 14px; font-weight: 500; color: var(--dim); text-decoration: none; transition: color .2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-links .nav-main-site {
-      display: flex; align-items: center; gap: .4rem;
-      font-size: 13px; color: var(--orange); font-weight: 600;
-      border: 1px solid rgba(232,93,32,.35); border-radius: 7px; padding: .4rem .9rem;
-      transition: background .2s;
-    }
-    .nav-links .nav-main-site:hover { background: rgba(232,93,32,.1); color: var(--orange); }
+  <!-- Theme & Mobile -->
+  <meta name="theme-color" content="#e85a2c" />
+  <meta name="msapplication-TileColor" content="#e85a2c" />
+  <link rel="canonical" href="https://littlehammerlabs.com/webdesign/" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Little Hammer Labs" />
 
-    /* ── HERO ── */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 130px 2rem 90px; overflow: hidden;
-    }
-    .hero-glow-orange {
-      position: absolute; top: -120px; right: -120px; width: 750px; height: 750px; pointer-events: none;
-      background: radial-gradient(circle, rgba(210,65,15,.52) 0%, rgba(160,40,8,.18) 35%, transparent 68%);
-    }
-    .hero-glow-teal {
-      position: absolute; bottom: -120px; left: -120px; width: 650px; height: 650px; pointer-events: none;
-      background: radial-gradient(circle, rgba(12,80,100,.5) 0%, rgba(8,50,70,.18) 38%, transparent 68%);
-    }
-    .hero-glow-purple {
-      position: absolute; bottom: -60px; right: 10%; width: 400px; height: 400px; pointer-events: none;
-      background: radial-gradient(circle, rgba(80,30,100,.3) 0%, transparent 65%);
-    }
-    .hero-dots {
-      position: absolute; inset: 0; pointer-events: none; opacity: .35;
-      background-image: radial-gradient(circle, rgba(255,255,255,.14) 1px, transparent 1px);
-      background-size: 26px 26px;
-    }
-    .spark { position: absolute; border-radius: 50%; background: var(--orange); pointer-events: none; }
-    .hero-content { position: relative; z-index: 2; max-width: 840px; }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-      color: var(--dim); font-size: 13px; font-weight: 500;
-      padding: .45rem 1.15rem; border-radius: 999px; margin-bottom: 2rem;
-      backdrop-filter: blur(6px);
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.2rem);
-      font-weight: 900; line-height: 1.06; letter-spacing: -.025em;
-      color: #fff; margin-bottom: 1.5rem;
-    }
-    .hero h1 .orange { color: var(--orange); }
-    .hero-sub {
-      font-size: 1.05rem; color: var(--muted); max-width: 520px;
-      margin: 0 auto 2.75rem; line-height: 1.7;
-    }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .hero-btns .btn-orange,
-    .hero-btns .btn-ghost { font-size: 15px; padding: .8rem 1.9rem; }
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon-png/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-png/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-png/favicon-32x32.png" />
+  <link rel="icon" type="image/webp" sizes="32x32" href="../assets/favicons/favicon-webp/favicon-32x32.webp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/favicon-png/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicons/favicon-png/android-chrome-192x192.png" />
+  <link rel="manifest" href="../manifest.json" />
 
-    /* ── LAYOUT HELPERS ── */
-    .section { padding: 96px 0; }
-    .section.dark { background: var(--bg-dark); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .s-label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: .6rem; }
-    .s-title { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -.02em; line-height: 1.1; color: #fff; margin-bottom: 1rem; }
-    .s-title .orange { color: var(--orange); }
-    .s-desc { font-size: .95rem; color: var(--muted); line-height: 1.7; max-width: 540px; }
-    .centered { text-align: center; }
-    .centered .s-desc { margin: 0 auto; }
+  <!-- Preload -->
+  <link rel="preload" href="../styles.css" as="style" />
+  <link rel="preload" href="../assets/images/lhlfull.webp" as="image" />
 
-    /* ── WHAT YOU GET — 3 CARDS ── */
-    .service-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.5rem; margin-top: 3.5rem;
-    }
-    .svc-card {
-      background: var(--bg-card); border: 1px solid var(--border-c); border-radius: 16px;
-      padding: 2rem; transition: border-color .2s, transform .2s;
-    }
-    .svc-card:hover { border-color: rgba(232,93,32,.3); transform: translateY(-3px); }
-    .svc-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: rgba(232,93,32,.12); border: 1px solid rgba(232,93,32,.2);
-      display: grid; place-items: center; font-size: 20px; margin-bottom: 1.25rem;
-    }
-    .svc-card h4 { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: .5rem; }
-    .svc-card p  { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+  <!-- Styles -->
+  <link rel="stylesheet" href="../styles.css" />
 
-    /* ── HOW IT WORKS ── */
-    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3.5rem; }
-    .step-card {
-      background: var(--bg-card); border: 1px solid var(--border-c); border-radius: 16px;
-      padding: 2rem; transition: border-color .2s;
-    }
-    .step-card:hover { border-color: rgba(232,93,32,.25); }
-    .step-num { font-size: 2rem; font-weight: 900; color: var(--orange); opacity: .45; line-height: 1; margin-bottom: 1.25rem; letter-spacing: -.03em; }
-    .step-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
-    .step-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .step-note { margin-top: 1rem; font-size: 11.5px; color: var(--orange); font-weight: 600; letter-spacing: .02em; }
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 
-    /* ── THE ONRAMP SECTION ── */
-    .onramp {
-      position: relative; overflow: hidden;
-    }
-    .onramp::before {
-      content: ''; position: absolute; top: -150px; right: -100px;
-      width: 550px; height: 550px; pointer-events: none;
-      background: radial-gradient(circle, rgba(200,65,15,.18) 0%, transparent 65%);
-    }
-    .onramp-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-    }
-    .onramp-copy .s-desc { max-width: 100%; margin-bottom: 1.1rem; }
-    .onramp-copy p { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
-    .onramp-copy p strong { color: var(--dim); font-weight: 600; }
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
-    /* Services teaser list */
-    .services-teaser {
-      display: flex; flex-direction: column; gap: .85rem; margin-top: 2.25rem;
-    }
-    .teaser-item {
-      display: flex; gap: 1rem; align-items: flex-start;
-      background: var(--bg-card); border: 1px solid var(--border-c); border-radius: 12px;
-      padding: 1.1rem 1.25rem;
-      transition: border-color .2s;
-      text-decoration: none;
-    }
-    .teaser-item:hover { border-color: rgba(232,93,32,.3); }
-    .teaser-icon {
-      width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-      background: rgba(232,93,32,.1); border: 1px solid rgba(232,93,32,.18);
-      display: grid; place-items: center; font-size: 16px;
-    }
-    .teaser-text {}
-    .teaser-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: .15rem; }
-    .teaser-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
-    .teaser-arrow { margin-left: auto; color: var(--orange); font-size: 16px; align-self: center; flex-shrink: 0; opacity: .7; transition: opacity .2s, transform .2s; }
-    .teaser-item:hover .teaser-arrow { opacity: 1; transform: translateX(3px); }
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-    /* ── TESTIMONIAL ── */
-    .testi-card {
-      background: var(--bg-card); border: 1px solid var(--border-c); border-radius: 20px;
-      padding: 3rem; max-width: 780px; margin: 3.5rem auto 0; text-align: center;
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Little Hammer Labs",
+    "url": "https://littlehammerlabs.com",
+    "logo": "https://littlehammerlabs.com/assets/images/lhlfull.png",
+    "description": "AI consultancy specializing in Agentic Ops — custom autonomous agents and AI-powered web design for small businesses.",
+    "areaServed": "San Diego, CA",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@littlehammerlabs.com",
+      "contactType": "sales"
     }
-    .testi-quote { font-size: 1.15rem; font-weight: 600; color: #fff; line-height: 1.55; margin-bottom: 2rem; font-style: italic; }
-    .testi-attr  { display: flex; align-items: center; justify-content: center; gap: 1rem; }
-    .testi-av    { width: 44px; height: 44px; border-radius: 50%; background: rgba(232,93,32,.2); border: 2px solid rgba(232,93,32,.4); display: grid; place-items: center; font-weight: 800; font-size: 14px; color: var(--orange); }
-    .testi-name  { font-size: 14px; font-weight: 700; color: #fff; }
-    .testi-role  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  }
+  </script>
 
-    /* ── CTA ── */
-    .cta-wrap { position: relative; overflow: hidden; }
-    .cta-glow-top    { position: absolute; top: -180px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(200,65,15,.2) 0%, transparent 65%); pointer-events: none; }
-    .cta-glow-bottom { position: absolute; bottom: -120px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(12,80,100,.25) 0%, transparent 65%); pointer-events: none; }
-    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; text-align: center; }
-    .cta-inner h2 { font-size: clamp(2rem,4.5vw,3.2rem); font-weight: 900; letter-spacing: -.025em; line-height: 1.08; margin-top: .75rem; margin-bottom: 1.25rem; }
-    .cta-inner p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; }
-    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .cta-btns .btn-orange,
-    .cta-btns .btn-ghost { font-size: 15px; padding: .85rem 2rem; }
-    .cta-sub { margin-top: 1.5rem; font-size: 12px; color: var(--muted); }
-    .cta-sub a { color: var(--orange); text-decoration: none; }
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Little Hammer Labs",
+    "description": "AI-powered web design — custom, high-performance websites built with AI-assisted design for San Diego small businesses.",
+    "url": "https://littlehammerlabs.com/webdesign/",
+    "logo": "https://littlehammerlabs.com/assets/images/lhlfull.png",
+    "email": "contact@littlehammerlabs.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "San Diego"
+    },
+    "priceRange": "$$",
+    "serviceType": ["Web Design", "AI-Powered Web Design", "SEO Optimization", "Website Development"]
+  }
+  </script>
 
-    /* ── FOOTER ── */
-    footer { background: var(--bg-dark); border-top: 1px solid var(--border); padding: 2.5rem 0; }
-    .ft-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .ft-left  { display: flex; align-items: center; gap: .75rem; }
-    .ft-logo  { width: 36px; height: 36px; background: #fff; border-radius: 5px; display: grid; place-items: center; overflow: hidden; }
-    .ft-logo img { width: 30px; height: 30px; object-fit: contain; }
-    .ft-brand { font-size: 13px; font-weight: 700; color: #fff; }
-    .ft-sub   { font-size: 11px; color: var(--orange); font-weight: 500; }
-    .ft-right { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.7; }
-    .ft-right a { color: var(--muted); text-decoration: none; transition: color .2s; }
-    .ft-right a:hover { color: var(--orange); }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .service-grid { grid-template-columns: 1fr 1fr; }
-      .onramp-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .steps { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .service-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; }
-    }
-  </style>
+  <!-- Structured Data: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI-Powered Web Design",
+    "description": "Custom, high-performance websites built with AI-assisted design. No templates. No lock-in.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Little Hammer Labs",
+      "url": "https://littlehammerlabs.com"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "San Diego"
+    },
+    "serviceType": "AI-Powered Web Design"
+  }
+  </script>
 </head>
-<body>
+<body class="webdesign-page">
 
-<!-- ── NAV ── -->
-<nav>
-  <div class="nav-inner">
-    <a href="https://littlehammerlabs.com" class="nav-logo">
-      <div class="nav-logo-img">
-        <img src="https://littlehammerlabs.com/assets/images/lhlfull.webp" alt="Little Hammer Labs"
-             onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-weight:900;font-size:14px;color:#1a1a2e\'>LH</span>'"/>
-      </div>
-      <div class="nav-wordmark">
-        <span class="nav-w1">Little Hammer Labs</span>
-        <span class="nav-w2">Web Design</span>
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#what-you-get">What You Get</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="mailto:contact@littlehammerlabs.com?subject=Web Design Inquiry" class="btn-orange" style="padding:.5rem 1.15rem;font-size:13px;">Book a Free Call</a></li>
-      <li><a href="https://littlehammerlabs.com" class="nav-main-site">Our Full Services ↗</a></li>
-    </ul>
+  <!-- Animated Background Layer -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-orb bg-orb-4"></div>
+    <div class="bg-orb bg-orb-5"></div>
+    <div class="bg-grain"></div>
   </div>
-</nav>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-glow-orange"></div>
-  <div class="hero-glow-teal"></div>
-  <div class="hero-glow-purple"></div>
-  <div class="hero-dots"></div>
-  <div class="spark" style="top:17%;left:11%;width:5px;height:5px;opacity:.55;"></div>
-  <div class="spark" style="top:28%;left:82%;width:4px;height:4px;opacity:.45;"></div>
-  <div class="spark" style="top:62%;left:20%;width:6px;height:6px;opacity:.35;"></div>
-  <div class="spark" style="top:52%;left:89%;width:4px;height:4px;opacity:.4;"></div>
-  <div class="spark" style="top:11%;left:57%;width:3px;height:3px;opacity:.5;"></div>
-  <div class="spark" style="top:80%;left:72%;width:5px;height:5px;opacity:.3;"></div>
-
-  <div class="hero-content">
-    <div class="hero-badge">Web Design by Little Hammer Labs</div>
-    <h1>
-      A Website That<br/>
-      <span class="orange">Actually Converts.</span>
-    </h1>
-    <p class="hero-sub">
-      Fast, custom-built websites designed to turn visitors into leads. And when you're ready, we'll make it smarter — with AI that works while you don't.
-    </p>
-    <div class="hero-btns">
-      <a href="mailto:contact@littlehammerlabs.com?subject=Web Design Inquiry" class="btn-orange">Book a Free Discovery Call</a>
-      <a href="#what-you-get" class="btn-ghost">See What's Included</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── WHAT YOU GET ── -->
-<section class="section dark" id="what-you-get">
-  <div class="container">
-    <div class="reveal centered">
-      <span class="s-label">What You Get</span>
-      <h2 class="s-title">A Site Built to Do a Job.</h2>
-      <p class="s-desc">No templates. No drag-and-drop builders. Every site is hand-built around your business, your audience, and your goals.</p>
-    </div>
-    <div class="service-grid reveal">
-      <div class="svc-card">
-        <div class="svc-icon">⚡</div>
-        <h4>Fast & Custom Built</h4>
-        <p>Clean code, optimized performance, and a design that's entirely yours. No themes, no bloat — just a site that loads fast and looks sharp.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🎯</div>
-        <h4>Conversion-Focused</h4>
-        <p>Every page, layout, and CTA is designed with one goal: getting visitors to take action. We build the path — your customers follow it.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🤖</div>
-        <h4>AI-Ready Architecture</h4>
-        <p>Built from the start to connect with AI agents. When you're ready to automate your follow-ups, lead capture, or workflows — it's already wired in.</p>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="../assets/images/lhlfull.webp" alt="Little Hammer Labs" />
+      </a>
+      <div class="nav-links">
+        <a href="https://cal.com/max-lhl/30min" class="btn btn-primary btn-sm">Book a Meeting</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ── PROCESS ── -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="reveal centered">
-      <span class="s-label">How It Works</span>
-      <h2 class="s-title">Simple Process. Fast Turnaround.</h2>
-      <p class="s-desc">From first call to live site in 2–3 weeks. No surprises, no scope creep.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
     </div>
-    <div class="steps reveal">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h4>Free Discovery Call</h4>
-        <p>30 minutes. We learn your business and goals. You get a clear picture of what we'd build — no commitment required.</p>
-        <div class="step-note">Free · No obligation</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h4>Strategy & Scope</h4>
-        <p>We map out the pages, conversion flows, and any integrations. You approve everything before a single line of code is written.</p>
-        <div class="step-note">1–2 days</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h4>Design & Build</h4>
-        <p>Custom design, clean code, and two rounds of revisions. Performance and SEO optimized from day one.</p>
-        <div class="step-note">1–3 weeks</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <h4>Launch</h4>
-        <p>We handle deployment and hand you the keys. From here, we can layer in AI automation whenever you're ready to grow.</p>
-        <div class="step-note">+ ongoing support</div>
+    <div class="hero-inner">
+      <div class="hero-badge reveal">AI-Powered Web Design</div>
+      <h1 class="hero-headline reveal">Your Website Should Work as Hard as<br /><span class="gradient-text">You Do</span></h1>
+      <p class="hero-sub reveal">Most small business websites are forgettable templates. We use AI-assisted design to build fast, distinctive sites that convert visitors into customers — at a fraction of agency pricing.</p>
+      <div class="hero-actions reveal">
+        <a href="https://cal.com/max-lhl/30min" class="btn btn-primary">Book a Meeting</a>
+        <a href="#scenario" class="btn btn-outline">See How It Works</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── THE ONRAMP ── -->
-<section class="section dark onramp">
-  <div class="container">
-    <div class="onramp-layout">
-
-      <div class="onramp-copy reveal">
-        <span class="s-label">There's More Under the Hood</span>
-        <h2 class="s-title">Web Design Is<br/>Just the <span class="orange">Starting Point.</span></h2>
-        <p>Most of our clients come to us for a website. They stay because of what we build on top of it.</p>
-        <p>Once your site is live, we can connect it to AI agents that handle the work behind the scenes — qualifying leads, responding to prospects, updating your CRM, and running multi-step workflows <strong>completely autonomously.</strong></p>
-        <p>It's not an add-on. It's what we were built for.</p>
-        <a href="https://littlehammerlabs.com" class="btn-orange" style="margin-top:1.25rem;display:inline-flex;">
-          See Our Full Services ↗
-        </a>
-      </div>
-
-      <div class="services-teaser reveal">
-        <a href="https://littlehammerlabs.com#services" class="teaser-item">
-          <div class="teaser-icon">⚙️</div>
-          <div class="teaser-text">
-            <div class="teaser-name">Agentic Ops</div>
-            <div class="teaser-desc">Autonomous agents that execute multi-step workflows across your tools — CRMs, email, databases, and more.</div>
-          </div>
-          <div class="teaser-arrow">→</div>
-        </a>
-        <a href="https://littlehammerlabs.com#services" class="teaser-item">
-          <div class="teaser-icon">🔁</div>
-          <div class="teaser-text">
-            <div class="teaser-name">Custom Automation</div>
-            <div class="teaser-desc">We identify your most expensive manual bottlenecks and replace them with intelligent agents built around your workflows.</div>
-          </div>
-          <div class="teaser-arrow">→</div>
-        </a>
-        <a href="https://littlehammerlabs.com#services" class="teaser-item">
-          <div class="teaser-icon">🔒</div>
-          <div class="teaser-text">
-            <div class="teaser-name">Private LLM Deployment</div>
-            <div class="teaser-desc">On-premise or private-cloud AI — your data never touches a public API. Full power, full control.</div>
-          </div>
-          <div class="teaser-arrow">→</div>
-        </a>
-        <a href="https://littlehammerlabs.com" class="teaser-item" style="border-color:rgba(232,93,32,.25);background:rgba(232,93,32,.04);">
-          <div class="teaser-icon" style="background:rgba(232,93,32,.15);">✦</div>
-          <div class="teaser-text">
-            <div class="teaser-name" style="color:var(--orange);">View All Services →</div>
-            <div class="teaser-desc">See how Little Hammer Labs is helping businesses run on AI.</div>
-          </div>
-          <div class="teaser-arrow">→</div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── SOCIAL PROOF ── -->
-<section class="section">
-  <div class="container">
-    <div class="reveal centered">
-      <span class="s-label">Customers</span>
-      <h2 class="s-title">Real Businesses. Real Results.</h2>
-    </div>
-    <div class="testi-card reveal">
-      <p class="testi-quote">
-        "The team at Little Hammer actually understood how our office worked — they didn't just design a pretty site, they thought about what our clients needed to find and how to get them to act. The AI tool they built on top saved us hours every single week."
-      </p>
-      <div class="testi-attr">
-        <div class="testi-av">DG</div>
-        <div>
-          <div class="testi-name">Diehl Group Architects</div>
-          <div class="testi-role">Architecture Firm · San Diego, CA</div>
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="section-inner">
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <div class="stat-number">94%</div>
+          <div class="stat-label">of first impressions are design-related</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-number">53%</div>
+          <div class="stat-label">of mobile users leave sites that take over 3 seconds</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-number">2x</div>
+          <div class="stat-label">conversion rate improvement with optimized, custom design</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── CTA ── -->
-<section class="section dark cta-wrap">
-  <div class="cta-glow-top"></div>
-  <div class="cta-glow-bottom"></div>
-  <div class="container">
-    <div class="cta-inner reveal">
-      <span class="s-label">Let's Get Started</span>
-      <h2>Start with a Website.<br/><span class="orange">Scale with AI.</span></h2>
-      <p>
-        Book a free 30-minute call. We'll look at your current web presence, talk through what you need, and show you exactly what we'd build — no strings attached. Most clients walk away with a plan whether they work with us or not.
-      </p>
-      <div class="cta-btns">
-        <a href="mailto:contact@littlehammerlabs.com?subject=Web Design Discovery Call" class="btn-orange">Book a Free Discovery Call</a>
-        <a href="https://littlehammerlabs.com" class="btn-ghost">Explore Our AI Services</a>
+  <!-- Scenario Playbook -->
+  <section class="scenario has-accent" id="scenario">
+    <div class="section-inner">
+      <div class="section-label reveal">See the Difference</div>
+      <h2 class="section-heading reveal">A Potential Customer Finds Your Website</h2>
+      <p class="section-sub reveal">Here's what happens with and without a custom-built site.</p>
+      <div class="scenario-grid">
+        <div class="scenario-card scenario-without reveal">
+          <div class="scenario-header">
+            <span class="scenario-badge scenario-badge-old">Generic Template</span>
+          </div>
+          <ol class="scenario-steps">
+            <li>Customer searches for your service on Google</li>
+            <li>Your site loads slowly — 5+ seconds on mobile</li>
+            <li>Generic stock photos, cookie-cutter layout</li>
+            <li>No clear call to action — just a wall of text</li>
+            <li>Customer hits the back button</li>
+            <li>Finds your competitor with a professional, fast site</li>
+            <li>Books with them instead</li>
+            <li>You never even knew they visited</li>
+          </ol>
+          <div class="scenario-result scenario-result-bad">
+            Result: Lost customer. Lost revenue. You're invisible online.
+          </div>
+        </div>
+        <div class="scenario-card scenario-with reveal">
+          <div class="scenario-header">
+            <span class="scenario-badge scenario-badge-new">Custom-Built Site</span>
+          </div>
+          <ol class="scenario-steps">
+            <li>Customer searches for your service on Google</li>
+            <li>Your site loads in <strong>under 2 seconds</strong></li>
+            <li>Custom design that immediately communicates your value</li>
+            <li>Clear headline, clear CTA — they know exactly what to do</li>
+            <li>Mobile-optimized — looks great on any device</li>
+            <li>They click "Book a Meeting" and schedule a call</li>
+            <li>You follow up and close the deal</li>
+            <li>They refer two friends to your site</li>
+          </ol>
+          <div class="scenario-result scenario-result-good">
+            Result: New customer. Revenue. Referrals. Your site works for you 24/7.
+          </div>
+        </div>
       </div>
-      <p class="cta-sub">
-        Based in San Diego &middot; Working with businesses everywhere &middot;
-        <a href="mailto:contact@littlehammerlabs.com">contact@littlehammerlabs.com</a>
-      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="ft-inner">
-    <div class="ft-left">
-      <div class="ft-logo">
-        <img src="https://littlehammerlabs.com/assets/images/lhlfull.webp" alt="LHL"
-             onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-weight:900;font-size:11px;color:#1a1a2e\'>LH</span>'"/>
-      </div>
-      <div>
-        <div class="ft-brand">Little Hammer Labs</div>
-        <div class="ft-sub">Web Design · AI Agents · Automation</div>
+  <!-- Services: What We Build -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-label reveal">What We Build</div>
+      <h2 class="section-heading reveal">Websites That Actually Work</h2>
+      <p class="section-sub reveal">Not templates. Custom sites built to convert visitors into customers.</p>
+      <div class="card-grid">
+        <div class="card reveal">
+          <div class="card-icon-wrap">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Custom Website Design</h3>
+          <p class="card-text">Distinctive, hand-crafted designs that reflect your brand. Not templates. Not cookie-cutter. Built from scratch around your business goals and your customers.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon-wrap">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Performance & SEO</h3>
+          <p class="card-text">Fast-loading, mobile-first sites built to rank. We optimize Core Web Vitals, meta tags, structured data, and page speed so customers find you before your competitors.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon-wrap">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Ongoing Care & Updates</h3>
+          <p class="card-text">Websites aren't set-and-forget. We handle content updates, security, analytics monitoring, and design refreshes so your site stays current and effective.</p>
+        </div>
       </div>
     </div>
-    <div class="ft-right">
-      <a href="https://littlehammerlabs.com">littlehammerlabs.com ↗</a><br/>
-      <span>© 2025 Little Hammer Labs, LLC. All rights reserved. · San Diego, CA</span>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-  const io = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
-    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-  );
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
+  <!-- How It Works -->
+  <section class="process has-accent" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label reveal">How It Works</div>
+      <h2 class="section-heading reveal">From First Call to Live Site</h2>
+      <p class="section-sub reveal">A clear, straightforward process with no surprises.</p>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3 class="process-title">Discovery</h3>
+            <p class="process-text">Free 30-minute call. We review your current site, understand your business goals, and identify what's working and what's not.</p>
+            <span class="process-detail">Free &middot; No obligation</span>
+          </div>
+        </div>
+        <div class="process-connector reveal"></div>
+        <div class="process-step reveal">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3 class="process-title">Design & Build</h3>
+            <p class="process-text">We design and develop your site in 2-4 weeks. You see progress along the way and approve each milestone before we move forward.</p>
+            <span class="process-detail">2-4 weeks &middot; Milestone approvals</span>
+          </div>
+        </div>
+        <div class="process-connector reveal"></div>
+        <div class="process-step reveal">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3 class="process-title">Launch</h3>
+            <p class="process-text">We handle deployment, DNS, SSL, analytics setup, and search engine submission. Your site goes live with zero headaches.</p>
+            <span class="process-detail">Full deployment &middot; Zero hassle</span>
+          </div>
+        </div>
+        <div class="process-connector reveal"></div>
+        <div class="process-step reveal">
+          <div class="process-number">4</div>
+          <div class="process-content">
+            <h3 class="process-title">Optimize & Grow</h3>
+            <p class="process-text">Monthly performance reports, content updates, and design refinements. Your site gets better over time, not worse.</p>
+            <span class="process-detail">Continuous improvement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiators -->
+  <section class="diff" id="approach">
+    <div class="section-inner">
+      <div class="section-label reveal">Our Approach</div>
+      <h2 class="section-heading reveal">Why Little Hammer Labs</h2>
+      <div class="diff-grid">
+        <div class="diff-item reveal">
+          <div class="diff-number">01</div>
+          <h3 class="diff-title">AI-Assisted, Human-Crafted</h3>
+          <p class="diff-text">We use AI tools to accelerate design and development, but every site is reviewed and refined by humans. You get agency quality at freelancer speed.</p>
+        </div>
+        <div class="diff-item reveal">
+          <div class="diff-number">02</div>
+          <h3 class="diff-title">Built for Conversion</h3>
+          <p class="diff-text">Pretty isn't enough. Every design decision is made to drive the action you care about — calls, bookings, form submissions, purchases.</p>
+        </div>
+        <div class="diff-item reveal">
+          <div class="diff-number">03</div>
+          <h3 class="diff-title">No Vendor Lock-In</h3>
+          <p class="diff-text">You own your site, your code, your domain. We build on standard technologies so you're never stuck with us. You stay because we're good, not because you have to.</p>
+        </div>
+        <div class="diff-item reveal">
+          <div class="diff-number">04</div>
+          <h3 class="diff-title">San Diego Local</h3>
+          <p class="diff-text">We're based in San Diego and work with local businesses face-to-face. We understand the market because we're part of it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="section-inner">
+      <div class="section-label reveal">Pricing</div>
+      <h2 class="section-heading reveal">Transparent, Simple Pricing</h2>
+      <p class="section-sub reveal">No hidden fees. No surprises. You know exactly what you're getting.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-units">Single Page</div>
+          <div class="pricing-price">$2,500<span class="pricing-unit"> one-time</span></div>
+          <ul class="pricing-features">
+            <li>Custom single-page site</li>
+            <li>Mobile responsive</li>
+            <li>Basic SEO setup</li>
+            <li>30-day support</li>
+          </ul>
+          <a href="https://cal.com/max-lhl/30min" class="btn btn-outline pricing-cta">Book a Meeting</a>
+        </div>
+        <div class="pricing-card pricing-card-featured reveal">
+          <div class="pricing-tier">Professional</div>
+          <div class="pricing-units">Multi-Page Site</div>
+          <div class="pricing-price">$5,000<span class="pricing-unit"> one-time</span></div>
+          <ul class="pricing-features">
+            <li>Up to 5 pages</li>
+            <li>Custom design system</li>
+            <li>Full SEO & analytics</li>
+            <li>90-day support</li>
+          </ul>
+          <a href="https://cal.com/max-lhl/30min" class="btn btn-primary pricing-cta">Book a Meeting</a>
+        </div>
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Ongoing</div>
+          <div class="pricing-units">Monthly Care</div>
+          <div class="pricing-price">$500<span class="pricing-unit">/mo</span></div>
+          <ul class="pricing-features">
+            <li>Content updates</li>
+            <li>Performance monitoring</li>
+            <li>Design refreshes</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="https://cal.com/max-lhl/30min" class="btn btn-outline pricing-cta">Book a Meeting</a>
+        </div>
+      </div>
+      <div class="pm-founding-partner reveal">
+        <div class="partner-badge">Founding Partner Program</div>
+        <p class="pm-founding-text">We're selecting a small number of San Diego businesses as founding partners — <strong>priority pricing, direct founder access, and hands-on collaboration</strong>. In exchange, we ask for a testimonial after launch.</p>
+        <a href="https://cal.com/max-lhl/30min" class="btn btn-primary">Book a Meeting</a>
+      </div>
+      <p class="pricing-note reveal">Not sure which package? Start with a free 30-minute discovery call — we'll review your current site and recommend the right approach.</p>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="founder" id="about">
+    <div class="section-inner">
+      <div class="section-label reveal">About</div>
+      <h2 class="section-heading reveal">Who's Behind Little Hammer Labs</h2>
+      <div class="founder-block reveal">
+        <div class="founder-photo-wrap">
+          <img src="../assets/images/founders.jpeg" alt="Ryan and Max — Co-Founders of Little Hammer Labs" class="founder-photo" />
+        </div>
+        <div class="founder-bio">
+          <h3 class="founder-name">Ryan &amp; Max</h3>
+          <p class="founder-role">Co-Founders</p>
+          <p class="founder-text">We started Little Hammer Labs because we kept seeing the same problem — small businesses with outdated, underperforming websites that were costing them customers every day.</p>
+          <p class="founder-text">Ryan leads engineering — building fast, modern sites with cutting-edge tools and AI-assisted workflows. Max leads operations — understanding your business goals so we build a site that actually drives results.</p>
+          <p class="founder-text">Based in San Diego, working with local businesses who deserve a website that works as hard as they do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-bg">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </div>
+    <div class="section-inner">
+      <h2 class="cta-heading reveal">Ready to Get a Website<br /><span class="gradient-text">That Actually Works?</span></h2>
+      <p class="cta-sub reveal">Book a free 30-minute discovery call. We'll review your current site and show you exactly how a custom build can drive more customers — no strings attached.</p>
+      <a href="https://cal.com/max-lhl/30min" class="btn btn-primary btn-lg reveal">Book a Meeting</a>
+      <p class="cta-email reveal"><a href="mailto:contact@littlehammerlabs.com">contact@littlehammerlabs.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <img src="../assets/images/lhlfull.webp" alt="Little Hammer Labs" />
+      </a>
+      <div class="footer-meta">
+        <p>&copy; 2026 Little Hammer Labs, LLC. All rights reserved.</p>
+        <p class="footer-location">San Diego, CA</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal + Parallax -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Scroll reveal
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function (el) { observer.observe(el); });
+
+      // Parallax background orbs
+      var orbs = document.querySelectorAll('.bg-orb');
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            var scrollY = window.pageYOffset;
+            orbs.forEach(function (orb, i) {
+              var speed = 0.02 + (i * 0.015);
+              orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
