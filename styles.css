@@ -467,6 +467,7 @@ body {
   grid-template-columns: 1fr;
   gap: 1.5rem;
   max-width: 750px;
+  margin: 0 auto;
 }
 
 .customer-card {
