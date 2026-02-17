@@ -32,10 +32,14 @@ Push to `main` branch — GitHub Pages auto-deploys to littlehammerlabs.com (cus
 
 ## Architecture
 
-Two pages sharing one stylesheet:
-- **index.html** — Single-page landing site with sections: nav, hero, services, differentiators, customers, CTA, footer
-- **logo.html** — Dedicated logo showcase page (uses `.logo-page` body class for scoped styles)
+Multi-page site sharing one stylesheet:
+- **index.html** — Homepage with nav, hero, services, solutions, differentiators, customers, CTA, footer
+- **for-property-managers/index.html** — Property management vertical landing page
+- **webdesign/index.html** — Web design service landing page
+- **logo.html** — Dedicated logo showcase page (uses `.logo-page` body class)
 - **styles.css** — All styles using CSS custom properties (`:root` vars), grid/flexbox layout
+
+Service pages live in subdirectories and use `../` relative paths for shared assets.
 
 Key responsive breakpoints: ≤1024px (tablet), ≤768px (mobile), ≤480px (small mobile).
 
