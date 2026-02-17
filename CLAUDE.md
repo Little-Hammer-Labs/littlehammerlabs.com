@@ -65,4 +65,4 @@ Key responsive breakpoints: ≤1024px (tablet), ≤768px (mobile), ≤480px (sma
 | Starter (Single Page) | $1,750 one-time | Custom single-page site, mobile responsive, basic SEO, 30-day support |
 | Professional (Multi-Page) | $5,000 one-time | Up to 5 pages, custom design system, full SEO & analytics, 90-day support |
 | Ongoing (Monthly Care) | $300/mo | Content updates, performance monitoring, design refreshes, priority support |
-| Growth Bundle (Web + AI Agents) | $8,500 one-time | Custom multi-page website, 1 AI-powered workflow, website & agent integration, 90-day priority support |
+| AI Agent Add-On | +$3,500 setup + $500/mo | Custom AI agent (FAQ, lead capture, scheduling), hosting, monitoring, updates |
