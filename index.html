@@ -124,13 +124,8 @@
 </head>
 <body>
 
-  <!-- Animated Background Layer -->
+  <!-- Background Layer -->
   <div class="bg-layer" aria-hidden="true">
-    <div class="bg-orb bg-orb-1"></div>
-    <div class="bg-orb bg-orb-2"></div>
-    <div class="bg-orb bg-orb-3"></div>
-    <div class="bg-orb bg-orb-4"></div>
-    <div class="bg-orb bg-orb-5"></div>
     <div class="bg-grain"></div>
   </div>
 
@@ -153,7 +148,6 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg">
-      <canvas id="network-canvas" class="network-canvas"></canvas>
       <div class="hero-glow hero-glow-1"></div>
       <div class="hero-glow hero-glow-2"></div>
     </div>
@@ -280,7 +274,7 @@
       <h2 class="section-heading reveal">Industries We Serve</h2>
       <p class="section-sub reveal">Vertical-specific AI solutions built for how your industry actually works.</p>
       <div class="solutions-grid">
-        <a href="/for-property-managers/" class="solution-card reveal">
+        <a href="/propertymanagement/" class="solution-card reveal">
           <div class="solution-icon-wrap">
             <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
@@ -481,10 +475,6 @@
 
   <!-- CTA -->
   <section class="cta">
-    <div class="cta-bg">
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-    </div>
     <div class="section-inner">
       <h2 class="cta-heading reveal">Ready to Put AI Agents<br /><span class="gradient-text">to Work?</span></h2>
       <p class="cta-sub reveal">Book a free 30-minute discovery call. We'll audit your workflows and identify the highest-ROI automation opportunity — no strings attached.</p>
@@ -500,7 +490,7 @@
         <img src="assets/images/lhlfull.webp" alt="Little Hammer Labs" />
       </a>
       <div class="footer-links">
-        <a href="/for-property-managers/" class="footer-link">Property Management</a>
+        <a href="/propertymanagement/" class="footer-link">Property Management</a>
         <a href="/webdesign/" class="footer-link">Web Design</a>
         <a href="mailto:contact@littlehammerlabs.com" class="footer-link">Contact</a>
       </div>
@@ -511,10 +501,9 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal + Parallax + Network Animation -->
+  <!-- Scroll Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Scroll reveal
       var reveals = document.querySelectorAll('.reveal');
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -525,185 +514,6 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(function (el) { observer.observe(el); });
-
-      // Parallax background orbs
-      var orbs = document.querySelectorAll('.bg-orb');
-      var ticking = false;
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          requestAnimationFrame(function () {
-            var scrollY = window.pageYOffset;
-            orbs.forEach(function (orb, i) {
-              var speed = 0.02 + (i * 0.015);
-              orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
-            });
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      // Network node animation
-      var canvas = document.getElementById('network-canvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      var dpr = window.devicePixelRatio || 1;
-      var nodes = [];
-      var pulses = [];
-      var edges = [];
-      var nodeCount = 40;
-      var connectDist = 200;
-      var w, h;
-
-      function resize() {
-        var hero = canvas.parentElement.parentElement;
-        w = hero.offsetWidth;
-        h = hero.offsetHeight;
-        canvas.width = w * dpr;
-        canvas.height = h * dpr;
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-
-      function initNodes() {
-        nodes = [];
-        for (var i = 0; i < nodeCount; i++) {
-          nodes.push({
-            x: Math.random() * w,
-            y: Math.random() * h,
-            vx: (Math.random() - 0.5) * 0.3,
-            vy: (Math.random() - 0.5) * 0.3,
-            r: 2 + Math.random() * 2,
-            brightness: 0.3 + Math.random() * 0.4
-          });
-        }
-      }
-
-      function buildEdges() {
-        edges = [];
-        for (var i = 0; i < nodes.length; i++) {
-          for (var j = i + 1; j < nodes.length; j++) {
-            var dx = nodes[i].x - nodes[j].x;
-            var dy = nodes[i].y - nodes[j].y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < connectDist) {
-              edges.push({ a: i, b: j, dist: dist });
-            }
-          }
-        }
-      }
-
-      function spawnPulse() {
-        if (edges.length === 0) return;
-        var edge = edges[Math.floor(Math.random() * edges.length)];
-        var forward = Math.random() > 0.5;
-        pulses.push({
-          edge: edge,
-          t: 0,
-          speed: 0.005 + Math.random() * 0.008,
-          forward: forward
-        });
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-
-        // Move nodes
-        for (var i = 0; i < nodes.length; i++) {
-          var n = nodes[i];
-          n.x += n.vx;
-          n.y += n.vy;
-          if (n.x < 0 || n.x > w) n.vx *= -1;
-          if (n.y < 0 || n.y > h) n.vy *= -1;
-        }
-
-        buildEdges();
-
-        // Draw edges
-        for (var i = 0; i < edges.length; i++) {
-          var e = edges[i];
-          var alpha = (1 - e.dist / connectDist) * 0.12;
-          ctx.beginPath();
-          ctx.moveTo(nodes[e.a].x, nodes[e.a].y);
-          ctx.lineTo(nodes[e.b].x, nodes[e.b].y);
-          ctx.strokeStyle = 'rgba(232, 90, 44, ' + alpha + ')';
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-
-        // Draw nodes
-        for (var i = 0; i < nodes.length; i++) {
-          var n = nodes[i];
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(232, 90, 44, ' + (n.brightness * 0.5) + ')';
-          ctx.fill();
-          // Glow
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r + 3, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(232, 90, 44, ' + (n.brightness * 0.08) + ')';
-          ctx.fill();
-        }
-
-        // Draw & update pulses
-        for (var i = pulses.length - 1; i >= 0; i--) {
-          var p = pulses[i];
-          p.t += p.speed;
-          if (p.t > 1) {
-            pulses.splice(i, 1);
-            continue;
-          }
-          var t = p.forward ? p.t : 1 - p.t;
-          var a = nodes[p.edge.a];
-          var b = nodes[p.edge.b];
-          var px = a.x + (b.x - a.x) * t;
-          var py = a.y + (b.y - a.y) * t;
-
-          // Bright pulse dot
-          ctx.beginPath();
-          ctx.arc(px, py, 3, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255, 138, 92, 0.9)';
-          ctx.fill();
-
-          // Pulse glow
-          ctx.beginPath();
-          ctx.arc(px, py, 10, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(232, 90, 44, 0.15)';
-          ctx.fill();
-
-          // Trail
-          var trail = 0.08;
-          for (var s = 1; s <= 4; s++) {
-            var tt = p.forward ? (p.t - s * trail) : (1 - (p.t - s * trail));
-            if (tt < 0 || tt > 1) continue;
-            var tx = a.x + (b.x - a.x) * (p.forward ? p.t - s * trail : tt);
-            var ty = a.y + (b.y - a.y) * (p.forward ? p.t - s * trail : tt);
-            ctx.beginPath();
-            ctx.arc(tx, ty, 2 - s * 0.3, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 138, 92, ' + (0.5 - s * 0.1) + ')';
-            ctx.fill();
-          }
-        }
-
-        // Spawn new pulses
-        if (Math.random() < 0.03) spawnPulse();
-
-        requestAnimationFrame(draw);
-      }
-
-      resize();
-      initNodes();
-      draw();
-
-      var resizeTimer;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-          resize();
-          initNodes();
-        }, 200);
-      });
     });
   </script>
 

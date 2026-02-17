@@ -141,13 +141,8 @@
 </head>
 <body class="webdesign-page">
 
-  <!-- Animated Background Layer -->
+  <!-- Background Layer -->
   <div class="bg-layer" aria-hidden="true">
-    <div class="bg-orb bg-orb-1"></div>
-    <div class="bg-orb bg-orb-2"></div>
-    <div class="bg-orb bg-orb-3"></div>
-    <div class="bg-orb bg-orb-4"></div>
-    <div class="bg-orb bg-orb-5"></div>
     <div class="bg-grain"></div>
   </div>
 
@@ -159,7 +154,7 @@
       </a>
       <div class="nav-links">
         <a href="/#services" class="nav-link">Services</a>
-        <a href="/for-property-managers/" class="nav-link">Property Management</a>
+        <a href="/propertymanagement/" class="nav-link">Property Management</a>
         <a href="/webdesign/" class="nav-link">Web Design</a>
         <a href="https://cal.com/max-lhl/30min" class="btn btn-primary btn-sm">Book a Meeting</a>
       </div>
@@ -400,10 +395,6 @@
 
   <!-- CTA -->
   <section class="cta">
-    <div class="cta-bg">
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-    </div>
     <div class="section-inner">
       <h2 class="cta-heading reveal">Ready to Get a Website<br /><span class="gradient-text">That Actually Works?</span></h2>
       <p class="cta-sub reveal">Book a free 30-minute discovery call. We'll review your current site and show you exactly how a custom build can drive more customers — no strings attached.</p>
@@ -420,7 +411,7 @@
         <img src="../assets/images/lhlfull.webp" alt="Little Hammer Labs" />
       </a>
       <div class="footer-links">
-        <a href="/for-property-managers/" class="footer-link">Property Management</a>
+        <a href="/propertymanagement/" class="footer-link">Property Management</a>
         <a href="/webdesign/" class="footer-link">Web Design</a>
         <a href="mailto:contact@littlehammerlabs.com" class="footer-link">Contact</a>
       </div>
@@ -431,10 +422,9 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal + Parallax -->
+  <!-- Scroll Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Scroll reveal
       var reveals = document.querySelectorAll('.reveal');
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -445,23 +435,6 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(function (el) { observer.observe(el); });
-
-      // Parallax background orbs
-      var orbs = document.querySelectorAll('.bg-orb');
-      var ticking = false;
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          requestAnimationFrame(function () {
-            var scrollY = window.pageYOffset;
-            orbs.forEach(function (orb, i) {
-              var speed = 0.02 + (i * 0.015);
-              orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
-            });
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
     });
   </script>
 

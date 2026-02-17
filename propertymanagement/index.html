@@ -14,7 +14,7 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://littlehammerlabs.com/for-property-managers" />
+  <meta property="og:url" content="https://littlehammerlabs.com/propertymanagement" />
   <meta property="og:title" content="AI Agents for Property Management | Little Hammer Labs" />
   <meta property="og:description" content="AI agents that handle tenant maintenance requests, communication, and lease processing — 24/7, on your infrastructure. Built for San Diego property managers." />
   <meta property="og:image" content="https://littlehammerlabs.com/assets/images/lhlfull.png" />
@@ -27,7 +27,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://littlehammerlabs.com/for-property-managers" />
+  <meta property="twitter:url" content="https://littlehammerlabs.com/propertymanagement" />
   <meta property="twitter:title" content="AI Agents for Property Management | Little Hammer Labs" />
   <meta property="twitter:description" content="AI agents that handle tenant maintenance requests, communication, and lease processing — 24/7, on your infrastructure. Built for San Diego property managers." />
   <meta property="twitter:image" content="https://littlehammerlabs.com/assets/images/lhlfull.png" />
@@ -37,7 +37,7 @@
   <!-- Theme & Mobile -->
   <meta name="theme-color" content="#e85a2c" />
   <meta name="msapplication-TileColor" content="#e85a2c" />
-  <link rel="canonical" href="https://littlehammerlabs.com/for-property-managers/" />
+  <link rel="canonical" href="https://littlehammerlabs.com/propertymanagement/" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -101,7 +101,7 @@
     "@type": "LocalBusiness",
     "name": "Little Hammer Labs",
     "description": "AI agents for property management — maintenance requests, tenant communication, and lease processing automation.",
-    "url": "https://littlehammerlabs.com/for-property-managers",
+    "url": "https://littlehammerlabs.com/propertymanagement",
     "logo": "https://littlehammerlabs.com/assets/images/lhlfull.png",
     "email": "contact@littlehammerlabs.com",
     "address": {
@@ -141,13 +141,8 @@
 </head>
 <body class="pm-page">
 
-  <!-- Animated Background Layer -->
+  <!-- Background Layer -->
   <div class="bg-layer" aria-hidden="true">
-    <div class="bg-orb bg-orb-1"></div>
-    <div class="bg-orb bg-orb-2"></div>
-    <div class="bg-orb bg-orb-3"></div>
-    <div class="bg-orb bg-orb-4"></div>
-    <div class="bg-orb bg-orb-5"></div>
     <div class="bg-grain"></div>
   </div>
 
@@ -159,7 +154,7 @@
       </a>
       <div class="nav-links">
         <a href="/#services" class="nav-link">Services</a>
-        <a href="/for-property-managers/" class="nav-link">Property Management</a>
+        <a href="/propertymanagement/" class="nav-link">Property Management</a>
         <a href="/webdesign/" class="nav-link">Web Design</a>
         <a href="https://cal.com/max-lhl/30min" class="btn btn-primary btn-sm">Book a Meeting</a>
       </div>
@@ -388,10 +383,6 @@
 
   <!-- CTA -->
   <section class="cta">
-    <div class="cta-bg">
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-    </div>
     <div class="section-inner">
       <h2 class="cta-heading reveal">Ready to Put AI Agents<br /><span class="gradient-text">to Work on Your Properties?</span></h2>
       <p class="cta-sub reveal">Book a free 30-minute discovery call. We'll audit your workflows and identify the highest-ROI automation opportunity — no strings attached.</p>
@@ -408,7 +399,7 @@
         <img src="../assets/images/lhlfull.webp" alt="Little Hammer Labs" />
       </a>
       <div class="footer-links">
-        <a href="/for-property-managers/" class="footer-link">Property Management</a>
+        <a href="/propertymanagement/" class="footer-link">Property Management</a>
         <a href="/webdesign/" class="footer-link">Web Design</a>
         <a href="mailto:contact@littlehammerlabs.com" class="footer-link">Contact</a>
       </div>
@@ -419,10 +410,9 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal + Parallax -->
+  <!-- Scroll Reveal -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Scroll reveal
       var reveals = document.querySelectorAll('.reveal');
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -433,23 +423,6 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(function (el) { observer.observe(el); });
-
-      // Parallax background orbs
-      var orbs = document.querySelectorAll('.bg-orb');
-      var ticking = false;
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          requestAnimationFrame(function () {
-            var scrollY = window.pageYOffset;
-            orbs.forEach(function (orb, i) {
-              var speed = 0.02 + (i * 0.015);
-              orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
-            });
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
     });
   </script>
 
