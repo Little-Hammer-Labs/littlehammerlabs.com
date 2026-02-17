@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.*
+credentials.json
+secrets.json
+token.json
+*.pem
+*.key
+*.crt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+.venv/
+venv/
