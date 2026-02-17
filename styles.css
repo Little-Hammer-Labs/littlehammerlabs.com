@@ -460,6 +460,7 @@ body {
 .customers {
   padding: 7rem 0;
   background: rgba(17, 27, 39, 0.95);
+  text-align: center;
 }
 
 .customer-grid {
@@ -479,6 +480,7 @@ body {
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   transition: all 0.4s var(--transition);
+  text-align: left;
 }
 
 .customer-card:hover {
