@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LHL Instagram Content Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a24;
+    --border: #2a2a3a;
+    --accent: #ff5c35;
+    --accent2: #ffb347;
+    --text: #e8e8f0;
+    --muted: #6b6b85;
+    --pill-bg: #1e1e2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,92,53,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,92,53,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .logo-area h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--text);
+    letter-spacing: -1px;
+  }
+
+  .logo-area h1 span {
+    color: var(--accent);
+  }
+
+  .logo-area p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .week-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+  }
+
+  .week-selector button {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s;
+    font-family: 'Space Mono', monospace;
+  }
+  .week-selector button:hover { color: var(--accent); }
+
+  .week-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    min-width: 90px;
+    text-align: center;
+  }
+
+  /* Pillars row */
+  .pillars {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .pillar-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .pillar-badge:hover { border-color: var(--accent); }
+  .pillar-badge.active { border-color: var(--accent); background: rgba(255,92,53,0.12); color: var(--accent); }
+
+  .pillar-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+  }
+
+  /* Calendar grid */
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .day-label {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .day-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 10px;
+    min-height: 130px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .day-cell:hover {
+    border-color: var(--accent);
+    background: var(--surface2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,92,53,0.1);
+  }
+
+  .day-cell.empty {
+    background: transparent;
+    border-color: transparent;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .day-cell.today {
+    border-color: var(--accent);
+  }
+
+  .day-cell.today::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .day-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .day-cell.today .day-num { color: var(--accent); }
+
+  .post-card {
+    flex: 1;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .post-card:hover { opacity: 0.85; }
+
+  .post-type-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin-bottom: 3px;
+  }
+
+  .post-idea-text {
+    font-size: 10.5px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .rest-day {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 10px;
+    font-family: 'Space Mono', monospace;
+    opacity: 0.4;
+    letter-spacing: 0.5px;
+  }
+
+  /* Idea Generator */
+  .generator-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .gen-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .gen-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .gen-select:focus { border-color: var(--accent); }
+
+  .gen-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+
+  .gen-btn:hover {
+    background: #ff7055;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255,92,53,0.3);
+  }
+
+  .idea-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  .idea-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.2s;
+    animation: fadeIn 0.4s ease both;
+    cursor: pointer;
+  }
+
+  .idea-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(255,92,53,0.08);
+  }
+
+  .idea-card-type {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .idea-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .idea-card p {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .idea-card .tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-size: 10px;
+    color: var(--muted);
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--accent); }
+
+  .modal h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    padding-right: 30px;
+  }
+
+  .modal-field {
+    margin-bottom: 14px;
+  }
+
+  .modal-field label {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .modal-field p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .modal-field .caption-text {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn-outline {
+    flex: 1;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Hashtag bank */
+  .hashtag-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .hashtag-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .hashtag-group {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .hashtag-group h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .hashtag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .hashtag {
+    font-size: 11px;
+    color: var(--text);
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-family: 'Space Mono', monospace;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .hashtag:hover { border-color: var(--accent); color: var(--accent); }
+  .hashtag.copied { border-color: #4caf50; color: #4caf50; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .color-chip { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media(max-width: 640px) {
+    .calendar-grid { grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .day-cell { min-height: 80px; padding: 6px 4px; }
+    .post-idea-text { font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-area">
+      <h1>Little<span>Hammer</span>Labs</h1>
+      <p>Instagram Content Engine — 2025</p>
+    </div>
+    <div class="week-selector">
+      <button onclick="changeWeek(-1)">←</button>
+      <span class="week-label" id="weekLabel">Week 1</span>
+      <button onclick="changeWeek(1)">→</button>
+    </div>
+  </header>
+
+  <!-- Content Pillars -->
+  <div class="pillars" id="pillars"></div>
+
+  <!-- Calendar -->
+  <div class="calendar-header">
+    <div class="day-label">Mon</div>
+    <div class="day-label">Tue</div>
+    <div class="day-label">Wed</div>
+    <div class="day-label">Thu</div>
+    <div class="day-label">Fri</div>
+    <div class="day-label">Sat</div>
+    <div class="day-label">Sun</div>
+  </div>
+  <div class="calendar-grid" id="calendarGrid"></div>
+
+  <!-- Idea Generator -->
+  <div class="generator-section">
+    <div class="section-title">Idea Generator</div>
+    <div class="gen-controls">
+      <select class="gen-select" id="pillarFilter">
+        <option value="all">All Pillars</option>
+        <option value="edu">Education</option>
+        <option value="social">Social Proof</option>
+        <option value="bts">Behind the Scenes</option>
+        <option value="pain">Pain Point</option>
+        <option value="product">Product/Feature</option>
+      </select>
+      <select class="gen-select" id="formatFilter">
+        <option value="all">All Formats</option>
+        <option value="Reel">Reel</option>
+        <option value="Carousel">Carousel</option>
+        <option value="Static">Static Post</option>
+        <option value="Story">Story</option>
+      </select>
+      <button class="gen-btn" onclick="generateIdeas()">⚡ Generate Ideas</button>
+    </div>
+    <div class="idea-cards" id="ideaCards"></div>
+  </div>
+
+  <!-- Hashtag Bank -->
+  <div class="hashtag-section">
+    <div class="section-title">Hashtag Bank</div>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:8px;">Click any hashtag to copy it. Mix 1–2 from each group per post.</p>
+    <div class="hashtag-groups" id="hashtagGroups"></div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="copyCaption()">Copy Caption</button>
+      <button class="gen-btn" style="flex:1" onclick="closeModalBtn()">Got It</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- DATA ----
+
+const PILLARS = [
+  { id: 'edu',     label: 'Education',         color: '#4A9EFF', desc: 'Teach AI/automation concepts' },
+  { id: 'social',  label: 'Social Proof',       color: '#4CAF50', desc: 'Case studies & results' },
+  { id: 'bts',     label: 'Behind the Scenes',  color: '#FF9800', desc: 'Team & process transparency' },
+  { id: 'pain',    label: 'Pain Points',        color: '#ff5c35', desc: 'Call out the problem' },
+  { id: 'product', label: 'Product/Feature',    color: '#AB47BC', desc: 'Showcase what you build' },
+];
+
+const ALL_IDEAS = [
+  // EDUCATION
+  { pillar: 'edu', format: 'Carousel', title: '"What even IS an AI Agent?" explainer', hook: 'Everyone says AI but most people mean chatbot. Here\'s the difference 👇', body: 'Slide 1: AI Chatbot vs AI Agent. Slide 2: Chatbot answers. Agent acts. Slide 3: Real example — a client email at 6pm triggers a full response workflow, not just a reply draft. Slide 4: The 3 components of an agent. Slide 5: CTA — what workflow costs you the most time?', hashtags: ['#AIAgents', '#BusinessAutomation', '#AIForBusiness'], tags: ['Educational', 'High Saves'] },
+  { pillar: 'edu', format: 'Reel', title: '60-sec: How we built an AI that reads your CRM', hook: 'We built an AI that reads your CRM, your emails, and your files — and acts on all three. Here\'s how it works.', body: 'Screen recording style walkthrough showing an agent receiving an email, pulling CRM data, generating a response, and logging it — all in under 60 seconds.', hashtags: ['#AIDemo', '#CRMAutomation', '#SmallBusiness'], tags: ['Demo', 'High Reach'] },
+  { pillar: 'edu', format: 'Carousel', title: '5 signs your team is ready for an AI agent', hook: 'Not every business needs an AI agent right now. But here are 5 signs yours does.', body: '1. You answer the same questions 20x/week. 2. Leads go cold because follow-up is manual. 3. Data lives in 3 different tools. 4. After-hours requests go unanswered. 5. Your team is drowning in admin, not strategy.', hashtags: ['#BusinessEfficiency', '#AIStrategy', '#OperationsManagement'], tags: ['Educational', 'Lead Gen'] },
+  { pillar: 'edu', format: 'Static', title: '"LLM vs AI Agent" comparison graphic', hook: 'A language model talks. An agent does.', body: 'Clean split graphic: Left = LLM (generates text, no actions, one-shot). Right = AI Agent (takes actions, uses tools, multi-step, autonomous). Branded in LHL colors.', hashtags: ['#LLM', '#AIAgents', '#MachineLearning'], tags: ['Shareable', 'Educational'] },
+  { pillar: 'edu', format: 'Reel', title: 'Private LLM deployment in 60 seconds', hook: 'Your data shouldn\'t live on someone else\'s servers. Here\'s what private LLM deployment actually looks like.', body: 'Show a diagram: client data → local/private model → output. Contrast with public APIs. Emphasize zero data exposure. End with: "We build these for businesses in 2-4 weeks."', hashtags: ['#DataPrivacy', '#PrivateAI', '#AICompliance'], tags: ['Awareness', 'Niche'] },
+
+  // SOCIAL PROOF
+  { pillar: 'social', format: 'Carousel', title: 'Diehl Group Architects case study', hook: 'An architecture firm was spending hours transcribing site visits. We fixed that.', body: 'Slide 1: The problem — meeting recordings, site visits, client calls = hours of manual notes. Slide 2: What we built — custom AI transcription → structured searchable docs. Slide 3: The result — hours saved per week, zero manual note-taking. Slide 4: "Now our team just focuses on the architecture." Slide 5: CTA — book a free discovery call.', hashtags: ['#ClientWin', '#AIforArchitects', '#BusinessAutomation'], tags: ['Case Study', 'High Trust'] },
+  { pillar: 'social', format: 'Static', title: '"Before / After" workflow visual', hook: 'Before: 4-day response time. After: Under 1 hour. Same team. Just smarter tools.', body: 'Visual split showing the manual process (email → sits → Monday → manual research → Tuesday response) vs agent process (email → 30 sec → auto research → 1hr response).', hashtags: ['#AIResults', '#WorkflowAutomation', '#Productivity'], tags: ['High Saves', 'Shareable'] },
+  { pillar: 'social', format: 'Reel', title: 'Founding Partner Program spotlight', hook: 'We\'re only working with a handful of founding partners. Here\'s what that looks like.', body: 'Ryan and Max on camera: what the founding partner program includes, why it\'s limited, what businesses have gotten. Authentic, direct to camera.', hashtags: ['#FoundingPartner', '#StartupLife', '#AIStartup'], tags: ['CTA', 'Conversion'] },
+  { pillar: 'social', format: 'Carousel', title: '"We almost said no to this client" story', hook: 'We almost turned this client down. Here\'s what changed our minds — and what we built.', body: 'Tell the story of a client who came in with a vague problem, how you audited their workflow, discovered the real bottleneck, and what you built. Outcome-focused.', hashtags: ['#ClientStory', '#AIConsulting', '#SmallBusinessOwner'], tags: ['Storytelling', 'Engagement'] },
+
+  // BTS
+  { pillar: 'bts', format: 'Reel', title: 'Ryan & Max: why we started LHL', hook: 'We kept seeing the same problem. Businesses drowning in repetitive work that AI could handle. So we built the thing that fixes it.', body: 'Casual talking head — Ryan and Max explaining the origin story. San Diego backdrop. Conversational and honest. Show the whiteboard, the early prototypes, the "a-ha" moment.', hashtags: ['#Founders', '#StartupStory', '#SanDiego'], tags: ['Brand Building', 'Authentic'] },
+  { pillar: 'bts', format: 'Static', title: 'Tech stack visual', hook: 'What\'s powering our agents? Here\'s our stack.', body: 'Clean graphic showing: Claude (Anthropic) → LangChain → Python/Node → Private cloud → Client tools. Logo lockup style. "We don\'t do off-the-shelf."', hashtags: ['#TechStack', '#LangChain', '#AnthropicClaude'], tags: ['Credibility', 'Tech Audience'] },
+  { pillar: 'bts', format: 'Reel', title: 'A day in the life building an AI agent', hook: 'What does it actually look like to build a custom AI agent? From brief to deployment.', body: 'Time-lapse/screen share style. Show discovery call notes → system design → testing → client review → deployment. Keep it fast and engaging with VO.', hashtags: ['#BuildInPublic', '#AIEngineering', '#DayInTheLife'], tags: ['BTS', 'Engagement'] },
+  { pillar: 'bts', format: 'Story', title: 'Poll: What\'s your biggest time drain?', hook: 'We\'re always curious — what eats your team\'s time most?', body: 'Story poll: A) Email & follow-ups  B) Data entry & reporting  C) Client requests  D) Scheduling & coordination. Use results to inform content and DM respondents.', hashtags: [], tags: ['Interactive', 'Lead Research'] },
+
+  // PAIN POINT
+  { pillar: 'pain', format: 'Static', title: '"Your team is answering the same email 40x/week"', hook: 'Your smartest people are copy-pasting the same answer. Over and over. That\'s the real cost of not automating.', body: 'Bold typographic post. Dark background. White text. One punchy stat. No fluff. CTA in caption.', hashtags: ['#BusinessProblem', '#Automation', '#OperationsLeader'], tags: ['Bold', 'Shareable'] },
+  { pillar: 'pain', format: 'Carousel', title: '"The real cost of manual processes"', hook: 'You\'re probably not tracking this. But the math is brutal.', body: 'Slide 1: 40% of knowledge worker time = repetitive tasks (cite stat). Slide 2: Average $60k salary employee. 40% = $24k/year on automatable work. Slide 3: With 5 employees = $120k wasted annually. Slide 4: An AI agent costs a fraction of that. Slide 5: CTA.', hashtags: ['#ROI', '#BusinessCosts', '#AIInvestment'], tags: ['High Saves', 'Decision Maker Audience'] },
+  { pillar: 'pain', format: 'Reel', title: '"Why your team hates Monday mornings"', hook: 'It\'s not the meetings. It\'s the inbox full of stuff that piled up Friday at 5pm.', body: 'Relatable hook. Quick cuts showing the "inbox dread" scenario. Then pivot: "What if a system handled it while you were at dinner Friday?" Show the agent workflow. End with CTA.', hashtags: ['#WorkLifeBalance', '#SmallBusinessProblems', '#AIHelp'], tags: ['Relatable', 'High Reach'] },
+  { pillar: 'pain', format: 'Carousel', title: '"Why your AI chatbot isn\'t working"', hook: 'You tried a chatbot. It answered FAQs. Your team is still drowning. Here\'s why.', body: '5-slide breakdown of the difference between chatbots and agentic systems. End with: "You don\'t need a chatbot. You need an agent."', hashtags: ['#Chatbot', '#AIAgent', '#DigitalTransformation'], tags: ['Educational', 'Differentiator'] },
+
+  // PRODUCT
+  { pillar: 'product', format: 'Reel', title: 'Live demo: Agent handles a client request end-to-end', hook: 'Watch this AI agent handle a full client request — no human touch required.', body: 'Screen recording with VO. Show: email arrives → agent classifies → pulls from CRM → drafts response → logs in system → sends. Real workflow, 90 seconds.', hashtags: ['#AIDemo', '#LiveDemo', '#AutomationTool'], tags: ['Product Demo', 'High Conversion'] },
+  { pillar: 'product', format: 'Carousel', title: '"3 agents we\'ve built this quarter"', hook: 'Every agent we build is different. Here are 3 from this quarter.', body: 'Agent 1: Architecture transcription tool (Diehl). Agent 2: Lead follow-up automation. Agent 3: Document processing agent. Each slide: client type → problem → what we built → result.', hashtags: ['#CustomAI', '#AIBuilds', '#AgentShowcase'], tags: ['Portfolio', 'Trust Builder'] },
+  { pillar: 'product', format: 'Static', title: 'Pilot program explainer graphic', hook: '2–4 weeks. One workflow. Real results before you commit.', body: 'Clean infographic: Step 1 Discovery (free) → Step 2 Pilot (2-4 weeks) → Step 3 Deploy → Step 4 Optimize. LHL branded. Simple, confident.', hashtags: ['#LowRiskAI', '#AIForSMB', '#TechConsulting'], tags: ['CTA', 'Funnel'] },
+];
+
+const HASHTAG_BANK = [
+  { group: 'Core Brand', tags: ['#LittleHammerLabs', '#AIAgents', '#CustomAI', '#PrivateAI', '#AgenticAI'] },
+  { group: 'Industry', tags: ['#BusinessAutomation', '#WorkflowAutomation', '#DigitalTransformation', '#AIConsulting', '#EnterpriseAI'] },
+  { group: 'Audience', tags: ['#SmallBusinessOwner', '#OperationsManager', '#StartupFounder', '#CEOLife', '#BusinessLeader'] },
+  { group: 'Topic', tags: ['#AITools', '#LangChain', '#LLM', '#AnthropicClaude', '#DataPrivacy', '#MLOps'] },
+  { group: 'Engagement', tags: ['#BuildInPublic', '#TechStartup', '#SanDiego', '#AIStartup', '#TechFounder'] },
+];
+
+// 4-week schedule
+const SCHEDULE = [
+  // Week 1 (Mon-Sun)
+  [
+    { pillar: 'pain',    format: 'Static',   idea: 1  },
+    { pillar: 'edu',     format: 'Carousel', idea: 0  },
+    null,
+    { pillar: 'bts',     format: 'Reel',     idea: 8  },
+    { pillar: 'pain',    format: 'Reel',     idea: 13 },
+    null,
+    { pillar: 'social',  format: 'Carousel', idea: 5  },
+  ],
+  // Week 2
+  [
+    { pillar: 'product', format: 'Reel',     idea: 15 },
+    { pillar: 'edu',     format: 'Carousel', idea: 2  },
+    null,
+    { pillar: 'bts',     format: 'Static',   idea: 9  },
+    { pillar: 'pain',    format: 'Carousel', idea: 12 },
+    null,
+    { pillar: 'social',  format: 'Static',   idea: 6  },
+  ],
+  // Week 3
+  [
+    { pillar: 'edu',     format: 'Static',   idea: 3  },
+    { pillar: 'pain',    format: 'Carousel', idea: 14 },
+    null,
+    { pillar: 'bts',     format: 'Reel',     idea: 10 },
+    { pillar: 'product', format: 'Carousel', idea: 16 },
+    null,
+    { pillar: 'social',  format: 'Carousel', idea: 7  },
+  ],
+  // Week 4
+  [
+    { pillar: 'edu',     format: 'Reel',     idea: 1  },
+    { pillar: 'social',  format: 'Reel',     idea: 7  },
+    null,
+    { pillar: 'bts',     format: 'Story',    idea: 11 },
+    { pillar: 'product', format: 'Static',   idea: 17 },
+    null,
+    { pillar: 'edu',     format: 'Reel',     idea: 4  },
+  ],
+];
+
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const MONTH_START_DAY = 0; // Feb 2025 starts on Saturday → shift 5
+
+let currentWeek = 0;
+let activePillars = new Set(PILLARS.map(p => p.id));
+let currentModalIdea = null;
+
+function getPillar(id) { return PILLARS.find(p => p.id === id); }
+function getIdea(idx)   { return ALL_IDEAS[idx]; }
+
+// Render pillars
+function renderPillars() {
+  const el = document.getElementById('pillars');
+  el.innerHTML = PILLARS.map(p => `
+    <div class="pillar-badge ${activePillars.has(p.id) ? 'active' : ''}" onclick="togglePillar('${p.id}')" style="${activePillars.has(p.id) ? `--badge-color:${p.color}` : ''}">
+      <div class="pillar-dot" style="background:${p.color}"></div>
+      ${p.label}
+    </div>
+  `).join('');
+}
+
+function togglePillar(id) {
+  if (activePillars.has(id)) activePillars.delete(id);
+  else activePillars.add(id);
+  renderPillars();
+  renderCalendar();
+}
+
+// Render calendar
+function renderCalendar() {
+  const grid = document.getElementById('calendarGrid');
+  const weekLabel = document.getElementById('weekLabel');
+  weekLabel.textContent = `Week ${currentWeek + 1} of 4`;
+
+  const week = SCHEDULE[currentWeek];
+
+  grid.innerHTML = week.map((slot, i) => {
+    if (!slot) {
+      return `<div class="day-cell">
+        <span class="day-num">${DAYS[i]}</span>
+        <div class="rest-day">REST</div>
+      </div>`;
+    }
+
+    const idea = ALL_IDEAS[slot.idea];
+    const pillar = getPillar(slot.pillar);
+    const dimmed = !activePillars.has(slot.pillar);
+    const pillarColor = pillar ? pillar.color : '#666';
+
+    return `<div class="day-cell ${dimmed ? 'dimmed' : ''}" onclick="openModal(${slot.idea})" style="${dimmed ? 'opacity:0.3' : ''}">
+      <span class="day-num">${DAYS[i]}</span>
+      <div class="post-card" style="background:${pillarColor}18; border-color:${pillarColor}33">
+        <div class="post-type-badge" style="color:${pillarColor}">${slot.format}</div>
+        <div class="post-idea-text">${idea ? idea.title : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function changeWeek(dir) {
+  currentWeek = (currentWeek + dir + 4) % 4;
+  renderCalendar();
+}
+
+// Idea generator
+function generateIdeas() {
+  const pillarF = document.getElementById('pillarFilter').value;
+  const formatF = document.getElementById('formatFilter').value;
+
+  let filtered = ALL_IDEAS.filter(idea => {
+    const pillarMatch = pillarF === 'all' || idea.pillar === pillarF;
+    const formatMatch = formatF === 'all' || idea.format === formatF;
+    return pillarMatch && formatMatch;
+  });
+
+  // Shuffle and pick 4
+  filtered = filtered.sort(() => Math.random() - 0.5).slice(0, 4);
+
+  const cards = document.getElementById('ideaCards');
+  cards.innerHTML = filtered.map((idea, i) => {
+    const pillar = getPillar(idea.pillar);
+    return `<div class="idea-card" onclick="openModal(${ALL_IDEAS.indexOf(idea)})" style="animation-delay:${i * 0.08}s">
+      <span class="idea-card-type" style="background:${pillar.color}22; color:${pillar.color}">${idea.format} · ${pillar.label}</span>
+      <h4>${idea.title}</h4>
+      <p>${idea.hook}</p>
+      <div class="tags">${idea.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+// Render hashtags
+function renderHashtags() {
+  const el = document.getElementById('hashtagGroups');
+  el.innerHTML = HASHTAG_BANK.map(group => `
+    <div class="hashtag-group">
+      <h4>${group.group}</h4>
+      <div class="hashtag-list">
+        ${group.tags.map(t => `<span class="hashtag" onclick="copyHashtag(this, '${t}')">${t}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function copyHashtag(el, tag) {
+  navigator.clipboard.writeText(tag).catch(() => {});
+  el.classList.add('copied');
+  el.textContent = '✓ copied';
+  setTimeout(() => { el.classList.remove('copied'); el.textContent = tag; }, 1500);
+}
+
+// Modal
+function openModal(ideaIndex) {
+  const idea = ALL_IDEAS[ideaIndex];
+  if (!idea) return;
+  currentModalIdea = idea;
+  const pillar = getPillar(idea.pillar);
+
+  document.getElementById('modalTitle').textContent = idea.title;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-field">
+      <label>Pillar · Format</label>
+      <p style="color:${pillar.color}">${pillar.label} · ${idea.format}</p>
+    </div>
+    <div class="modal-field">
+      <label>Hook / Opening Line</label>
+      <div class="caption-text">${idea.hook}</div>
+    </div>
+    <div class="modal-field">
+      <label>Content Direction</label>
+      <p>${idea.body}</p>
+    </div>
+    <div class="modal-field">
+      <label>Suggested Hashtags</label>
+      <p style="font-family:'Space Mono',monospace; font-size:11px; color:var(--muted)">${[...idea.hashtags, '#LittleHammerLabs', '#AIAgents'].join('  ')}</p>
+    </div>
+  `;
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+}
+
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function copyCaption() {
+  if (!currentModalIdea) return;
+  const text = `${currentModalIdea.hook}\n\n${currentModalIdea.body}\n\n${[...currentModalIdea.hashtags, '#LittleHammerLabs', '#AIAgents'].join(' ')}`;
+  navigator.clipboard.writeText(text).catch(() => {});
+  const btn = document.querySelector('.modal-actions .btn-outline');
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => btn.textContent = 'Copy Caption', 1500);
+}
+
+// Init
+renderPillars();
+renderCalendar();
+generateIdeas();
+renderHashtags();
+</script>
+</body>
+</html>
