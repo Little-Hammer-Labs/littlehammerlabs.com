@@ -169,7 +169,7 @@ body {
 }
 
 /* Ensure all sections sit above the bg layer */
-.nav, .hero, .stats-bar, .scenario, .services, .process, .diff, .tech, .customers, .demo, .partner, .founder, .cta, .footer, .pricing {
+.nav, .hero, .stats-bar, .scenario, .services, .solutions, .process, .diff, .tech, .customers, .demo, .partner, .founder, .cta, .footer, .pricing {
   position: relative;
   z-index: 2;
 }
@@ -1598,6 +1598,43 @@ body {
   text-align: center;
 }
 
+.pm-founding-partner {
+  max-width: 650px;
+  margin: 3rem auto 2.5rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(232, 90, 44, 0.08), rgba(232, 90, 44, 0.02));
+  border: 1px solid var(--card-border-hover);
+  border-radius: var(--radius);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-founding-partner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), #ff8a5c, var(--orange));
+}
+
+.pm-founding-partner .partner-badge {
+  margin-bottom: 1rem;
+}
+
+.pm-founding-text {
+  color: var(--white-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.pm-founding-text strong {
+  color: var(--white);
+}
+
 .pricing-note {
   color: var(--white-muted);
   font-size: 0.95rem;
@@ -1607,12 +1644,79 @@ body {
   margin: 0 auto;
 }
 
+/* ===== PM SOCIAL PROOF ===== */
+.pm-proof {
+  padding: 5rem 0;
+  background: rgba(30, 45, 58, 0.85);
+  position: relative;
+  z-index: 2;
+}
+
+.pm-proof-block {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+}
+
+.pm-proof-logo-wrap {
+  flex-shrink: 0;
+}
+
+.pm-proof-logo {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.pm-proof-quote {
+  color: var(--white-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.pm-proof-attr {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.pm-who {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--white-muted);
+}
+
+.pm-who a {
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.3s var(--transition);
+}
+
+.pm-who a:hover {
+  color: var(--white);
+}
+
 /* Pricing responsive */
 @media (max-width: 1024px) {
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto 2rem;
+  }
+
+  .pm-proof-block {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
   }
 }
 
@@ -1622,6 +1726,18 @@ body {
   }
 
   .pricing-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .pm-proof {
+    padding: 4.5rem 0;
+  }
+
+  .pm-proof-block {
+    padding: 2rem 1.5rem;
+  }
+
+  .pm-founding-partner {
     padding: 2rem 1.5rem;
   }
 }
