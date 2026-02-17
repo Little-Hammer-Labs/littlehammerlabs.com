@@ -1600,13 +1600,14 @@ body {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .pricing-grid .pricing-card.reveal:nth-child(2) { transition-delay: 0.1s; }
 .pricing-grid .pricing-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.pricing-grid .pricing-card.reveal:nth-child(4) { transition-delay: 0.3s; }
 
 .pricing-card {
   background: var(--card-bg);
@@ -1829,8 +1830,8 @@ body {
 /* Pricing responsive */
 @media (max-width: 1024px) {
   .pricing-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
     margin: 0 auto 2rem;
   }
 
@@ -1844,6 +1845,11 @@ body {
 @media (max-width: 768px) {
   .pricing {
     padding: 4.5rem 0;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
 
   .pricing-card {

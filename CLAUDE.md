@@ -54,3 +54,12 @@ Key responsive breakpoints: ≤1024px (tablet), ≤768px (mobile), ≤480px (sma
 - Both pages include comprehensive SEO meta tags (Open Graph, Twitter Cards, Schema.org JSON-LD)
 - Performance: preload critical resources, `will-change` and `translateZ(0)` for animations, image rendering optimizations
 - Contact email: contact@littlehammerlabs.com
+
+## Web Design Pricing
+
+| Tier | Price | Includes |
+|------|-------|----------|
+| Starter (Single Page) | $1,750 one-time | Custom single-page site, mobile responsive, basic SEO, 30-day support |
+| Professional (Multi-Page) | $5,000 one-time | Up to 5 pages, custom design system, full SEO & analytics, 90-day support |
+| Ongoing (Monthly Care) | $300/mo | Content updates, performance monitoring, design refreshes, priority support |
+| Growth Bundle (Web + AI Agents) | $8,500 one-time | Custom multi-page website, 1 AI-powered workflow, website & agent integration, 90-day priority support |
