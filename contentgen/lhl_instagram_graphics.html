@@ -11,11 +11,6 @@
   :root {
     --orange: #E8541A;
     --orange-light: #F06830;
-    --bg-dark: #0f1117;
-    --bg-navy: #111827;
-    --teal-glow: rgba(20, 80, 100, 0.6);
-    --purple-glow: rgba(80, 30, 100, 0.4);
-    --orange-glow: rgba(232, 84, 26, 0.35);
   }
 
   body {
@@ -30,11 +25,10 @@
   }
 
   .page-title {
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.25);
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-family: 'Inter', sans-serif;
   }
 
   .slide-label {
@@ -43,12 +37,10 @@
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    font-family: 'Inter', sans-serif;
+    color: rgba(255,255,255,0.18);
     margin-bottom: -36px;
   }
 
-  /* ===== SLIDE BASE ===== */
   .slide {
     width: 600px;
     height: 600px;
@@ -59,18 +51,16 @@
     flex-shrink: 0;
   }
 
-  /* Shared background system */
   .bg {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 85% 10%, var(--orange-glow), transparent),
-      radial-gradient(ellipse 60% 50% at 10% 80%, var(--teal-glow), transparent),
-      radial-gradient(ellipse 50% 50% at 80% 85%, var(--purple-glow), transparent),
+      radial-gradient(ellipse 70% 60% at 85% 10%, rgba(232,84,26,0.38), transparent),
+      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(20,80,100,0.65), transparent),
+      radial-gradient(ellipse 50% 50% at 80% 85%, rgba(80,30,100,0.4), transparent),
       linear-gradient(135deg, #0d1520 0%, #111827 40%, #0f1117 100%);
   }
 
-  /* Pill tag */
   .pill {
     display: inline-flex;
     align-items: center;
@@ -79,42 +69,13 @@
     border-radius: 100px;
     padding: 6px 16px;
     font-size: 12px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.65);
     letter-spacing: 0.03em;
     font-weight: 500;
-    backdrop-filter: blur(4px);
-  }
-
-  /* Orange CTA button */
-  .btn-orange {
-    display: inline-flex;
-    align-items: center;
-    background: var(--orange);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    padding: 12px 24px;
-    border-radius: 8px;
-    white-space: nowrap;
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    background: transparent;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,0.25);
-    white-space: nowrap;
   }
 
   /* ============================================================
-     SLIDE 1 — BRAND INTRO
+     SLIDE 1 — BRAND REVEAL
   ============================================================ */
   .s1 {
     display: flex;
@@ -122,22 +83,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 48px 52px;
-    gap: 20px;
+    padding: 52px;
+    gap: 22px;
   }
 
   .s1 .bg {
     background:
-      radial-gradient(ellipse 80% 55% at 90% 5%, rgba(232,84,26,0.42), transparent),
+      radial-gradient(ellipse 80% 55% at 90% 5%, rgba(232,84,26,0.45), transparent),
       radial-gradient(ellipse 65% 50% at 5% 85%, rgba(20,80,100,0.7), transparent),
       radial-gradient(ellipse 50% 45% at 75% 90%, rgba(80,30,100,0.45), transparent),
       linear-gradient(135deg, #0b1420 0%, #121927 50%, #0e1118 100%);
   }
 
   .s1 h2 {
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.04;
     color: #fff;
     letter-spacing: -0.02em;
   }
@@ -145,42 +106,54 @@
   .s1 h2 span { color: var(--orange); }
 
   .s1 p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
     max-width: 380px;
     font-weight: 400;
   }
 
-  .s1 .buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 4px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .s1 .cta-text {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--orange-light);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  .s1 .brand {
+  .s1 .cta-text span {
+    opacity: 0.6;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  .s1 .wordmark {
     position: absolute;
-    top: 24px;
+    top: 26px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 10px;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    font-weight: 500;
+    color: rgba(255,255,255,0.2);
+    font-weight: 600;
     white-space: nowrap;
   }
 
-  .s1 .domain {
+  .domain {
     position: absolute;
-    bottom: 22px;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    font-weight: 400;
+    color: rgba(255,255,255,0.18);
+    font-weight: 500;
+    white-space: nowrap;
   }
 
   /* ============================================================
@@ -193,7 +166,7 @@
     justify-content: center;
     text-align: center;
     padding: 52px 48px;
-    gap: 28px;
+    gap: 30px;
   }
 
   .s2 h2 {
@@ -208,10 +181,7 @@
 
   .s2 .stats-row {
     display: flex;
-    justify-content: center;
-    gap: 0;
     width: 100%;
-    margin-top: 8px;
   }
 
   .s2 .stat {
@@ -219,8 +189,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 24px 16px;
+    gap: 8px;
+    padding: 26px 16px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
   }
@@ -230,7 +200,7 @@
   .s2 .stat:not(:first-child) { border-left: none; }
 
   .s2 .stat-num {
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 900;
     color: var(--orange);
     letter-spacing: -0.03em;
@@ -239,21 +209,23 @@
 
   .s2 .stat-label {
     font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.4;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.45;
     text-align: center;
-    max-width: 120px;
+    max-width: 115px;
     font-weight: 400;
   }
 
-  .s2 .domain {
-    position: absolute;
-    bottom: 22px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
+  .s2 .swipe-hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
     font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  .s2 .swipe-hint strong {
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
   }
 
   /* ============================================================
@@ -262,8 +234,8 @@
   .s3 {
     display: flex;
     flex-direction: column;
-    padding: 44px 48px;
-    gap: 28px;
+    padding: 44px 48px 52px;
+    gap: 24px;
   }
 
   .s3 .top {
@@ -301,15 +273,15 @@
   }
 
   .s3 .card-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(232,84,26,0.15);
-    border: 1px solid rgba(232,84,26,0.3);
+    width: 38px;
+    height: 38px;
+    background: rgba(232,84,26,0.14);
+    border: 1px solid rgba(232,84,26,0.28);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 17px;
     flex-shrink: 0;
   }
 
@@ -322,19 +294,8 @@
 
   .s3 .card-desc {
     font-size: 12px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.43);
     line-height: 1.5;
-    font-weight: 400;
-  }
-
-  .s3 .domain {
-    position: absolute;
-    bottom: 22px;
-    right: 48px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
     font-weight: 400;
   }
 
@@ -344,7 +305,7 @@
   .s4 {
     display: flex;
     flex-direction: column;
-    padding: 44px 48px;
+    padding: 44px 48px 52px;
     gap: 24px;
   }
 
@@ -365,19 +326,9 @@
 
   .s4 h2 span { color: var(--orange); }
 
-  .s4 .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    flex: 1;
-    justify-content: center;
-  }
+  .s4 .steps { display: flex; flex-direction: column; flex: 1; justify-content: center; }
 
-  .s4 .step {
-    display: flex;
-    gap: 16px;
-    align-items: stretch;
-  }
+  .s4 .step { display: flex; gap: 16px; align-items: stretch; }
 
   .s4 .step-left {
     display: flex;
@@ -391,7 +342,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(232,84,26,0.15);
+    background: rgba(232,84,26,0.14);
     border: 1.5px solid var(--orange);
     display: flex;
     align-items: center;
@@ -405,15 +356,12 @@
   .s4 .step-line {
     width: 1.5px;
     flex: 1;
-    min-height: 18px;
+    min-height: 16px;
     background: rgba(232,84,26,0.2);
     margin: 4px 0;
   }
 
-  .s4 .step-body {
-    padding: 6px 0 22px;
-  }
-
+  .s4 .step-body { padding: 5px 0 20px; }
   .s4 .step:last-child .step-body { padding-bottom: 0; }
 
   .s4 .step-title {
@@ -431,8 +379,8 @@
 
   .s4 .step-tag {
     display: inline-block;
-    background: rgba(232,84,26,0.12);
-    border: 1px solid rgba(232,84,26,0.25);
+    background: rgba(232,84,26,0.1);
+    border: 1px solid rgba(232,84,26,0.22);
     border-radius: 100px;
     padding: 2px 10px;
     font-size: 10px;
@@ -442,19 +390,8 @@
     margin-top: 5px;
   }
 
-  .s4 .domain {
-    position: absolute;
-    bottom: 22px;
-    right: 48px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    font-weight: 400;
-  }
-
   /* ============================================================
-     SLIDE 5 — CTA / FOUNDING PARTNER
+     SLIDE 5 — CTA
   ============================================================ */
   .s5 {
     display: flex;
@@ -462,22 +399,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 52px 52px;
-    gap: 18px;
+    padding: 52px;
+    gap: 20px;
   }
 
   .s5 .bg {
     background:
-      radial-gradient(ellipse 90% 60% at 50% 0%, rgba(232,84,26,0.5), transparent),
+      radial-gradient(ellipse 90% 60% at 50% 0%, rgba(232,84,26,0.52), transparent),
       radial-gradient(ellipse 60% 50% at 10% 90%, rgba(20,80,100,0.6), transparent),
       radial-gradient(ellipse 50% 45% at 90% 90%, rgba(80,30,100,0.45), transparent),
       linear-gradient(160deg, #0e1520 0%, #111827 60%, #0f1117 100%);
   }
 
   .s5 h2 {
-    font-size: 52px;
+    font-size: 54px;
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.04;
     color: #fff;
     letter-spacing: -0.02em;
   }
@@ -486,8 +423,8 @@
 
   .s5 p {
     font-size: 15px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.65;
     max-width: 360px;
     font-weight: 400;
   }
@@ -495,16 +432,15 @@
   .s5 .perks {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
     align-items: flex-start;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     padding: 18px 22px;
     width: 100%;
-    max-width: 380px;
+    max-width: 370px;
     text-align: left;
-    margin: 2px 0;
   }
 
   .s5 .perk {
@@ -512,7 +448,7 @@
     align-items: center;
     gap: 10px;
     font-size: 13px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.68);
     font-weight: 500;
   }
 
@@ -525,25 +461,21 @@
     flex-shrink: 0;
   }
 
-  .s5 .buttons {
-    display: flex;
-    gap: 12px;
+  .s5 .link-callout {
     margin-top: 4px;
-    flex-wrap: wrap;
-    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange-light);
+    letter-spacing: 0.01em;
   }
 
-  .s5 .domain {
-    position: absolute;
-    bottom: 22px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
+  .s5 .link-callout span {
+    color: rgba(255,255,255,0.35);
     font-weight: 400;
+    font-size: 13px;
   }
 
-  /* ===== EXPORT INSTRUCTIONS ===== */
+  /* ===== INSTRUCTIONS ===== */
   .instructions {
     width: 600px;
     max-width: 100%;
@@ -552,7 +484,6 @@
     border-radius: 8px;
     background: rgba(255,255,255,0.02);
   }
-
   .instructions h2 {
     font-size: 11px;
     letter-spacing: 0.18em;
@@ -561,19 +492,18 @@
     font-weight: 600;
     margin-bottom: 12px;
   }
-
   .instructions p {
     font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.8;
+    color: rgba(255,255,255,0.32);
+    line-height: 1.85;
   }
 </style>
 </head>
 <body>
 
-<div class="page-title">Little Hammer Labs — Instagram Carousel Graphics</div>
+<div class="page-title">Little Hammer Labs — Instagram Carousel</div>
 
-<!-- ============================================================ SLIDE 1 -->
+<!-- ================================================================ SLIDE 1 -->
 <div class="slide-label">Slide 01 — Brand Reveal</div>
 <div class="slide s1">
   <div class="bg"></div>
@@ -597,24 +527,21 @@
     <circle cx="460" cy="160" r="2"   fill="#E8541A" opacity="0.38"/>
   </svg>
 
-  <div class="brand">Little Hammer Labs · San Diego, CA</div>
-  <div class="pill" style="position:relative;">Custom AI Agents for Business</div>
+  <div class="wordmark">Little Hammer Labs</div>
+  <div class="pill" style="position:relative;">✦ We're Live</div>
   <h2 style="position:relative;">
-    We're Live &amp;<br>
-    <span>Ready to Build</span><br>
-    Your Agent.
+    Your Team<br>Shouldn't Waste<br>Time on <span>Work AI<br>Can Handle.</span>
   </h2>
   <p style="position:relative;">
-    Repetitive workflows, manual processes, and after-hours requests — we build AI agents that handle all of it, autonomously.
+    We build custom AI agents that handle your repetitive workflows — autonomously, 24/7.
   </p>
-  <div class="buttons" style="position:relative;">
-    <div class="btn-orange">Book a Free Discovery Call</div>
-    <div class="btn-outline">See How It Works</div>
+  <div class="cta-text" style="position:relative;">
+    Swipe to see how it works →
   </div>
   <div class="domain">littlehammerlabs.com</div>
 </div>
 
-<!-- ============================================================ SLIDE 2 -->
+<!-- ================================================================ SLIDE 2 -->
 <div class="slide-label">Slide 02 — The Problem & Stats</div>
 <div class="slide s2">
   <div class="bg"></div>
@@ -634,7 +561,7 @@
     <circle cx="30"  cy="200" r="2"   fill="#E8541A" opacity="0.4"/>
   </svg>
 
-  <div class="pill" style="position:relative;">The Problem</div>
+  <div class="pill" style="position:relative;">The Reality Check</div>
   <h2 style="position:relative;">
     Your team is drowning<br>in work <span>AI can handle.</span>
   </h2>
@@ -645,17 +572,18 @@
     </div>
     <div class="stat">
       <div class="stat-num">24/7</div>
-      <div class="stat-label">agents work — no overtime, no burnout</div>
+      <div class="stat-label">AI agents work — no overtime, no burnout</div>
     </div>
     <div class="stat">
       <div class="stat-num">10x</div>
-      <div class="stat-label">faster on multi-step workflows</div>
+      <div class="stat-label">faster on complex multi-step workflows</div>
     </div>
   </div>
+  <div class="swipe-hint" style="position:relative;"><strong>Keep swiping</strong> — see exactly what we build →</div>
   <div class="domain">littlehammerlabs.com</div>
 </div>
 
-<!-- ============================================================ SLIDE 3 -->
+<!-- ================================================================ SLIDE 3 -->
 <div class="slide-label">Slide 03 — What We Build</div>
 <div class="slide s3">
   <div class="bg"></div>
@@ -702,7 +630,7 @@
   <div class="domain">littlehammerlabs.com</div>
 </div>
 
-<!-- ============================================================ SLIDE 4 -->
+<!-- ================================================================ SLIDE 4 -->
 <div class="slide-label">Slide 04 — How It Works</div>
 <div class="slide s4">
   <div class="bg"></div>
@@ -742,7 +670,7 @@
       </div>
       <div class="step-body">
         <div class="step-title">Pilot Build</div>
-        <div class="step-sub">One agent, one workflow in 2–4 weeks. See it working in your environment before you commit further.</div>
+        <div class="step-sub">One agent, one workflow in 2–4 weeks. See it working in your environment before committing further.</div>
         <div class="step-tag">2–4 weeks · One workflow</div>
       </div>
     </div>
@@ -760,7 +688,7 @@
   <div class="domain">littlehammerlabs.com</div>
 </div>
 
-<!-- ============================================================ SLIDE 5 -->
+<!-- ================================================================ SLIDE 5 -->
 <div class="slide-label">Slide 05 — Call to Action</div>
 <div class="slide s5">
   <div class="bg"></div>
@@ -784,14 +712,16 @@
   <h2 style="position:relative;">
     Let's Build<br>Your <span>Agent.</span>
   </h2>
+  <p style="position:relative;">
+    We're selecting a small number of businesses for hands-on collaboration and partner pricing.
+  </p>
   <div class="perks" style="position:relative;">
-    <div class="perk">Priority pricing on your first agent deployment</div>
+    <div class="perk">Priority pricing on your first deployment</div>
     <div class="perk">Direct access to our engineering team</div>
-    <div class="perk">Shape the product roadmap with your feedback</div>
+    <div class="perk">Shape the product roadmap</div>
   </div>
-  <div class="buttons" style="position:relative;">
-    <div class="btn-orange">Book a Free Discovery Call</div>
-    <div class="btn-outline">Learn More</div>
+  <div class="link-callout" style="position:relative;">
+    Link in bio to book a free discovery call
   </div>
   <div class="domain">littlehammerlabs.com</div>
 </div>
@@ -800,11 +730,11 @@
 <div class="instructions">
   <h2>How to export as images</h2>
   <p>
-    1. Open this file in Chrome or Edge at 100% zoom<br>
-    2. Use your OS screenshot tool (Snipping Tool / Cmd+Shift+4) to crop each 600×600 slide<br>
-    3. Or use the "GoFullPage" Chrome extension for clean captures<br>
+    1. Open this file in Chrome or Edge at 100% zoom (Ctrl/Cmd + 0)<br>
+    2. Use your OS screenshot tool to crop each 600×600 slide individually<br>
+    3. Or use the "GoFullPage" Chrome extension for clean full-page captures<br>
     4. Post as a 5-slide Instagram carousel in order<br>
-    5. Suggested caption: "We're live 🔨 Custom AI agents for businesses ready to stop wasting time on work AI can handle. Link in bio."
+    5. Caption idea: "We just launched 🔨 We build custom AI agents that handle the repetitive work so your team doesn't have to. Link in bio for a free discovery call."
   </p>
 </div>
 
