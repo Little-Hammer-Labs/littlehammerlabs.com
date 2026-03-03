@@ -464,8 +464,8 @@ body {
 }
 
 .customer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 750px;
   margin: 0 auto;
@@ -473,14 +473,15 @@ body {
 
 .customer-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   padding: 2.5rem;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   transition: all 0.4s var(--transition);
-  text-align: left;
+  text-align: center;
 }
 
 .customer-card:hover {
@@ -515,6 +516,20 @@ body {
   color: var(--white-muted);
   font-size: 0.95rem;
   line-height: 1.75;
+}
+
+.customer-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.customer-link:hover {
+  opacity: 0.8;
 }
 
 /* ===== STATS BAR ===== */
