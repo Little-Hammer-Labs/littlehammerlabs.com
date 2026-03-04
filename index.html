@@ -212,7 +212,18 @@
     </div>
     <div class="hero-inner">
       <div class="hero-badge reveal">Custom AI Agents for Business</div>
-      <h1 class="hero-headline reveal">Stop Paying $200/hr for<br /><span class="gradient-text">Work AI Does in Minutes</span></h1>
+      <h1 class="hero-headline reveal"><span id="hero-rotate"></span><br /><span class="gradient-text">Work AI Does in Minutes</span></h1>
+      <script>
+        (function(){
+          var h=[
+            "Stop Wasting Hours on",
+            "Stop Doing Manually",
+            "Stop Paying People for",
+            "Your Team Spends 20+ Hours a Week on"
+          ];
+          document.getElementById("hero-rotate").textContent=h[Math.floor(Math.random()*h.length)];
+        })();
+      </script>
       <p class="hero-sub reveal">Your skilled team is buried in data entry, manual follow-ups, and after-hours requests. We build AI agents that handle the repetitive work so your people can do the work you actually hired them for.</p>
       <div class="hero-actions reveal">
         <a href="https://cal.com/max-lhl/30min" class="btn btn-primary">Book a Meeting</a>
