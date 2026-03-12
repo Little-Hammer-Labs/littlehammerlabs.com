@@ -2,7 +2,7 @@
 
 ## Previous Positioning: Hospitality & Property Management
 
-The site originally targeted hospitality and property management businesses in San Diego. This positioning was shelved in Feb 2026 in favor of a general AI agent building consultancy, but may be revisited.
+The site originally targeted hospitality and property management businesses in San Diego. The homepage was later repositioned as a general AI agent consultancy, but **property management is now the primary vertical** with a dedicated landing page at `/propertymanagement/`. The hospitality-specific messaging below is archived for reference.
 
 ### Saved messaging and content:
 

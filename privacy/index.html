@@ -8,6 +8,18 @@
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon-png/favicon.ico" />
   <link rel="stylesheet" href="../styles.css" />
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4P4VYS9YM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y4P4VYS9YM');
+  </script>
 </head>
 <body>
 
@@ -80,6 +92,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- GA4 Conversion: cal.com click tracking -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href*="cal.com"]');
+      if (link) {
+        gtag('event', 'book_meeting_click', {
+          'event_category': 'conversion',
+          'event_label': link.textContent.trim(),
+          'transport_type': 'beacon'
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

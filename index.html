@@ -694,5 +694,19 @@
     });
   </script>
 
+  <!-- GA4 Conversion: cal.com click tracking -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href*="cal.com"]');
+      if (link) {
+        gtag('event', 'book_meeting_click', {
+          'event_category': 'conversion',
+          'event_label': link.textContent.trim(),
+          'transport_type': 'beacon'
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
