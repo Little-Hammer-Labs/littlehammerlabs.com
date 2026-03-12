@@ -26,3 +26,12 @@ logs/
 node_modules/
 .venv/
 venv/
+
+# Build artifacts
+dist/
+build/
+*.min.css
+*.min.js
+
+# Claude
+.claude/
