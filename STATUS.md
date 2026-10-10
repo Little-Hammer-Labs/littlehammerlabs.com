@@ -1,7 +1,7 @@
 # Status: littlehammerlabs.com
 
 ## Current state
-Redesigned on branch `holdco-redesign` (October 9, 2026). Not yet merged or deployed. `main` still serves the old AI-consultancy site.
+Redesigned on branch `holdco-redesign` (October 9, 2026). Not yet merged. `main` still serves the old AI-consultancy site. The branch is published for review at https://new.littlehammerlabs.com (repo `Little-Hammer-Labs/preview`, noindex); redeploy after pushing with `gh workflow run deploy.yml -R Little-Hammer-Labs/preview`.
 
 ## Pages
 Home, Thesis, Playbook, Portfolio (empty state), Investors (with memo request form), Investors/Thanks, Privacy, Terms, 404.

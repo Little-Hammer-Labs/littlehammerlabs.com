@@ -35,3 +35,4 @@ assets/images/          logo-lockup.* (nav/footer), logo-mark.webp, og.png, foun
 - Each page repeats the full nav and footer. When you change one, change all seven.
 - Breakpoints: 1024px, 768px, 480px.
 - Local preview: `python -m http.server 8600` (port registered in the vault's `Projects/Ports.md`).
+- Shared preview: `gh workflow run deploy.yml -R Little-Hammer-Labs/preview` publishes the `holdco-redesign` branch to https://new.littlehammerlabs.com.
