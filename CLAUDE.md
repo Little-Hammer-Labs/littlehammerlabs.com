@@ -1,67 +1,37 @@
 # littlehammerlabs.com
 
-Company marketing website for Little Hammer Labs.
+Public site for Little Hammer Labs, LLC, a California holding company that acquires owner-operated small businesses and rebuilds their back office around automation. The site's job is to get accredited investors to request the investor memo, and secondarily to get business owners to get in touch.
 
-Hub docs: `~/LHL-Knowledge-Hub/hub/projects/website/`
+Repositioned October 2026 from an AI-consultancy site. `ASSUMPTIONS.md` lists every number and claim drafted without founder input; clear it before publishing.
 
 ## Stack
 
-- Static HTML/CSS/JS — no framework, no build step
-- Hosted on GitHub Pages with custom domain (CNAME: `littlehammerlabs.com`)
-- Single shared `styles.css` at root
-- No npm, no bundler, no SPA
+- Static HTML, one shared `styles.css`, one small `site.js`. No framework, no build step, no npm.
+- GitHub Pages with custom domain (`CNAME`). Push to `main` deploys.
+- Fonts from Google Fonts: Newsreader (display serif) and Inter (body).
+- Form posts to Formspree (`investors/index.html`). Endpoint ID lives in the form `action`.
 
-## Project Structure
+## Structure
 
 ```
-index.html              # Homepage
-styles.css              # Global stylesheet
-CNAME                   # GitHub Pages custom domain
-robots.txt              # Crawl directives
-manifest.json           # PWA manifest
-logo.html               # SVG logo generator (internal tool)
-assets/
-  images/               # Site images (webp preferred, jpeg/png fallback)
-  favicons/             # Favicon sets (png + webp variants)
-casestudy/
-  dga/index.html        # DGA case study
-  knowledge-hub/index.html
-contentgen/             # Content generation tool pages (internal)
-propertymanagement/     # Property management service page
-webdesign/              # Web design service page
-privacy/                # Privacy policy
-terms/                  # Terms of service
-.github/workflows/      # CI: claude-code-review.yml, claude.yml
+index.html              Home: pitch, model, why, playbook summary, proof, people, investor band
+thesis/                 Criteria, what we avoid, why now, holdco structure
+playbook/               Ninety-day operating plan, rules, tool kit, DGA proof
+portfolio/              Empty state + pipeline + "sell us your business"
+investors/              The case, process, risks, qualification form
+investors/thanks/       Form redirect target (noindex)
+privacy/  terms/        Legal (noindex)
+404.html                Custom not-found; old consultancy URLs land here
+styles.css  site.js     Shared
+sitemap.xml  robots.txt  manifest.json
+assets/images/          logo-lockup.* (nav/footer), logo-mark.webp, og.png, founders.jpeg, lhlfull.* (source logo)
 ```
 
-## Commands
+## Conventions
 
-```bash
-# Local dev server
-python3 -m http.server 8000
-
-# Then open http://localhost:8000
-```
-
-No build, lint, or test commands — it's static HTML.
-
-## Deployment
-
-Push to `main` — GitHub Pages auto-deploys via the CNAME file.
-No CI build step required. Changes are live within minutes.
-
-## Key Conventions
-
-- **Responsive breakpoints**: 1024px (tablet), 768px (mobile), 480px (small)
-- **Visual style**: "Refined Dark" — no animated orbs, shimmer, or canvas effects
-- **Brand colors**: `--orange: #e85a2c`, `--dark: #0f1923`, `--white: #ffffff`
-- **Border radius**: `--radius: 14px`
-- **Font**: `'Inter', sans-serif`
-- **Service pages**: Each in its own subdirectory with `index.html`; use `../` relative paths for shared assets (styles.css, images)
-- **Images**: Prefer `.webp` format; keep `.png`/`.jpeg` as fallback only
-- **No JavaScript frameworks** — vanilla JS only, minimal usage
-
-## SEO & Content
-
-For page strategy, SEO keywords, copy direction, and architecture details,
-search QMD or read the hub docs linked above.
+- Visual style: editorial and light. Cream background sampled from the logo, serif headlines, one orange accent. No gradients, glows, shadows, rounded cards, scroll animations, or icon grids.
+- Copy: plain declarative sentences, concrete nouns, no em-dashes in body text, no marketing adjectives. Say what the company does and does not do.
+- Never state or imply a return. Every page footer carries the no-offer disclaimer; keep it.
+- Each page repeats the full nav and footer. When you change one, change all seven.
+- Breakpoints: 1024px, 768px, 480px.
+- Local preview: `python -m http.server 8600` (port registered in the vault's `Projects/Ports.md`).

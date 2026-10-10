@@ -1,24 +1,13 @@
 {
   "name": "Little Hammer Labs",
   "short_name": "LHL",
-  "description": "AI consultancy specializing in Agentic Ops — custom autonomous agents for complex business workflows.",
+  "description": "A California holding company that acquires owner-operated small businesses and rebuilds their operations around automation.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1e2d3a",
-  "theme_color": "#e85a2c",
-  "orientation": "portrait-primary",
+  "background_color": "#f6f0e5",
+  "theme_color": "#f6f0e5",
   "icons": [
-    {
-      "src": "assets/favicons/favicon-png/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/favicons/favicon-png/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "assets/favicons/favicon-png/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/favicons/favicon-png/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
