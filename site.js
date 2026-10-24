@@ -12,6 +12,12 @@
 
   // Mark current nav item
   var path = location.pathname.replace(/index\.html$/, '');
+
+  // Coming-soon mode: the homepage is the only public page. Every other page sends
+  // visitors home (privacy and terms stay readable). Set to false, or revert the
+  // coming-soon commit, at launch.
+  var COMING_SOON = true;
+  if (COMING_SOON && path !== '/' && !/^\/(privacy|terms)\//.test(path)) { location.replace('/'); return; }
   document.querySelectorAll('.nav-link').forEach(function (a) {
     if (a.getAttribute('href') === path) a.setAttribute('aria-current', 'page');
   });

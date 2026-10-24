@@ -4,6 +4,10 @@ Public site for Little Hammer Labs, LLC, a San Diego holding company that acquir
 
 Repositioned October 2026 from an AI-consultancy site, then toward owners on October 23, 2026 from Max's brief. `ASSUMPTIONS.md` lists every number and claim not yet confirmed by a founder; clear it before publishing.
 
+## Coming-soon mode (current)
+
+The site ships in coming-soon mode: the homepage is the only public page, with the full story but no links, buttons, or forms; `COMING_SOON = true` in `site.js` sends every other page (except privacy and terms) home, and `sitemap.xml` lists only the homepage. To launch, revert the commit titled "Coming-soon mode", which restores the full homepage, nav, CTAs, and sitemap in one step.
+
 ## Stack
 
 - Static HTML, one shared `styles.css`, one small `site.js`. No framework, no build step, no npm.
