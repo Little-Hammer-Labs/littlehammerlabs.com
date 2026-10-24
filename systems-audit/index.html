@@ -42,7 +42,7 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
         <a href="/thesis/" class="nav-link">Thesis</a>
-        <a href="/playbook/" class="nav-link">Playbook</a>
+        <a href="/playbook/" class="nav-link">How we evaluate</a>
         <a href="/portfolio/" class="nav-link">Portfolio</a>
         <a href="/guides/" class="nav-link">Guides</a>
         <a href="/owners/" class="btn btn-primary btn-sm">For owners</a>
@@ -140,6 +140,7 @@
         </div>
         <div>
           <p class="lede">Some owners take the report and run with it. Some hire us to build the systems. And some, when they're ready to step back, sell the business to us. All three are fine.</p>
+          <p>Your audit also gives you a head start if you ever want to step back: it covers most of what we'd look at to make an offer.</p>
           <p><a href="/owners/" class="text-link">Owners thinking about selling: start here</a></p>
           <p class="muted">We take 4 audits a month so each one gets real attention.</p>
         </div>
@@ -156,7 +157,7 @@
           <p class="muted">Two minutes. You'll pick a time for the walkthrough on the next screen.</p>
         </div>
         <div>
-          <form class="form" id="audit-form" action="https://formspree.io/f/REPLACE_ME_AUDIT" method="POST">
+          <form class="form" id="audit-form" action="https://REPLACE_ME_N8N_WEBHOOK" method="POST">
             <input type="hidden" name="_subject" value="Systems Audit request" />
             <input type="hidden" name="_next" value="https://littlehammerlabs.com/systems-audit/thanks/" />
             <input type="hidden" name="utm_source" value="" />
@@ -233,6 +234,11 @@
               <input type="text" id="source" name="source" />
             </div>
 
+            <label class="check" for="sms_consent">
+              <input type="checkbox" id="sms_consent" name="sms_consent" value="true" />
+              <span>Text me about my audit. Message and data rates may apply. Reply STOP to opt out.</span>
+            </label>
+
             <div class="form-foot">
               <button type="submit" class="btn btn-accent btn-lg">Book my Systems Audit</button>
               <span class="alt">or <a href="mailto:contact@littlehammerlabs.com?subject=Systems%20Audit">email us</a></span>
@@ -255,7 +261,7 @@
           <h4>Company</h4>
           <ul>
             <li><a href="/thesis/">Thesis</a></li>
-            <li><a href="/playbook/">Playbook</a></li>
+            <li><a href="/playbook/">How we evaluate</a></li>
             <li><a href="/portfolio/">Portfolio</a></li>
             <li><a href="/investors/">Investors</a></li>
           </ul>

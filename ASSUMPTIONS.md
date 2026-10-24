@@ -1,5 +1,18 @@
 # Assumptions to confirm before this goes live
 
+## Round 2 (October 23, 2026): what Max and Ryan still need to fill in
+
+| Item | Where | What to do |
+|---|---|---|
+| Intake webhook URL | `systems-audit/index.html`, form `action="https://REPLACE_ME_N8N_WEBHOOK"` | Paste the n8n W1 webhook URL (or a Formspree endpoint). The n8n webhook must allow CORS from littlehammerlabs.com and new.littlehammerlabs.com and answer 2xx. Until then submits fall back to a prefilled email |
+| Meta pixel ID | `site.js`, `META_PIXEL_ID` | Paste the pixel ID. Add the Conversions API in n8n |
+| cal.com "Owner conversation" (30 min) | owners links currently `cal.com/max-lhl/30min` | Create the event with 3 booking questions (industry, years in business, timeline: exploring / 1 to 2 years / ready now) plus the same text-consent checkbox, then swap the slug |
+| cal.com "Systems Audit" (45 min) | `systems-audit/thanks/` links `cal.com/max-lhl/systems-audit` | Event does not exist yet. Create it |
+| Redirect on booking | cal.com event settings | Owner conversation → `https://littlehammerlabs.com/owners/booked/`; Systems Audit → `https://littlehammerlabs.com/systems-audit/booked/`. Without this, `*_call_booked` never fires. Also point each event's webhook at n8n |
+| GA4 key events | GA4 admin | `owner_call_booked` and `audit_call_booked` now mean a confirmed booking; clicks are `*_call_click` |
+| "Max and Ryan put their own money in... no management fee" | archived in `_templates/investors-archive.html` | Removed from the live page. Only bring back if decided and true, after counsel |
+| Guides | `/guides/` | Publish 2 before launch: "What the 2026 SBA rule changes mean if you're selling a small business" and "Is seller financing safe for the seller?" |
+
 Everything below was drafted without a founder confirming it. Each item says where it appears so it can be changed or cut. Delete this file once reviewed.
 
 ## From Max's October 2026 brief: bracketed values used as written
@@ -40,9 +53,9 @@ These came from the brief in [brackets], meaning "confirm before publishing". Th
 | Investor vehicle: holdco interests or deal-specific entity | thesis (structure), investors (fact card) | The securities-counsel question |
 | "Max and Ryan put their own money in alongside investors and don't draw a management fee on the first deal" | investors (the case) | Not true, or you want a fee |
 | Monthly operating updates to investors | investors (process) | |
-| Ninety-day playbook with the week ranges; manager often from inside the business; manager bonus tied to dashboard | home, playbook | |
+| 30-day handover before automation; manager often from inside the business | home, playbook | Replaced the ninety-day playbook in Round 2 |
 | Pipeline stage "Sourcing", last updated October 2026 | portfolio | Update by hand when a deal moves |
-| "Straight answer in two weeks", "diligence and closing usually 60 to 90 days" | owners | |
+| "Straight answer in two weeks", "first analysis in a day or two", "diligence and closing usually 60 to 90 days" | owners | |
 | Formed California, 2025; LLC name | home fact card, schema.org | Check the Secretary of State filing |
 
 ## Numbers from the old site (real, but re-confirm with DGA for public use)
