@@ -96,8 +96,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .btn:hover { background: var(--ink); color: var(--cream); }
 .btn-primary { background: var(--ink); color: var(--cream); }
 .btn-primary:hover { background: var(--navy-deep); border-color: var(--navy-deep); color: var(--cream); }
-.btn-accent { background: var(--orange); border-color: var(--orange); color: #fff; }
-.btn-accent:hover { background: var(--orange-dark); border-color: var(--orange-dark); color: #fff; }
+/* White on --orange is 3.3:1; --orange-dark passes 4.5:1, so buttons use it. */
+.btn-accent { background: var(--orange-dark); border-color: var(--orange-dark); color: #fff; }
+.btn-accent:hover { background: #a33a14; border-color: #a33a14; color: #fff; }
 .btn-sm { padding: 0.6rem 1rem; font-size: 0.875rem; }
 .btn-lg { padding: 1.05rem 1.8rem; font-size: 1.05rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
@@ -207,6 +208,8 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 1.25rem; }
 .radios label { font-weight: 400; display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; }
 .radios input { accent-color: var(--orange); }
 .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+.check { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: var(--text); margin: 0.25rem 0 1.25rem; cursor: pointer; }
+.check input { margin-top: 0.2rem; flex-shrink: 0; width: 1rem; height: 1rem; accent-color: var(--ink); }
 .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 0.5rem; }
 .form-foot .alt { font-size: 0.95rem; }
 .disclaimer { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }

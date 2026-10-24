@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /investors/thanks/
 Disallow: /systems-audit/thanks/
+Disallow: /systems-audit/booked/
+Disallow: /owners/booked/
 
 User-agent: GPTBot
 Allow: /
