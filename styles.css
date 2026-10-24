@@ -54,6 +54,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .section-head { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
 .section-head h2 { margin-bottom: 0; }
 .section-head .lede { margin-bottom: 0; font-size: 1.15rem; color: var(--text); }
+.section-head .lede + p { margin-top: 1rem; }
 .eyebrow {
   font-family: var(--sans);
   font-size: 0.78rem;
@@ -118,8 +119,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .fact-list li:first-child { border-top: 0; padding-top: 0; }
 .fact-list dt, .fact-list .k { color: var(--muted); }
 .fact-list .v { color: var(--ink); font-weight: 500; }
-.fact-card .status { display: inline-flex; align-items: center; gap: 0.5rem; }
-.fact-card .status::before { content: ""; width: 8px; height: 8px; background: var(--orange); border-radius: 50%; }
+.fact-card .status { display: inline-flex; align-items: flex-start; gap: 0.5rem; }
+.fact-card .status::before { content: ""; flex-shrink: 0; width: 8px; height: 8px; margin-top: 0.5em; background: var(--orange); border-radius: 50%; }
 
 /* ---------- Three-up / cards ---------- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -265,4 +266,52 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 1.25rem; }
 
 @media print {
   .nav, .footer, .band, .btn { display: none; }
+}
+
+/* ---------- Owner band (home, under the hero) ---------- */
+.owner-band { border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); background: var(--paper); padding: clamp(2.5rem, 5vw, 4rem) 0; }
+.owner-band-grid { display: grid; grid-template-columns: 8fr 4fr; gap: 3rem; align-items: center; }
+.owner-band h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+.owner-band .lede { margin-bottom: 0; }
+.owner-band .btn-row { justify-content: flex-end; }
+
+/* ---------- Four-up cards (owners: ways to work with us) ---------- */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* ---------- FAQ (details/summary accordion) ---------- */
+.faq { border-top: 1px solid var(--line-strong); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 1.1rem 2.5rem 1.1rem 0; position: relative; font-family: var(--serif); font-size: 1.25rem; color: var(--ink); line-height: 1.3; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0.25rem; top: 1rem; font-family: var(--sans); font-size: 1.4rem; color: var(--orange); line-height: 1; }
+.faq details[open] summary::after { content: "\2013"; }
+.faq summary:hover { color: var(--orange-dark); }
+.faq .answer { padding: 0 0 1.25rem; max-width: var(--narrow); }
+.faq .answer p:last-child { margin-bottom: 0; }
+
+/* ---------- Guides ---------- */
+.guide-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-strong); }
+.guide-list li { padding: 1.25rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: baseline; }
+.guide-list h3 { margin: 0; font-size: 1.3rem; }
+.guide-list h3 a { text-decoration: none; }
+.guide-list .meta { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+.article { max-width: var(--narrow); }
+.article .answer-box { border-left: 3px solid var(--orange); padding: 0.25rem 0 0.25rem 1.5rem; margin: 0 0 2.5rem; font-size: 1.15rem; }
+.article h2 { font-size: 1.7rem; margin-top: 2.5rem; }
+.article h3 { font-size: 1.2rem; margin-top: 1.75rem; }
+.article ul, .article ol { padding-left: 1.25rem; }
+.article li { margin-bottom: 0.4rem; }
+.author-box { display: grid; grid-template-columns: 72px 1fr; gap: 1.25rem; align-items: start; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); padding: 1.5rem 0; margin: 3rem 0 2rem; }
+.author-box img { width: 72px; height: 72px; object-fit: cover; border: 1px solid var(--line-strong); }
+.author-box .name { font-weight: 600; color: var(--ink); }
+.author-box p { margin: 0.25rem 0 0; font-size: 0.95rem; }
+.dateline { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .owner-band-grid, .grid-4 { grid-template-columns: 1fr; }
+  .owner-band .btn-row { justify-content: flex-start; }
+  .guide-list li { grid-template-columns: 1fr; gap: 0.25rem; }
 }

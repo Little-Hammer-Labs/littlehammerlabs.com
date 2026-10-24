@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  GUIDE TEMPLATE. Not published: GitHub Pages (Jekyll) skips folders that start with an underscore.
+
+  To publish an article:
+    1. Copy this file to /guides/<slug>/index.html (slug = lowercase, hyphens, the question in a few words).
+    2. Replace every {{PLACEHOLDER}}. Search for "{{" when you think you're done.
+    3. Keep the shape: H1 as the owner's question, a 2-3 sentence direct answer, body with specific numbers
+       and San Diego / California detail, an FAQ of 3-5 questions (mirrored in the FAQPage JSON-LD), the author
+       box, a visible "Last updated" date, ONE CTA at the end (/owners/ or /systems-audit/).
+    4. Add the article to the list in /guides/index.html (newest first) and to sitemap.xml.
+    5. First article only: in /guides/index.html switch robots to "index, follow" and add /guides/ to sitemap.xml.
+  Voice: write to one owner in second person. Specific beats impressive. No "AI-powered", "revolutionize",
+  "unlock", "synergy". No promises about price or outcomes for a specific business.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{QUESTION}} | Little Hammer Labs</title>
+  <meta name="description" content="{{DIRECT_ANSWER_UNDER_155_CHARS}}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://littlehammerlabs.com/guides/{{SLUG}}/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://littlehammerlabs.com/guides/{{SLUG}}/" />
+  <meta property="og:title" content="{{QUESTION}} | Little Hammer Labs" />
+  <meta property="og:description" content="{{DIRECT_ANSWER_UNDER_155_CHARS}}" />
+  <meta property="og:image" content="https://littlehammerlabs.com/assets/images/og.png" />
+  <meta property="article:published_time" content="{{YYYY-MM-DD}}" />
+  <meta property="article:modified_time" content="{{YYYY-MM-DD}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#f6f0e5" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon-png/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-png/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/favicon-png/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4P4VYS9YM"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y4P4VYS9YM');</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","@id":"https://littlehammerlabs.com/#org","name":"Little Hammer Labs","legalName":"Little Hammer Labs, LLC","url":"https://littlehammerlabs.com","logo":"https://littlehammerlabs.com/assets/images/logo-lockup.png","description":"A San Diego holding company that acquires owner-operated small businesses and rebuilds their operations around automation.","foundingDate":"2025","address":{"@type":"PostalAddress","addressLocality":"San Diego","addressRegion":"CA","addressCountry":"US"},"areaServed":{"@type":"AdministrativeArea","name":"San Diego County, California"},"founder":[{"@type":"Person","@id":"https://littlehammerlabs.com/#ryan","name":"Ryan Little"},{"@type":"Person","@id":"https://littlehammerlabs.com/#max","name":"Max Hammerstrom"}],"sameAs":["https://www.linkedin.com/company/little-hammer-labs/"]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://littlehammerlabs.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://littlehammerlabs.com/guides/"},{"@type":"ListItem","position":3,"name":"{{QUESTION}}","item":"https://littlehammerlabs.com/guides/{{SLUG}}/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"{{QUESTION}}","description":"{{DIRECT_ANSWER_UNDER_155_CHARS}}","image":"https://littlehammerlabs.com/assets/images/og.png","datePublished":"{{YYYY-MM-DD}}","dateModified":"{{YYYY-MM-DD}}","mainEntityOfPage":"https://littlehammerlabs.com/guides/{{SLUG}}/","author":{"@type":"Person","@id":"https://littlehammerlabs.com/#max","name":"Max Hammerstrom","jobTitle":"Co-founder","worksFor":{"@id":"https://littlehammerlabs.com/#org"},"sameAs":["https://www.linkedin.com/in/max-hammerstrom-363915173/"]},"publisher":{"@id":"https://littlehammerlabs.com/#org"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"{{FAQ_1_QUESTION}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ_1_ANSWER}}"}},
+    {"@type":"Question","name":"{{FAQ_2_QUESTION}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ_2_ANSWER}}"}},
+    {"@type":"Question","name":"{{FAQ_3_QUESTION}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ_3_ANSWER}}"}}
+  ]}
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="nav-logo"><img src="/assets/images/logo-lockup.webp" alt="Little Hammer Labs" width="1124" height="550" /></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/thesis/" class="nav-link">Thesis</a>
+        <a href="/playbook/" class="nav-link">Playbook</a>
+        <a href="/portfolio/" class="nav-link">Portfolio</a>
+        <a href="/guides/" class="nav-link">Guides</a>
+        <a href="/owners/" class="btn btn-primary btn-sm">For owners</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding-bottom:1rem">
+    <div class="wrap">
+      <div class="eyebrow"><a href="/guides/" style="text-decoration:none;color:inherit">Guides</a> · {{TOPIC_LABEL e.g. Selling / Succession / Back office}}</div>
+      <h1 style="max-width:20ch">{{QUESTION}}</h1>
+      <p class="dateline">By Max Hammerstrom · Last updated <time datetime="{{YYYY-MM-DD}}">{{Month D, YYYY}}</time></p>
+    </div>
+  </header>
+
+  <section class="section" style="border-top:0;padding-top:0">
+    <div class="wrap">
+      <article class="article">
+
+        <div class="answer-box">
+          <p>{{DIRECT ANSWER. Two to three sentences. The thing the owner came to find out, with the number or the date in it.}}</p>
+        </div>
+
+        <h2>{{SECTION 1 HEADING}}</h2>
+        <p>{{Body. Specific numbers, San Diego / California detail, what Max has seen across the table.}}</p>
+
+        <h2>{{SECTION 2 HEADING}}</h2>
+        <p>{{Body.}}</p>
+
+        <h2>{{SECTION 3 HEADING}}</h2>
+        <p>{{Body.}}</p>
+
+        <h2>Common questions</h2>
+        <div class="faq">
+          <details>
+            <summary>{{FAQ_1_QUESTION}}</summary>
+            <div class="answer"><p>{{FAQ_1_ANSWER}}</p></div>
+          </details>
+          <details>
+            <summary>{{FAQ_2_QUESTION}}</summary>
+            <div class="answer"><p>{{FAQ_2_ANSWER}}</p></div>
+          </details>
+          <details>
+            <summary>{{FAQ_3_QUESTION}}</summary>
+            <div class="answer"><p>{{FAQ_3_ANSWER}}</p></div>
+          </details>
+        </div>
+
+        <div class="author-box">
+          <img src="/assets/images/founders.jpeg" alt="Max Hammerstrom" width="72" height="72" />
+          <!-- Replace with a headshot at /assets/images/max.jpg when one exists -->
+          <div>
+            <div class="name">Max Hammerstrom</div>
+            <p>Co-founder of Little Hammer Labs. Born and raised in San Diego. A licensed California real estate agent who has spent years sitting across the table from local owners at the biggest financial decision of their lives. He sources deals, talks to owners, and runs the ninety-day rebuild on site. <a href="https://www.linkedin.com/in/max-hammerstrom-363915173/" target="_blank" rel="noopener">LinkedIn</a></p>
+          </div>
+        </div>
+
+        <p class="small muted">This guide is general information, not legal, tax, or financial advice. Talk to your own attorney and CPA about your situation.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ONE CTA. Selling / succession topics -> /owners/. Back-office topics -> /systems-audit/. Delete the other. -->
+  <section class="band">
+    <div class="wrap band-grid">
+      <div>
+        <h2>Thinking about what comes next for your business?</h2>
+        <p class="lede">We buy San Diego service businesses from owners who are ready to step back. Your name stays, your team stays, and a conversation commits you to nothing.</p>
+      </div>
+      <div class="btn-row">
+        <a href="/owners/" class="btn btn-accent btn-lg">Talk to Max</a>
+      </div>
+    </div>
+  </section>
+  <!--
+  <section class="band">
+    <div class="wrap band-grid">
+      <div>
+        <h2>Find out where your office is losing time and money.</h2>
+        <p class="lede">The Systems Audit maps how your office runs and shows you the top five fixes. Free, and yours to keep either way.</p>
+      </div>
+      <div class="btn-row">
+        <a href="/systems-audit/" class="btn btn-accent btn-lg">Get a Systems Audit</a>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="footer-logo"><img src="/assets/images/logo-lockup.webp" alt="Little Hammer Labs" width="1124" height="550" /></a>
+          <p class="small muted">A San Diego holding company that acquires owner-operated small businesses and rebuilds their operations around automation.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/thesis/">Thesis</a></li>
+            <li><a href="/playbook/">Playbook</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/investors/">Investors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Owners</h4>
+          <ul>
+            <li><a href="/owners/">Sell your business</a></li>
+            <li><a href="/systems-audit/">Systems Audit</a></li>
+            <li><a href="/thesis/#criteria">What we look for</a></li>
+            <li><a href="/guides/">Guides</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@littlehammerlabs.com">contact@littlehammerlabs.com</a></li>
+            <li><a href="https://cal.com/max-lhl/30min" target="_blank" rel="noopener">Book a call</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; 2026 Little Hammer Labs, LLC. San Diego, California.</p>
+        <p>Nothing on this site is an offer to sell, or a solicitation of an offer to buy, any security. Any offering will be made only to qualified investors through definitive offering documents, which will describe the risks in full. Past results of our client work do not predict the performance of any business we acquire.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/site.js"></script>
+</body>
+</html>
