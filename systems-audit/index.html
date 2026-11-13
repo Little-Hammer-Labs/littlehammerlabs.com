@@ -226,6 +226,50 @@ footer p{margin:4px 0}
   .flow li{border-bottom:0;border-right:1px solid rgba(201,212,217,.2);grid-template-columns:1fr;align-items:start;align-content:start;padding:20px 18px 22px;font-size:18px;line-height:1.45}
 }
 
+/* ---------- fit ---------- */
+.fit{padding:40px 0 8px}
+.fit-grid{display:grid;gap:12px;margin:0 0 18px}
+.fit-col{border:1px solid var(--line);background:var(--paper);padding:16px 16px 6px}
+.fit-col.yes{border-top:4px solid #1f5c48}
+.fit-col.no{border-top:4px solid var(--muted)}
+.fit-h{margin:0 0 10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-deep)}
+.fit-col ul{list-style:none;margin:0;padding:0}
+.fit-col li{display:flex;gap:12px;align-items:flex-start;padding:0 0 12px;font-size:18px;line-height:1.4}
+.fit-col li svg{flex:none;margin-top:2px}
+.fit-col.yes li svg{color:#1f5c48}
+.fit-col.no li svg{color:var(--muted)}
+.fit-col.no li{color:var(--muted)}
+.text-cta{display:inline-flex;align-items:center;min-height:44px;font-weight:600;font-size:18px;color:var(--orange-dark)}
+@media (min-width:640px){.fit-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- two-step form ---------- */
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.p-label{font-size:14px;font-weight:600;color:var(--navy-deep);white-space:nowrap}
+.p-bar{flex:1;height:8px;background:var(--cream);border:1px solid var(--line);position:relative}
+.p-bar i{position:absolute;left:0;top:0;bottom:0;width:50%;background:var(--orange-dark);transition:width .3s}
+.form.step2 .p-bar i{width:100%}
+.step-h{font-family:var(--serif);font-size:24px;line-height:1.2;color:var(--navy-deep);margin:0 0 16px}
+.checks.four{grid-template-columns:1fr 1fr}
+.back{display:block;margin:10px auto 0;background:none;border:0;font:inherit;font-size:17px;font-weight:600;color:var(--ink);min-height:44px;padding:0 12px;cursor:pointer}
+
+/* ---------- faq ---------- */
+.faq{padding:40px 0 8px}
+.faq-list{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:12px 0;font-weight:600;font-size:19px;color:var(--navy-deep)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line);background:var(--paper);font-family:var(--serif);font-size:22px;color:var(--orange-dark);line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 16px;color:var(--text)}
+
+/* ---------- sticky CTA (phones) ---------- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;justify-content:center;align-items:center;gap:8px;min-height:56px;
+  background:var(--orange-dark);color:#fff;text-decoration:none;font-weight:600;font-size:19px;box-shadow:0 4px 0 #a93a14,0 8px 24px rgba(15,38,48,.25);
+  transform:translateY(140%);transition:transform .25s ease}
+.sticky-cta.show{transform:none}
+@media (min-width:768px){.sticky-cta{display:none}}
+@media (max-width:767px){footer{padding-bottom:96px}}
+
 @media (min-width:640px){
   .cards{grid-template-columns:1fr 1fr 1fr}
   .wide{max-width:980px}
@@ -250,14 +294,14 @@ footer p{margin:4px 0}
 <div class="masthead">
   <div class="wrap">
     <a class="lockup" href="/"><img src="/assets/images/lhl-lockup.webp" width="360" height="165" alt="Little Hammer Labs"></a>
-    <span class="tag">Turkey Night 2026</span>
+    <span class="tag" id="src-tag">Free Systems Audit</span>
   </div>
 </div>
 <div class="top">
   <div class="flag" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero">
-      <p class="eyebrow rise">Saw us in the Turkey Night program?</p>
+      <p class="eyebrow rise" id="src-line">For Southern California service businesses</p>
       <h1 class="rise d1">We automate the back office for <span class="hl">service businesses.</span></h1>
       <p class="lede rise d2">Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a <b>free Systems Audit</b>: a one-page plan within a week, yours to keep.</p>
     </div>
@@ -314,55 +358,88 @@ footer p{margin:4px 0}
     </div>
   </section>
 
+  <section class="fit">
+    <div class="wrap">
+      <p class="eyebrow">Is this you?</p>
+      <h2>Built for offices that run on <em>one person's memory.</em></h2>
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <p class="fit-h">A great fit</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>A service business in Southern California</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>3 or more people on the team</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Calls, quotes or invoices handled by hand, on paper or in spreadsheets</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>You want hours back, not another app to babysit</span></li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <p class="fit-h">Probably not a fit</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Solo operators (it's just you)</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Restaurants and retail shops: our systems are built for service work</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Happy with how the office runs today</span></li>
+          </ul>
+        </div>
+      </div>
+      <a class="text-cta" href="#request">Sounds like you? Request your audit &darr;</a>
+    </div>
+  </section>
+
   <section class="request">
     <div class="wrap">
       <div class="form" id="request">
         <div class="form-intro">
           <p class="eyebrow">Free Systems Audit</p>
           <h2>Request your audit.</h2>
-          <p class="sub">Takes a minute. Max or Ryan will reach out to set up a time for your free 45-minute chat.</p>
+          <p class="sub">Two quick steps, under a minute. Max or Ryan will reach out to set up your free 45-minute chat.</p>
+          <div class="progress" aria-hidden="true"><span class="p-label">Step <b class="p-n">1</b> of 2</span><span class="p-bar"><i></i></span></div>
         </div>
       <form id="audit-form" action="#" method="post" novalidate>
-        <div class="field"><label for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="f-biz">Business name</label>
-          <input id="f-biz" name="business" type="text" autocomplete="organization" required></div>
-        <div class="field"><label for="f-phone">Phone</label>
-          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-        <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label>
-          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
-        <div class="field"><label for="f-ind">What kind of business?</label>
-          <select id="f-ind" name="industry" required>
-            <option value="">Choose one</option>
-            <option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Roofing or solar</option>
-            <option>General contractor or remodeling</option><option>Landscaping or pool service</option><option>Cleaning or janitorial</option>
-            <option>Pest control</option><option>Auto repair or detailing</option><option>Property management</option>
-            <option>Professional services (law, accounting, architecture)</option><option>Other service business</option>
-          </select></div>
-        <div class="field"><label for="f-emp">How many people work there?</label>
-          <select id="f-emp" name="employees" required>
-            <option value="">Choose one</option>
-            <option>1–2</option><option>3–9</option><option>10–24</option><option>25 or more</option>
-          </select></div>
-        <fieldset class="field"><legend>What eats up the most office time? <span class="opt">(optional)</span></legend>
-          <div class="checks">
-            <label class="check"><input type="checkbox" name="headache" value="Missed calls"> Missed calls</label>
-            <label class="check"><input type="checkbox" name="headache" value="Quotes and estimates"> Quotes and estimates</label>
-            <label class="check"><input type="checkbox" name="headache" value="Scheduling"> Scheduling</label>
-            <label class="check"><input type="checkbox" name="headache" value="Invoicing and chasing payment"> Invoicing and chasing payment</label>
-            <label class="check"><input type="checkbox" name="headache" value="Paperwork and data entry"> Paperwork and data entry</label>
-            <label class="check"><input type="checkbox" name="headache" value="Something else"> Something else</label>
-          </div></fieldset>
-        <fieldset class="field"><legend>Best time to reach you? <span class="opt">(optional)</span></legend>
-          <div class="checks three">
-            <label class="check"><input type="radio" name="best_time" value="Morning"> Morning</label>
-            <label class="check"><input type="radio" name="best_time" value="Midday"> Midday</label>
-            <label class="check"><input type="radio" name="best_time" value="Afternoon"> Afternoon</label>
-          </div></fieldset>
-        <label class="check consent"><input type="checkbox" name="text_ok" value="yes"> It's OK to text me about scheduling the audit.</label>
-        <div class="hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website_hp" type="text" tabindex="-1" autocomplete="off"></div>
-        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="fbclid"><input type="hidden" name="gclid">
-        <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
+        <div class="step" data-step="1">
+          <p class="step-h">About the business</p>
+          <div class="field"><label for="f-ind">What kind of business?</label>
+            <select id="f-ind" name="industry" required>
+              <option value="">Choose one</option>
+              <option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Roofing or solar</option>
+              <option>General contractor or remodeling</option><option>Landscaping or pool service</option><option>Cleaning or janitorial</option>
+              <option>Pest control</option><option>Auto repair or detailing</option><option>Property management</option>
+              <option>Professional services (law, accounting, architecture)</option><option>Other service business</option>
+            </select></div>
+          <fieldset class="field"><legend>How many people work there?</legend>
+            <div class="checks four"><label class="check"><input type="radio" name="employees" value="1–2"> 1–2</label><label class="check"><input type="radio" name="employees" value="3–9"> 3–9</label><label class="check"><input type="radio" name="employees" value="10–24"> 10–24</label><label class="check"><input type="radio" name="employees" value="25 or more"> 25 or more</label></div></fieldset>
+          <fieldset class="field"><legend>What eats up the most office time? <span class="opt">(pick any)</span></legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="headache" value="Missed calls"> Missed calls</label>
+              <label class="check"><input type="checkbox" name="headache" value="Quotes and estimates"> Quotes and estimates</label>
+              <label class="check"><input type="checkbox" name="headache" value="Scheduling"> Scheduling</label>
+              <label class="check"><input type="checkbox" name="headache" value="Invoicing and chasing payment"> Invoicing and chasing payment</label>
+              <label class="check"><input type="checkbox" name="headache" value="Paperwork and data entry"> Paperwork and data entry</label>
+              <label class="check"><input type="checkbox" name="headache" value="Something else"> Something else</label>
+            </div></fieldset>
+          <button class="cta" type="button" id="to-step-2">Next: where do we reach you?<small>One more step</small></button>
+        </div>
+        <div class="step" data-step="2" hidden>
+          <p class="step-h">Where do we reach you?</p>
+          <div class="field"><label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-biz">Business name</label>
+            <input id="f-biz" name="business" type="text" autocomplete="organization" required></div>
+          <div class="field"><label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+          <fieldset class="field"><legend>Best time to reach you? <span class="opt">(optional)</span></legend>
+            <div class="checks three">
+              <label class="check"><input type="radio" name="best_time" value="Morning"> Morning</label>
+              <label class="check"><input type="radio" name="best_time" value="Midday"> Midday</label>
+              <label class="check"><input type="radio" name="best_time" value="Afternoon"> Afternoon</label>
+            </div></fieldset>
+          <label class="check consent"><input type="checkbox" name="text_ok" value="yes"> It's OK to text me about scheduling the audit.</label>
+          <div class="hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website_hp" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="fbclid"><input type="hidden" name="gclid">
+          <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
+          <button class="back" type="button" id="to-step-1">&larr; Back</button>
+        </div>
         <p class="status" id="f-status" role="alert" hidden></p>
       </form>
         <div class="thanks" tabindex="-1">
@@ -410,14 +487,6 @@ footer p{margin:4px 0}
     </div>
   </section>
 
-  <section class="who">
-    <div class="wrap">
-      <p class="eyebrow">Who it's for</p>
-      <h2>Southern California service businesses with 3+ employees.</h2>
-      <p style="margin-bottom:14px">If your office runs on any of these, this is for you:</p>
-      <div class="chips"><span>Phone calls</span><span>Paper</span><span>Spreadsheets</span><span>One person's memory</span></div>
-    </div>
-  </section>
 
   <section class="founders" id="founders">
     <div class="wrap">
@@ -439,8 +508,10 @@ footer p{margin:4px 0}
         <article class="bio">
           <p class="who">Ryan · Engineering</p>
           <p class="hook">Builds the fix and makes it <em>stick.</em></p>
-          <p>Ryan is the engineer. He builds the systems, hooks them into the tools you already use, and keeps them running. Before LHL, he shipped production software and managed complex systems across multiple industries.</p>
-          <ul class="facts"><li>Engineering lead</li><li>Production software</li><li>Systems that stay up</li></ul>
+          <p>Born and raised in San Diego. Ryan is the one who builds things: he puts together his own computers, runs his own servers, and makes websites and small games on his own time.</p>
+          <p>His day job since 2023 has been checking mapping data on a federal contract, where he trains a team of more than 20 technicians. Away from a screen he's on a trail, with 16 national parks so far, or watching San Diego FC.</p>
+          <p>At Little Hammer Labs he builds the automation and the systems under it, and he's the one who writes the agents that end up running the back office.</p>
+          <ul class="facts"><li>San Diego native</li><li>Trains a team of 20+</li><li>16 national parks</li></ul>
           <a class="li" href="https://www.linkedin.com/in/rpdlittle/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Ryan on LinkedIn</a>
         </article>
       </div>
@@ -450,6 +521,22 @@ footer p{margin:4px 0}
         <li><span>You get your hours back.</span></li>
       </ol>
       <p class="flow-cap">The people on your audit call are the people who build it. No handoffs, no junior devs, no bait-and-switch.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Straight answers <em>before the call.</em></h2>
+      <div class="faq-list">
+        <details><summary>Is it really free?</summary><p>Yes. The 45-minute audit and the one-page plan are free, and the plan is yours to keep whether or not you ever work with us.</p></details>
+        <details><summary>Will you try to sell me something?</summary><p>You get a straight recommendation: do it yourself, have us build it, or leave it alone. If leaving it alone is the right call, we will say so.</p></details>
+        <details><summary>Do I have to switch software?</summary><p>No. We build around the tools you already use, even if that is paper and a spreadsheet.</p></details>
+        <details><summary>Who will I talk to?</summary><p>Both founders, Max and Ryan. The people on your audit call are the people who build it.</p></details>
+        <details><summary>Do you come to us?</summary><p>Your choice: on site or by video, whichever is easier for you.</p></details>
+        <details><summary>What do I need to prepare?</summary><p>Nothing formal. It helps to know the software you use today, your biggest office headache, and how a job goes from first call to paid invoice.</p></details>
+        <details><summary>What happens to my data?</summary><p>You own everything we build. We can run systems on your own equipment so your data never leaves your building, or use private cloud instances with no data sharing.</p></details>
+      </div>
     </div>
   </section>
 
@@ -473,6 +560,8 @@ footer p{margin:4px 0}
   </section>
 </main>
 
+<a class="sticky-cta" id="sticky-cta" href="#request" aria-hidden="true" tabindex="-1">Request my free audit <span aria-hidden="true">&rarr;</span></a>
+
 <footer>
   <div class="wrap">
     <p><strong style="color:var(--cream)">Little Hammer Labs</strong> · Based in San Diego, serving all of Southern California</p>
@@ -484,7 +573,7 @@ footer p{margin:4px 0}
 /* Form posts to the n8n lead-intake webhook (W1). Set the URL here. */
 (function(){
   var WEBHOOK_URL = 'https://REPLACE-WITH-N8N-WEBHOOK.invalid/webhook/audit-lead'; // TODO: n8n production webhook URL, e.g. https://<n8n-host>/webhook/audit-lead
-  var DEFAULTS = {utm_source:'turkeynight', utm_medium:'print'};
+  var DEFAULTS = {utm_source:'direct', utm_medium:'none'};
 
   var form = document.getElementById('audit-form');
   var box = document.getElementById('request');
@@ -498,6 +587,40 @@ footer p{margin:4px 0}
   });
   if (!any){ Object.keys(DEFAULTS).forEach(function(k){ form.elements[k].value = DEFAULTS[k]; }); }
 
+  // Message match: the top line follows where the visitor came from
+  var SOURCES = {
+    turkeynight: ['Saw us in the Turkey Night program?', 'Turkey Night 2026'],
+    instagram:   ['Here from Instagram? Your link is below.', 'Free Systems Audit'],
+    meta:        ['Free Systems Audit \u00b7 4 spots a month', 'Free Systems Audit'],
+    google:      ['Free Systems Audit \u00b7 4 spots a month', 'Free Systems Audit']
+  };
+  var src = SOURCES[(form.elements.utm_source.value || '').toLowerCase()];
+  if (src){ document.getElementById('src-line').textContent = src[0]; document.getElementById('src-tag').textContent = src[1]; }
+
+  // Two steps: business first (quick taps), contact second
+  function showStep(n){
+    form.querySelectorAll('.step').forEach(function(el){ el.hidden = el.getAttribute('data-step') !== String(n); });
+    box.classList.toggle('step2', n === 2);
+    box.querySelector('.p-n').textContent = n;
+    status.hidden = true;
+  }
+  document.getElementById('to-step-2').addEventListener('click', function(){
+    status.hidden = true;
+    if (!form.elements.industry.value) return fail('Please choose what kind of business you run.', form.elements.industry);
+    if (!form.querySelector('input[name=employees]:checked')) return fail('Please choose how many people work there.', form.querySelector('input[name=employees]'));
+    showStep(2); box.scrollIntoView({block:'start'}); setTimeout(function(){ form.elements.name.focus({preventScroll:true}); }, 50);
+  });
+  document.getElementById('to-step-1').addEventListener('click', function(){ showStep(1); box.scrollIntoView({block:'start'}); });
+
+  // Sticky button on phones: shows once the hero button is gone, hides near the form
+  var sticky = document.getElementById('sticky-cta'), heroCta = document.querySelector('.hero-cta .cta');
+  if ('IntersectionObserver' in window && sticky && heroCta){
+    var heroGone = false, formIn = false;
+    var sync = function(){ var on = heroGone && !formIn && !box.classList.contains('sent'); sticky.classList.toggle('show', on); sticky.setAttribute('aria-hidden', on ? 'false' : 'true'); sticky.tabIndex = on ? 0 : -1; };
+    new IntersectionObserver(function(es){ heroGone = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; sync(); }).observe(heroCta);
+    new IntersectionObserver(function(es){ formIn = es[0].isIntersecting; sync(); }, {rootMargin:'0px 0px -20% 0px'}).observe(box);
+  }
+
   function fail(msg, el){ status.textContent = msg; status.hidden = false; if (el) el.focus(); }
 
   form.addEventListener('submit', function(e){
@@ -505,12 +628,11 @@ footer p{margin:4px 0}
     status.hidden = true;
     var f = form.elements;
     if (f.website_hp.value) return;                       // bot
+    if (!f.industry.value || !form.querySelector('input[name=employees]:checked')) { showStep(1); return document.getElementById('to-step-2').click(); }
     if (!f.name.value.trim()) return fail('Please enter your name.', f.name);
     if (!f.business.value.trim()) return fail('Please enter your business name.', f.business);
     if (f.phone.value.replace(/\D/g,'').length < 10) return fail('Please enter a phone number we can reach you at.', f.phone);
     if (f.email.value && !f.email.checkValidity()) return fail('That email address doesn\'t look right.', f.email);
-    if (!f.industry.value) return fail('Please choose what kind of business you run.', f.industry);
-    if (!f.employees.value) return fail('Please choose how many people work there.', f.employees);
 
     var data = {
       form: 'systems-audit',
@@ -520,7 +642,7 @@ footer p{margin:4px 0}
       phone: f.phone.value.trim(),
       email: f.email.value.trim(),
       industry: f.industry.value,
-      employees: f.employees.value,
+      employees: (form.querySelector('input[name=employees]:checked')||{}).value || '',
       best_time: (form.querySelector('input[name=best_time]:checked')||{}).value || '',
       headaches: Array.prototype.map.call(form.querySelectorAll('input[name=headache]:checked'), function(c){ return c.value; }),
       text_consent: f.text_ok.checked,
