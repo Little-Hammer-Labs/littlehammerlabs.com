@@ -117,7 +117,7 @@ h1 .hl{color:var(--orange-lite);font-style:italic}
 fieldset.field{border:0;margin:0 0 18px;padding:0}
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .check{display:flex;align-items:center;gap:12px;font-size:18px;min-height:44px;padding:4px 0;cursor:pointer}
-.checks .check{border:1px solid var(--line);background:#fff;padding:10px 12px;font-size:16px;line-height:1.3;gap:10px}
+.checks .check{border:1px solid var(--line);background:#fff;padding:10px 12px;font-size:16px;line-height:1.3;gap:10px;align-items:flex-start}
 .checks .check:has(input:checked){border-color:var(--orange-dark);background:#fff4ef}
 .check input{width:22px;height:22px;flex:none;accent-color:var(--orange-dark);margin:0}
 .consent{font-size:16px;align-items:flex-start;margin-bottom:6px}
@@ -126,8 +126,21 @@ fieldset.field{border:0;margin:0 0 18px;padding:0}
 button.cta{font-family:inherit;cursor:pointer;margin-top:10px}
 button.cta[disabled]{opacity:.7;cursor:wait}
 .status{margin:14px 0 0;font-size:17px;color:#9b2c0e;font-weight:500}
-.thanks{display:none;text-align:center;padding:10px 0}
+.thanks{display:none;padding:10px 0}
 .thanks .big{width:64px;height:64px;margin:6px auto 6px;display:grid;place-items:center;background:#1f5c48;color:#fff}
+.checks.three{grid-template-columns:1fr 1fr 1fr}
+.checks .check input[type=radio]{width:22px;height:22px;flex:none;accent-color:var(--orange-dark);margin:0}
+.thanks{text-align:left}
+.thanks .big{margin:6px 0 10px}
+.next{list-style:none;counter-reset:n;margin:18px 0 18px;padding:0;border-top:1px solid var(--line)}
+.next li{counter-increment:n;display:grid;grid-template-columns:40px 1fr;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.next li::before{content:counter(n);grid-row:span 2;display:grid;place-items:center;width:34px;height:34px;background:var(--ink);color:#fff;font-family:var(--serif);font-size:18px}
+.next b{color:var(--navy-deep)}
+.next span{font-size:17px;color:var(--muted)}
+.prep{background:#fff;border:1px dashed var(--orange-dark);padding:14px 16px;margin:0 0 16px}
+.prep-h{margin:0 0 6px !important;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dark)}
+.prep ul{margin:0;padding-left:20px;font-size:17px}
+.see-proof{font-weight:600;font-size:17px;color:var(--ink)}
 .form.sent form,.form.sent .form-intro{display:none}
 .form.sent .thanks{display:block}
 .thanks p{margin:0 0 12px}
@@ -318,6 +331,14 @@ footer p{margin:4px 0}
           <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
         <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label>
           <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+        <div class="field"><label for="f-ind">What kind of business?</label>
+          <select id="f-ind" name="industry" required>
+            <option value="">Choose one</option>
+            <option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Roofing or solar</option>
+            <option>General contractor or remodeling</option><option>Landscaping or pool service</option><option>Cleaning or janitorial</option>
+            <option>Pest control</option><option>Auto repair or detailing</option><option>Property management</option>
+            <option>Professional services (law, accounting, architecture)</option><option>Other service business</option>
+          </select></div>
         <div class="field"><label for="f-emp">How many people work there?</label>
           <select id="f-emp" name="employees" required>
             <option value="">Choose one</option>
@@ -329,18 +350,39 @@ footer p{margin:4px 0}
             <label class="check"><input type="checkbox" name="headache" value="Quotes and estimates"> Quotes and estimates</label>
             <label class="check"><input type="checkbox" name="headache" value="Scheduling"> Scheduling</label>
             <label class="check"><input type="checkbox" name="headache" value="Invoicing and chasing payment"> Invoicing and chasing payment</label>
+            <label class="check"><input type="checkbox" name="headache" value="Paperwork and data entry"> Paperwork and data entry</label>
+            <label class="check"><input type="checkbox" name="headache" value="Something else"> Something else</label>
+          </div></fieldset>
+        <fieldset class="field"><legend>Best time to reach you? <span class="opt">(optional)</span></legend>
+          <div class="checks three">
+            <label class="check"><input type="radio" name="best_time" value="Morning"> Morning</label>
+            <label class="check"><input type="radio" name="best_time" value="Midday"> Midday</label>
+            <label class="check"><input type="radio" name="best_time" value="Afternoon"> Afternoon</label>
           </div></fieldset>
         <label class="check consent"><input type="checkbox" name="text_ok" value="yes"> It's OK to text me about scheduling the audit.</label>
         <div class="hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website_hp" type="text" tabindex="-1" autocomplete="off"></div>
-        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="fbclid"><input type="hidden" name="gclid">
         <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
         <p class="status" id="f-status" role="alert" hidden></p>
       </form>
         <div class="thanks" tabindex="-1">
           <div class="big"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <h2>Thanks, we've got it.</h2>
-          <p>Max or Ryan will reach out to set up a time for your free Systems Audit.</p>
-          <p style="color:var(--muted);font-size:17px">Meanwhile, scroll down to see what the audit covers.</p>
+          <h2>You're in<span class="tk-name"></span>.</h2>
+          <p>Max or Ryan will reach out <span class="tk-when">soon</span> to lock in a time for your free audit.</p>
+          <ol class="next">
+            <li><b>We reach out</b><span>A quick call or text to pick a time that works for you.</span></li>
+            <li><b>Your 45-minute audit</b><span>On site or by video. Bring the questions below.</span></li>
+            <li><b>Your one-page plan</b><span>In your hands within a week. Yours to keep.</span></li>
+          </ol>
+          <div class="prep">
+            <p class="prep-h">Have these handy</p>
+            <ul>
+              <li>The software you use today (even if it's paper)</li>
+              <li>Your biggest office headache</li>
+              <li>How a job goes from first call to paid invoice</li>
+            </ul>
+          </div>
+          <a class="see-proof" href="/casestudy/dga/">See what we built for an architecture firm &rarr;</a>
         </div>
       </div>
     </div>
@@ -451,7 +493,7 @@ footer p{margin:4px 0}
 
   // UTM tags: from the QR link, or Turkey Night defaults on a direct visit
   var q = new URLSearchParams(location.search), any = false;
-  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid','gclid'].forEach(function(k){
     var v = q.get(k); if (v){ form.elements[k].value = v; any = true; }
   });
   if (!any){ Object.keys(DEFAULTS).forEach(function(k){ form.elements[k].value = DEFAULTS[k]; }); }
@@ -467,6 +509,7 @@ footer p{margin:4px 0}
     if (!f.business.value.trim()) return fail('Please enter your business name.', f.business);
     if (f.phone.value.replace(/\D/g,'').length < 10) return fail('Please enter a phone number we can reach you at.', f.phone);
     if (f.email.value && !f.email.checkValidity()) return fail('That email address doesn\'t look right.', f.email);
+    if (!f.industry.value) return fail('Please choose what kind of business you run.', f.industry);
     if (!f.employees.value) return fail('Please choose how many people work there.', f.employees);
 
     var data = {
@@ -476,11 +519,16 @@ footer p{margin:4px 0}
       business: f.business.value.trim(),
       phone: f.phone.value.trim(),
       email: f.email.value.trim(),
+      industry: f.industry.value,
       employees: f.employees.value,
+      best_time: (form.querySelector('input[name=best_time]:checked')||{}).value || '',
       headaches: Array.prototype.map.call(form.querySelectorAll('input[name=headache]:checked'), function(c){ return c.value; }),
       text_consent: f.text_ok.checked,
       utm_source: f.utm_source.value, utm_medium: f.utm_medium.value,
       utm_campaign: f.utm_campaign.value, utm_content: f.utm_content.value,
+      fbclid: f.fbclid.value, gclid: f.gclid.value,
+      fbp: (document.cookie.match(/_fbp=([^;]+)/)||[])[1] || '', fbc: (document.cookie.match(/_fbc=([^;]+)/)||[])[1] || (f.fbclid.value ? 'fb.1.' + Date.now() + '.' + f.fbclid.value : ''),
+      event_id: 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2,8),
       page: location.origin + location.pathname,
       submitted_at: new Date().toISOString()
     };
@@ -491,6 +539,10 @@ footer p{margin:4px 0}
       .catch(function(){ btn.disabled = false; fail('Sorry, that didn\'t go through. Please check your signal and tap the button again.'); });
 
     function done(){
+      var first = data.name.split(' ')[0];
+      if (first) box.querySelector('.tk-name').textContent = ', ' + first;
+      if (data.best_time) box.querySelector('.tk-when').textContent = 'in the ' + data.best_time.toLowerCase().replace('midday','middle of the day');
+      if (window.fbq) fbq('track', 'Lead', {content_name: 'systems-audit'}, {eventID: data.event_id}); // dedupes with the server-side event n8n sends
       box.classList.add('sent');
       var t = box.querySelector('.thanks'); t.focus(); box.scrollIntoView({block:'start'});
     }
