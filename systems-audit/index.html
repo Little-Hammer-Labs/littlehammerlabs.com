@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Systems Audit · Little Hammer Labs</title>
+<meta name="description" content="We automate the back office for Southern California service businesses. Request a free Systems Audit: a 45-minute chat with Max & Ryan and a one-page plan within a week.">
+<meta name="theme-color" content="#15323f">
+<link rel="canonical" href="https://littlehammerlabs.com/systems-audit">
+<meta property="og:title" content="Free Systems Audit · Little Hammer Labs">
+<meta property="og:description" content="Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a free Systems Audit.">
+<meta property="og:image" content="https://littlehammerlabs.com/assets/images/og-systems-audit.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://littlehammerlabs.com/systems-audit">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/assets/images/max-ryan-skyline-900.webp" imagesrcset="/assets/images/max-ryan-skyline-900.webp 900w, /assets/images/max-ryan-skyline.webp 1536w" imagesizes="(min-width:900px) 900px, 100vw">
+<link rel="icon" href="/assets/favicons/favicon-png/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/favicons/favicon-png/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f6f0e5;--paper:#fdfaf4;--ink:#1c4353;--navy-deep:#15323f;--navy-ink:#0f2630;
+  --text:#27343c;--muted:#5c6870;--line:#d9d1c0;--orange:#f25e2c;--orange-dark:#cf4a1d;--orange-lite:#ff8a5c;
+  --on-navy:#c9d4d9;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --check:repeating-conic-gradient(var(--cream) 0 25%,var(--navy-ink) 0 50%) 0 0/14px 14px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--text);font-family:var(--sans);font-size:19px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--ink)}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);flex:none}
+h2{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.15;color:var(--navy-deep);margin:12px 0 18px;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--orange-dark)}
+
+/* ---------- hero (navy) ---------- */
+.top{background:var(--navy-deep);color:var(--cream);position:relative;overflow:hidden}
+.flag{height:14px;background:var(--check);opacity:.9}
+.masthead{background:var(--paper);border-bottom:1px solid var(--line)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.lockup{display:block;line-height:0}
+.lockup img{height:54px;width:auto}
+.tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--navy-deep);padding:7px 10px;white-space:nowrap}
+.hero{padding:26px 0 30px;position:relative}
+.top .eyebrow{color:var(--orange-lite)}
+.top .eyebrow::before{background:var(--orange-lite)}
+h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.04;margin:16px 0 18px;letter-spacing:-.02em;color:var(--cream)}
+h1 .hl{color:var(--orange-lite);font-style:italic}
+.lede{font-size:20px;margin:0 0 26px;color:var(--on-navy)}
+.lede b{color:var(--cream);font-weight:600}
+.photo{position:relative;margin:0}
+.photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center 20%}
+@media (min-width:768px){.photo img{aspect-ratio:16/9}}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,0) 0%,rgba(21,50,63,0) 72%,rgba(21,50,63,.8) 100%);pointer-events:none}
+.names{position:absolute;left:0;right:0;bottom:12px;z-index:1;display:flex;justify-content:space-between;padding:0 22px;max-width:680px;margin:0 auto;
+  font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+.names span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:2px}
+.hero-cta{padding:22px 0 30px}
+.hero-cta p{margin:12px 0 0;text-align:center;font-size:16px;color:var(--on-navy)}
+.photo-wrap{max-width:900px;margin:0 auto}
+
+/* ---------- buttons ---------- */
+.cta{display:flex;flex-direction:column;align-items:center;width:100%;text-align:center;text-decoration:none;background:var(--orange-dark);color:#fff;
+  font-weight:600;font-size:21px;line-height:1.25;padding:19px 18px;border:0;border-radius:0;box-shadow:0 4px 0 #a93a14;transition:transform .12s,box-shadow .12s}
+.cta:hover{background:#b8401a}
+.cta:active{transform:translateY(3px);box-shadow:0 1px 0 #a93a14}
+.cta:focus-visible{outline:3px solid var(--orange-lite);outline-offset:3px}
+.cta small{display:block;font-weight:500;font-size:16px;opacity:.95;margin-top:4px}
+.cta .arrow{display:inline-block;margin-left:8px}
+
+/* ---------- promise cards ---------- */
+.promises{padding:44px 0 20px}
+.cards{display:grid;gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);padding:18px 18px 20px;position:relative}
+.card .num{position:absolute;top:14px;right:16px;font-family:var(--serif);font-size:15px;color:var(--muted)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.2;color:var(--navy-deep);margin:14px 0 6px}
+.card p{margin:0;font-size:17px;color:var(--muted)}
+.mock{background:#fff;border:1px solid var(--line);padding:12px;font-size:15px;line-height:1.4}
+.mock-row{display:flex;align-items:center;gap:10px}
+.ico{width:34px;height:34px;flex:none;display:grid;place-items:center;background:var(--cream);color:var(--ink)}
+.ico.hot{background:#fde4da;color:var(--orange-dark)}
+.ico.ok{background:#dfeae6;color:#1f5c48}
+.meta{font-size:13px;color:var(--muted)}
+.strong{font-weight:600;color:var(--navy-deep)}
+.bubble{margin:10px 0 0 44px;background:var(--ink);color:#fff;padding:10px 12px;font-size:15px;position:relative}
+.bubble::before{content:"";position:absolute;left:-7px;top:10px;border:7px solid transparent;border-right-color:var(--ink);border-left:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;background:#dfeae6;color:#1f5c48}
+.pill.warn{background:#fde4da;color:#9b2c0e}
+.line{height:8px;background:var(--cream);margin:8px 0 0}
+.chase{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.chase span{font-size:12px;font-weight:600;padding:4px 8px;border:1px solid var(--line);color:var(--muted)}
+.chase span.on{border-color:var(--ink);color:var(--ink)}
+.chase span.paid{background:#1f5c48;border-color:#1f5c48;color:#fff}
+
+/* ---------- form ---------- */
+.request{padding:34px 0 10px}
+.form{background:var(--paper);border:1px solid var(--line);border-top:0;padding:0 20px 26px;scroll-margin-top:10px;position:relative}
+.form::before{content:"";display:block;height:10px;margin:0 -20px 22px;background:var(--check);opacity:.85}
+.form h2{margin-top:10px;margin-bottom:6px}
+.form .sub{margin:0 0 20px;color:var(--muted);font-size:17px}
+.field{margin:0 0 18px}
+.field label,.field legend{display:block;font-weight:600;color:var(--navy-deep);font-size:17px;margin:0 0 6px;padding:0}
+.field .opt{font-weight:400;color:var(--muted)}
+.field input[type=text],.field input[type=tel],.field input[type=email],.field select{
+  width:100%;font:inherit;font-size:19px;color:var(--text);background:#fff;border:1px solid #a89f8c;border-radius:0;
+  padding:13px 14px;min-height:54px;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
+.field input:focus,.field select:focus{outline:3px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+fieldset.field{border:0;margin:0 0 18px;padding:0}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.check{display:flex;align-items:center;gap:12px;font-size:18px;min-height:44px;padding:4px 0;cursor:pointer}
+.checks .check{border:1px solid var(--line);background:#fff;padding:10px 12px;font-size:16px;line-height:1.3;gap:10px;align-items:flex-start}
+.checks .check:has(input:checked){border-color:var(--orange-dark);background:#fff4ef}
+.check input{width:22px;height:22px;flex:none;accent-color:var(--orange-dark);margin:0}
+.consent{font-size:16px;align-items:flex-start;margin-bottom:6px}
+.consent input{margin-top:3px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.cta{font-family:inherit;cursor:pointer;margin-top:10px}
+button.cta[disabled]{opacity:.7;cursor:wait}
+.status{margin:14px 0 0;font-size:17px;color:#9b2c0e;font-weight:500}
+.thanks{display:none;padding:10px 0}
+.thanks .big{width:64px;height:64px;margin:6px auto 6px;display:grid;place-items:center;background:#1f5c48;color:#fff}
+.checks.three{grid-template-columns:1fr 1fr 1fr}
+.checks .check input[type=radio]{width:22px;height:22px;flex:none;accent-color:var(--orange-dark);margin:0}
+.thanks{text-align:left}
+.thanks .big{margin:6px 0 10px}
+.next{list-style:none;counter-reset:n;margin:18px 0 18px;padding:0;border-top:1px solid var(--line)}
+.next li{counter-increment:n;display:grid;grid-template-columns:40px 1fr;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.next li::before{content:counter(n);grid-row:span 2;display:grid;place-items:center;width:34px;height:34px;background:var(--ink);color:#fff;font-family:var(--serif);font-size:18px}
+.next b{color:var(--navy-deep)}
+.next span{font-size:17px;color:var(--muted)}
+.prep{background:#fff;border:1px dashed var(--orange-dark);padding:14px 16px;margin:0 0 16px}
+.prep-h{margin:0 0 6px !important;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dark)}
+.prep ul{margin:0;padding-left:20px;font-size:17px}
+.see-proof{font-weight:600;font-size:17px;color:var(--ink)}
+.form.sent form,.form.sent .form-intro{display:none}
+.form.sent .thanks{display:block}
+.thanks p{margin:0 0 12px}
+
+/* ---------- what you get ---------- */
+.get-sec{padding:44px 0 10px}
+.report{background:#fff;border:1px solid var(--line);box-shadow:8px 8px 0 var(--ink);padding:18px 18px 16px;margin:6px 8px 30px 0;transform:rotate(-1.2deg)}
+.report-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--navy-deep);padding-bottom:8px;margin-bottom:10px}
+.report-h b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--navy-deep)}
+.report-h span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rrow{display:grid;grid-template-columns:22px 1fr 34%;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #eee6d6;font-size:14px}
+.rrow i{font-style:normal;font-family:var(--serif);color:var(--orange-dark)}
+.rrow .sk{height:9px;background:#e7e0d0}
+.rrow .bar{height:12px;background:linear-gradient(90deg,var(--orange-dark),var(--orange))}
+.rfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:13px;line-height:1.35;color:var(--muted)}
+.stamp{white-space:nowrap;flex:none;border:2px solid var(--orange-dark);color:var(--orange-dark);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;transform:rotate(-4deg)}
+.sample{font-size:13px;color:var(--muted);margin:-18px 0 22px;text-align:right}
+ol.get{list-style:none;margin:0;padding:0;counter-reset:g}
+ol.get li{counter-increment:g;display:grid;grid-template-columns:56px 1fr;gap:4px 12px;padding:18px 0;border-top:1px solid var(--line)}
+ol.get li:last-child{border-bottom:1px solid var(--line)}
+ol.get li::before{content:counter(g,decimal-leading-zero);font-family:var(--serif);font-size:38px;color:var(--orange-dark);line-height:1}
+ol.get strong{display:block;color:var(--navy-deep);font-weight:600}
+
+/* ---------- who ---------- */
+.who{padding:40px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+.chips span{background:var(--paper);border:1px solid var(--line);padding:8px 12px;font-size:16px;color:var(--navy-deep)}
+.who p{margin:0}
+
+/* ---------- proof (navy) ---------- */
+.proof{background:var(--navy-deep);color:var(--cream);margin-top:44px;position:relative}
+.proof .flag{position:absolute;left:0;right:0;top:0}
+.proof .wrap{padding-top:50px;padding-bottom:44px}
+.proof .eyebrow{color:var(--orange-lite)}
+.proof .eyebrow::before{background:var(--orange-lite)}
+.big-num{font-family:var(--serif);font-size:96px;line-height:.95;color:var(--orange-lite);margin:14px 0 4px;letter-spacing:-.03em}
+.big-sub{font-family:var(--serif);font-size:30px;line-height:1.15;margin:0 0 20px}
+.big-sub .hot{color:var(--orange-lite);font-style:italic}
+.wins{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}
+.wins li{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:600;color:var(--cream);padding:12px 14px;border:1px solid rgba(201,212,217,.35);background:rgba(255,255,255,.04)}
+.wins li::before{content:"";flex:none;width:24px;height:24px;background:var(--orange-dark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/16px no-repeat}
+.kicker{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.25;color:var(--orange-lite);margin:0 0 10px}
+.proof .src{font-size:16px;color:var(--on-navy);margin:0}
+.proof .src a{color:var(--cream)}
+.slots{display:flex;gap:8px;margin:34px 0 10px}
+.slots span{flex:1;height:46px;border:2px solid var(--on-navy);display:grid;place-items:center;font-family:var(--serif);font-size:20px;color:var(--on-navy)}
+.slots-cap{margin:0 0 26px;font-size:18px;color:var(--on-navy)}
+.slots-cap b{color:var(--cream);font-weight:600}
+
+footer{background:var(--navy-ink);color:var(--on-navy);font-size:15px;padding:24px 0 34px}
+footer a{color:var(--cream)}
+footer p{margin:4px 0}
+
+/* ---------- founders ---------- */
+.founders{padding:48px 0 8px}
+.founders .intro{margin:0 0 24px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 4px}
+.pic{position:relative;margin:0;overflow:hidden;background:var(--navy-deep)}
+.pic img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,0) 55%,rgba(21,50,63,.92) 100%)}
+.pic figcaption{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;color:var(--cream)}
+.pic .nm{display:block;font-family:var(--serif);font-size:34px;line-height:1}
+.pic .rl{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--orange-dark);color:#fff;padding:3px 7px}
+.bios{display:grid;gap:0}
+.bio{padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.bio .who{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.bio .hook{font-family:var(--serif);font-size:28px;line-height:1.15;color:var(--navy-deep);margin:0 0 10px}
+.bio .hook em{color:var(--orange-dark)}
+.bio p{margin:0 0 12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px;padding:0;list-style:none}
+.facts li{font-size:15px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:6px 10px}
+.bio a.li{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);min-height:44px}
+.flow{list-style:none;margin:26px 0 0;padding:0;counter-reset:f;background:var(--navy-deep);color:var(--cream)}
+.flow li{counter-increment:f;display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;padding:16px 18px;border-bottom:1px solid rgba(201,212,217,.2);font-size:19px}
+.flow li:last-child{border-bottom:0;background:var(--orange-dark);color:#fff;font-weight:600}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:40px;height:40px;border:2px solid currentColor;font-family:var(--serif);font-size:20px}
+.flow b{font-weight:600;color:#fff}
+.flow-cap{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35;color:var(--navy-deep);margin:16px 0 0}
+@media (min-width:768px){
+  .bios{grid-template-columns:1fr 1fr;gap:28px}
+  .duo{gap:16px}
+  .flow{display:grid;grid-template-columns:1fr 1fr 1fr}
+  .flow li{border-bottom:0;border-right:1px solid rgba(201,212,217,.2);grid-template-columns:1fr;align-items:start;align-content:start;padding:20px 18px 22px;font-size:18px;line-height:1.45}
+}
+
+/* ---------- fit ---------- */
+.fit{padding:40px 0 8px}
+.fit-grid{display:grid;gap:12px;margin:0 0 18px}
+.fit-col{border:1px solid var(--line);background:var(--paper);padding:16px 16px 6px}
+.fit-col.yes{border-top:4px solid #1f5c48}
+.fit-col.no{border-top:4px solid var(--muted)}
+.fit-h{margin:0 0 10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-deep)}
+.fit-col ul{list-style:none;margin:0;padding:0}
+.fit-col li{display:flex;gap:12px;align-items:flex-start;padding:0 0 12px;font-size:18px;line-height:1.4}
+.fit-col li svg{flex:none;margin-top:2px}
+.fit-col.yes li svg{color:#1f5c48}
+.fit-col.no li svg{color:var(--muted)}
+.fit-col.no li{color:var(--muted)}
+.text-cta{display:inline-flex;align-items:center;min-height:44px;font-weight:600;font-size:18px;color:var(--orange-dark)}
+@media (min-width:640px){.fit-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- two-step form ---------- */
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.p-label{font-size:14px;font-weight:600;color:var(--navy-deep);white-space:nowrap}
+.p-bar{flex:1;height:8px;background:var(--cream);border:1px solid var(--line);position:relative}
+.p-bar i{position:absolute;left:0;top:0;bottom:0;width:50%;background:var(--orange-dark);transition:width .3s}
+.form.step2 .p-bar i{width:100%}
+.step-h{font-family:var(--serif);font-size:24px;line-height:1.2;color:var(--navy-deep);margin:0 0 16px}
+.checks.four{grid-template-columns:1fr 1fr}
+.back{display:block;margin:10px auto 0;background:none;border:0;font:inherit;font-size:17px;font-weight:600;color:var(--ink);min-height:44px;padding:0 12px;cursor:pointer}
+
+/* ---------- faq ---------- */
+.faq{padding:40px 0 8px}
+.faq-list{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:12px 0;font-weight:600;font-size:19px;color:var(--navy-deep)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line);background:var(--paper);font-family:var(--serif);font-size:22px;color:var(--orange-dark);line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0 0 16px;color:var(--text)}
+
+/* ---------- sticky CTA (phones) ---------- */
+.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;justify-content:center;align-items:center;gap:8px;min-height:56px;
+  background:var(--orange-dark);color:#fff;text-decoration:none;font-weight:600;font-size:19px;box-shadow:0 4px 0 #a93a14,0 8px 24px rgba(15,38,48,.25);
+  transform:translateY(140%);transition:transform .25s ease}
+.sticky-cta.show{transform:none}
+@media (min-width:768px){.sticky-cta{display:none}}
+@media (max-width:767px){footer{padding-bottom:96px}}
+
+@media (min-width:640px){
+  .cards{grid-template-columns:1fr 1fr 1fr}
+  .wide{max-width:980px}
+}
+@media (min-width:768px){
+  body{font-size:20px}
+  h1{font-size:62px}
+  h2{font-size:38px}
+  .hero{padding-top:44px}
+}
+@media (max-width:360px){ h1{font-size:38px} .checks{grid-template-columns:1fr} .big-num{font-size:80px} }
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .rise{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <a class="lockup" href="/"><img src="/assets/images/lhl-lockup.webp" width="360" height="165" alt="Little Hammer Labs"></a>
+    <span class="tag" id="src-tag">Free Systems Audit</span>
+  </div>
+</div>
+<div class="top">
+  <div class="flag" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow rise" id="src-line">For Southern California service businesses</p>
+      <h1 class="rise d1">We automate the back office for <span class="hl">service businesses.</span></h1>
+      <p class="lede rise d2">Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a <b>free Systems Audit</b>: a one-page plan within a week, yours to keep.</p>
+    </div>
+  </div>
+  <div class="photo-wrap">
+    <figure class="photo">
+      <img src="/assets/images/max-ryan-skyline-900.webp"
+           srcset="/assets/images/max-ryan-skyline-900.webp 900w, /assets/images/max-ryan-skyline.webp 1536w"
+           sizes="(min-width:900px) 900px, 100vw" width="1536" height="1024"
+           alt="Max (left) and Ryan (right), founders of Little Hammer Labs, in front of the San Diego skyline at sunset" fetchpriority="high">
+      <figcaption class="names"><span>Max</span><span>Ryan</span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap hero-cta">
+    <a class="cta" href="#request">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></a>
+    <p>Takes a minute. We'll reach out to set up a time.</p>
+  </div>
+</div>
+
+<main>
+  <section class="promises">
+    <div class="wrap wide">
+      <p class="eyebrow">What changes</p>
+      <h2>The office work that runs <em>itself.</em></h2>
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico hot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M15 3l6 6M21 3l-6 6"/></svg></span><span><span class="strong">Missed call</span><br><span class="meta">New customer · 4:52 PM</span></span></div>
+            <div class="bubble">Sorry we missed you! What can we help with? Reply here and we'll get you scheduled.</div>
+          </div>
+          <h3>Missed calls, texted back</h3>
+          <p>Every caller gets a reply in seconds, even when nobody can pick up.</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span style="flex:1"><span class="strong">Quote #1048</span><div class="line" style="width:80%"></div><div class="line" style="width:55%"></div></span></div>
+            <div class="mock-row" style="margin-top:10px;justify-content:space-between"><span class="meta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg> Sent to customer</span><span class="pill">Same day</span></div>
+          </div>
+          <h3>Quotes out the same day</h3>
+          <p>Notes from the job turn into a clean quote before the customer cools off.</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span><span><span class="strong">Invoice #2231</span><br><span class="meta">Reminders sent automatically</span></span></div>
+            <div class="chase"><span class="on">Sent</span><span class="on">Day 3</span><span class="on">Day 7</span><span class="paid">Paid</span></div>
+          </div>
+          <h3>Invoices that chase themselves</h3>
+          <p>Polite reminders go out on schedule, so nobody has to make the awkward call.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="fit">
+    <div class="wrap">
+      <p class="eyebrow">Is this you?</p>
+      <h2>Built for offices that run on <em>one person's memory.</em></h2>
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <p class="fit-h">A great fit</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>A service business in Southern California</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>3 or more people on the team</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>Calls, quotes or invoices handled by hand, on paper or in spreadsheets</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>You want hours back, not another app to babysit</span></li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <p class="fit-h">Probably not a fit</p>
+          <ul>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Solo operators (it's just you)</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Restaurants and retail shops: our systems are built for service work</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Happy with how the office runs today</span></li>
+          </ul>
+        </div>
+      </div>
+      <a class="text-cta" href="#request">Sounds like you? Request your audit &darr;</a>
+    </div>
+  </section>
+
+  <section class="request">
+    <div class="wrap">
+      <div class="form" id="request">
+        <div class="form-intro">
+          <p class="eyebrow">Free Systems Audit</p>
+          <h2>Request your audit.</h2>
+          <p class="sub">Two quick steps, under a minute. Max or Ryan will reach out to set up your free 45-minute chat.</p>
+          <div class="progress" aria-hidden="true"><span class="p-label">Step <b class="p-n">1</b> of 2</span><span class="p-bar"><i></i></span></div>
+        </div>
+      <form id="audit-form" action="#" method="post" novalidate>
+        <div class="step" data-step="1">
+          <p class="step-h">About the business</p>
+          <div class="field"><label for="f-ind">What kind of business?</label>
+            <select id="f-ind" name="industry" required>
+              <option value="">Choose one</option>
+              <option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Roofing or solar</option>
+              <option>General contractor or remodeling</option><option>Landscaping or pool service</option><option>Cleaning or janitorial</option>
+              <option>Pest control</option><option>Auto repair or detailing</option><option>Property management</option>
+              <option>Professional services (law, accounting, architecture)</option><option>Other service business</option>
+            </select></div>
+          <fieldset class="field"><legend>How many people work there?</legend>
+            <div class="checks four"><label class="check"><input type="radio" name="employees" value="1–2"> 1–2</label><label class="check"><input type="radio" name="employees" value="3–9"> 3–9</label><label class="check"><input type="radio" name="employees" value="10–24"> 10–24</label><label class="check"><input type="radio" name="employees" value="25 or more"> 25 or more</label></div></fieldset>
+          <fieldset class="field"><legend>What eats up the most office time? <span class="opt">(pick any)</span></legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="headache" value="Missed calls"> Missed calls</label>
+              <label class="check"><input type="checkbox" name="headache" value="Quotes and estimates"> Quotes and estimates</label>
+              <label class="check"><input type="checkbox" name="headache" value="Scheduling"> Scheduling</label>
+              <label class="check"><input type="checkbox" name="headache" value="Invoicing and chasing payment"> Invoicing and chasing payment</label>
+              <label class="check"><input type="checkbox" name="headache" value="Paperwork and data entry"> Paperwork and data entry</label>
+              <label class="check"><input type="checkbox" name="headache" value="Something else"> Something else</label>
+            </div></fieldset>
+          <button class="cta" type="button" id="to-step-2">Next: where do we reach you?<small>One more step</small></button>
+        </div>
+        <div class="step" data-step="2" hidden>
+          <p class="step-h">Where do we reach you?</p>
+          <div class="field"><label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-biz">Business name</label>
+            <input id="f-biz" name="business" type="text" autocomplete="organization" required></div>
+          <div class="field"><label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+          <fieldset class="field"><legend>Best time to reach you? <span class="opt">(optional)</span></legend>
+            <div class="checks three">
+              <label class="check"><input type="radio" name="best_time" value="Morning"> Morning</label>
+              <label class="check"><input type="radio" name="best_time" value="Midday"> Midday</label>
+              <label class="check"><input type="radio" name="best_time" value="Afternoon"> Afternoon</label>
+            </div></fieldset>
+          <label class="check consent"><input type="checkbox" name="text_ok" value="yes"> It's OK to text me about scheduling the audit.</label>
+          <div class="hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website_hp" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="fbclid"><input type="hidden" name="gclid">
+          <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
+          <button class="back" type="button" id="to-step-1">&larr; Back</button>
+        </div>
+        <p class="status" id="f-status" role="alert" hidden></p>
+      </form>
+        <div class="thanks" tabindex="-1">
+          <div class="big"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h2>You're in<span class="tk-name"></span>.</h2>
+          <p>Max or Ryan will reach out <span class="tk-when">soon</span> to lock in a time for your free audit.</p>
+          <ol class="next">
+            <li><b>We reach out</b><span>A quick call or text to pick a time that works for you.</span></li>
+            <li><b>Your 45-minute audit</b><span>On site or by video. Bring the questions below.</span></li>
+            <li><b>Your one-page plan</b><span>In your hands within a week. Yours to keep.</span></li>
+          </ol>
+          <div class="prep">
+            <p class="prep-h">Have these handy</p>
+            <ul>
+              <li>The software you use today (even if it's paper)</li>
+              <li>Your biggest office headache</li>
+              <li>How a job goes from first call to paid invoice</li>
+            </ul>
+          </div>
+          <a class="see-proof" href="/casestudy/dga/">See what we built for an architecture firm &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="get-sec">
+    <div class="wrap">
+      <p class="eyebrow">What you get</p>
+      <h2>An honest look at where your office time <em>goes.</em></h2>
+      <div class="report" aria-hidden="true">
+        <div class="report-h"><b>Your one-page plan</b><span>Systems Audit</span></div>
+        <div class="rrow"><i>1</i><div class="sk"></div><div class="bar" style="width:100%"></div></div>
+        <div class="rrow"><i>2</i><div class="sk" style="width:85%"></div><div class="bar" style="width:78%"></div></div>
+        <div class="rrow"><i>3</i><div class="sk" style="width:92%"></div><div class="bar" style="width:60%"></div></div>
+        <div class="rrow"><i>4</i><div class="sk" style="width:70%"></div><div class="bar" style="width:42%"></div></div>
+        <div class="rrow"><i>5</i><div class="sk" style="width:80%"></div><div class="bar" style="width:30%"></div></div>
+        <div class="rfoot"><span>Hours and dollars per year, with a fix for each</span><span class="stamp">Yours to keep</span></div>
+      </div>
+      <p class="sample">Sample layout</p>
+      <ol class="get">
+        <li><span><strong>A 45-minute walkthrough</strong>On site or by video. You show us how calls, quotes, scheduling and invoices move today.</span></li>
+        <li><span><strong>A written one-page report within a week</strong>Your top five time sinks, the hours and dollars each costs per year, and the fix for each.</span></li>
+        <li><span><strong>A straight recommendation</strong>Do it yourself, have us build it, or leave it alone. The plan is yours to keep either way.</span></li>
+      </ol>
+    </div>
+  </section>
+
+
+  <section class="founders" id="founders">
+    <div class="wrap">
+      <p class="eyebrow">Meet the founders</p>
+      <h2>The two guys you'll <em>actually</em> talk to.</h2>
+      <p class="intro">No sales team. No account managers. Just us.</p>
+      <div class="duo">
+        <figure class="pic"><img src="/assets/images/portrait-max.webp" width="480" height="600" alt="Max" loading="lazy"><figcaption><span class="nm">Max</span><span class="rl">Finds it</span></figcaption></figure>
+        <figure class="pic"><img src="/assets/images/portrait-ryan.webp" width="480" height="600" alt="Ryan" loading="lazy"><figcaption><span class="nm">Ryan</span><span class="rl">Builds it</span></figcaption></figure>
+      </div>
+      <div class="bios">
+        <article class="bio">
+          <p class="who">Max · Operations</p>
+          <p class="hook">Finds where your hours are <em>leaking.</em></p>
+          <p>Born and raised in San Diego, Max has been starting businesses since the lemon tree in his backyard: lemonade on the corner, then snacks and toys sold at school, then brands of his own.</p>
+          <p>Along the way he's worked the front lines of customer service, hospitality, sales, security and valet, so he knows how a business looks from behind the counter. Today he's in real estate, representing his own buyers and running operations for a local brokerage, where he builds the automations that keep the office running without anyone babysitting it. Away from work he's either hanging out with his dogs or exploring San Diego.</p>
+          <p>At Little Hammer Labs he's the one walking through your office: he maps how calls, quotes and invoices really move, finds where time and money leak out, and tells you straight what's worth fixing.</p>
+          <ul class="facts"><li>San Diego native</li><li>Lifelong entrepreneur</li><li>Runs ops for a brokerage</li></ul>
+          <a class="li" href="https://www.linkedin.com/in/max-hammerstrom-363915173/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Max on LinkedIn</a>
+        </article>
+        <article class="bio">
+          <p class="who">Ryan · Engineering</p>
+          <p class="hook">Builds the fix and makes it <em>stick.</em></p>
+          <p>Born and raised in San Diego. Ryan is the one who builds things: he puts together his own computers, runs his own servers, and makes websites and small games on his own time.</p>
+          <p>His day job since 2023 has been checking mapping data on a federal contract, where he trains a team of more than 20 technicians. Away from a screen he's on a trail, with 16 national parks so far, or watching San Diego FC.</p>
+          <p>At Little Hammer Labs he builds the automation and the systems under it, and he's the one who writes the agents that end up running the back office.</p>
+          <ul class="facts"><li>San Diego native</li><li>Trains a team of 20+</li><li>16 national parks</li></ul>
+          <a class="li" href="https://www.linkedin.com/in/rpdlittle/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Ryan on LinkedIn</a>
+        </article>
+      </div>
+      <ol class="flow">
+        <li><span><b>Max</b> walks through your office and finds the leaks.</span></li>
+        <li><span><b>Ryan</b> builds the fix around the tools you already have.</span></li>
+        <li><span>You get your hours back.</span></li>
+      </ol>
+      <p class="flow-cap">The people on your audit call are the people who build it. No handoffs, no junior devs, no bait-and-switch.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Straight answers <em>before the call.</em></h2>
+      <div class="faq-list">
+        <details><summary>Is it really free?</summary><p>Yes. The 45-minute audit and the one-page plan are free, and the plan is yours to keep whether or not you ever work with us.</p></details>
+        <details><summary>Will you try to sell me something?</summary><p>You get a straight recommendation: do it yourself, have us build it, or leave it alone. If leaving it alone is the right call, we will say so.</p></details>
+        <details><summary>Do I have to switch software?</summary><p>No. We build around the tools you already use, even if that is paper and a spreadsheet.</p></details>
+        <details><summary>Who will I talk to?</summary><p>Both founders, Max and Ryan. The people on your audit call are the people who build it.</p></details>
+        <details><summary>Do you come to us?</summary><p>Your choice: on site or by video, whichever is easier for you.</p></details>
+        <details><summary>What do I need to prepare?</summary><p>Nothing formal. It helps to know the software you use today, your biggest office headache, and how a job goes from first call to paid invoice.</p></details>
+        <details><summary>What happens to my data?</summary><p>You own everything we build. We can run systems on your own equipment so your data never leaves your building, or use private cloud instances with no data sharing.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="flag" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Recent work</p>
+      <p class="big-num">1,800</p>
+      <p class="big-sub">recordings. Transcribed in <span class="hot">under an hour.</span></p>
+      <ul class="wins">
+        <li>Every note matched to its photo.</li>
+        <li>The report? Generated.</li>
+        <li>Saved, organized, done.</li>
+      </ul>
+      <p class="kicker">That's the kind of time we hand back.</p>
+      <p class="src">For a San Diego architecture firm. <a href="/casestudy/dga/">Read the case study &rarr;</a></p>
+      <div class="slots" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+      <p class="slots-cap"><b>Only 4 audits a month.</b> Each one gets our full attention. When they're gone, they're gone.</p>
+      <a class="cta" href="#request">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></a>
+    </div>
+  </section>
+</main>
+
+<a class="sticky-cta" id="sticky-cta" href="#request" aria-hidden="true" tabindex="-1">Request my free audit <span aria-hidden="true">&rarr;</span></a>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--cream)">Little Hammer Labs</strong> · Based in San Diego, serving all of Southern California</p>
+    <p><a href="/">littlehammerlabs.com</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+/* Form posts to the n8n lead-intake webhook (W1). Set the URL here. */
+(function(){
+  var WEBHOOK_URL = 'https://REPLACE-WITH-N8N-WEBHOOK.invalid/webhook/audit-lead'; // TODO: n8n production webhook URL, e.g. https://<n8n-host>/webhook/audit-lead
+  var DEFAULTS = {utm_source:'direct', utm_medium:'none'};
+
+  var form = document.getElementById('audit-form');
+  var box = document.getElementById('request');
+  var status = document.getElementById('f-status');
+  var btn = form.querySelector('button[type=submit]');
+
+  // UTM tags: from the QR link, or Turkey Night defaults on a direct visit
+  var q = new URLSearchParams(location.search), any = false;
+  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid','gclid'].forEach(function(k){
+    var v = q.get(k); if (v){ form.elements[k].value = v; any = true; }
+  });
+  if (!any){ Object.keys(DEFAULTS).forEach(function(k){ form.elements[k].value = DEFAULTS[k]; }); }
+
+  // Message match: the top line follows where the visitor came from
+  var SOURCES = {
+    turkeynight: ['Saw us in the Turkey Night program?', 'Turkey Night 2026'],
+    instagram:   ['Here from Instagram? Your link is below.', 'Free Systems Audit'],
+    meta:        ['Free Systems Audit \u00b7 4 spots a month', 'Free Systems Audit'],
+    google:      ['Free Systems Audit \u00b7 4 spots a month', 'Free Systems Audit']
+  };
+  var src = SOURCES[(form.elements.utm_source.value || '').toLowerCase()];
+  if (src){ document.getElementById('src-line').textContent = src[0]; document.getElementById('src-tag').textContent = src[1]; }
+
+  // Two steps: business first (quick taps), contact second
+  function showStep(n){
+    form.querySelectorAll('.step').forEach(function(el){ el.hidden = el.getAttribute('data-step') !== String(n); });
+    box.classList.toggle('step2', n === 2);
+    box.querySelector('.p-n').textContent = n;
+    status.hidden = true;
+  }
+  document.getElementById('to-step-2').addEventListener('click', function(){
+    status.hidden = true;
+    if (!form.elements.industry.value) return fail('Please choose what kind of business you run.', form.elements.industry);
+    if (!form.querySelector('input[name=employees]:checked')) return fail('Please choose how many people work there.', form.querySelector('input[name=employees]'));
+    showStep(2); box.scrollIntoView({block:'start'}); setTimeout(function(){ form.elements.name.focus({preventScroll:true}); }, 50);
+  });
+  document.getElementById('to-step-1').addEventListener('click', function(){ showStep(1); box.scrollIntoView({block:'start'}); });
+
+  // Sticky button on phones: shows once the hero button is gone, hides near the form
+  var sticky = document.getElementById('sticky-cta'), heroCta = document.querySelector('.hero-cta .cta');
+  if ('IntersectionObserver' in window && sticky && heroCta){
+    var heroGone = false, formIn = false;
+    var sync = function(){ var on = heroGone && !formIn && !box.classList.contains('sent'); sticky.classList.toggle('show', on); sticky.setAttribute('aria-hidden', on ? 'false' : 'true'); sticky.tabIndex = on ? 0 : -1; };
+    new IntersectionObserver(function(es){ heroGone = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; sync(); }).observe(heroCta);
+    new IntersectionObserver(function(es){ formIn = es[0].isIntersecting; sync(); }, {rootMargin:'0px 0px -20% 0px'}).observe(box);
+  }
+
+  function fail(msg, el){ status.textContent = msg; status.hidden = false; if (el) el.focus(); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.hidden = true;
+    var f = form.elements;
+    if (f.website_hp.value) return;                       // bot
+    if (!f.industry.value || !form.querySelector('input[name=employees]:checked')) { showStep(1); return document.getElementById('to-step-2').click(); }
+    if (!f.name.value.trim()) return fail('Please enter your name.', f.name);
+    if (!f.business.value.trim()) return fail('Please enter your business name.', f.business);
+    if (f.phone.value.replace(/\D/g,'').length < 10) return fail('Please enter a phone number we can reach you at.', f.phone);
+    if (f.email.value && !f.email.checkValidity()) return fail('That email address doesn\'t look right.', f.email);
+
+    var data = {
+      form: 'systems-audit',
+      tenant_id: 'lhl',
+      name: f.name.value.trim(),
+      business: f.business.value.trim(),
+      phone: f.phone.value.trim(),
+      email: f.email.value.trim(),
+      industry: f.industry.value,
+      employees: (form.querySelector('input[name=employees]:checked')||{}).value || '',
+      best_time: (form.querySelector('input[name=best_time]:checked')||{}).value || '',
+      headaches: Array.prototype.map.call(form.querySelectorAll('input[name=headache]:checked'), function(c){ return c.value; }),
+      text_consent: f.text_ok.checked,
+      utm_source: f.utm_source.value, utm_medium: f.utm_medium.value,
+      utm_campaign: f.utm_campaign.value, utm_content: f.utm_content.value,
+      fbclid: f.fbclid.value, gclid: f.gclid.value,
+      fbp: (document.cookie.match(/_fbp=([^;]+)/)||[])[1] || '', fbc: (document.cookie.match(/_fbc=([^;]+)/)||[])[1] || (f.fbclid.value ? 'fb.1.' + Date.now() + '.' + f.fbclid.value : ''),
+      event_id: 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2,8),
+      page: location.origin + location.pathname,
+      submitted_at: new Date().toISOString()
+    };
+
+    btn.disabled = true;
+    fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); done(); })
+      .catch(function(){ btn.disabled = false; fail('Sorry, that didn\'t go through. Please check your signal and tap the button again.'); });
+
+    function done(){
+      var first = data.name.split(' ')[0];
+      if (first) box.querySelector('.tk-name').textContent = ', ' + first;
+      if (data.best_time) box.querySelector('.tk-when').textContent = 'in the ' + data.best_time.toLowerCase().replace('midday','middle of the day');
+      if (window.fbq) fbq('track', 'Lead', {content_name: 'systems-audit'}, {eventID: data.event_id}); // dedupes with the server-side event n8n sends
+      box.classList.add('sent');
+      var t = box.querySelector('.thanks'); t.focus(); box.scrollIntoView({block:'start'});
+    }
+  });
+})();
+</script>
+</body>
+</html>
