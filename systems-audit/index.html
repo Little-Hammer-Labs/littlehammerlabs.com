@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Systems Audit · Little Hammer Labs</title>
 <meta name="description" content="We automate the back office for San Diego service businesses. Book a free Systems Audit: a 45-minute chat with Max & Ryan and a one-page plan within a week.">
-<meta name="theme-color" content="#1c4353">
+<meta name="theme-color" content="#15323f">
 <link rel="canonical" href="https://littlehammerlabs.com/systems-audit">
 <meta property="og:title" content="Free Systems Audit · Little Hammer Labs">
 <meta property="og:description" content="Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a free Systems Audit.">
@@ -17,10 +17,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#f6f0e5;--paper:#fdfaf4;--ink:#1c4353;--navy-deep:#15323f;
-  --text:#27343c;--muted:#5c6870;--line:#d9d1c0;--orange:#f25e2c;--orange-dark:#cf4a1d;
+  --cream:#f6f0e5;--paper:#fdfaf4;--ink:#1c4353;--navy-deep:#15323f;--navy-ink:#0f2630;
+  --text:#27343c;--muted:#5c6870;--line:#d9d1c0;--orange:#f25e2c;--orange-dark:#cf4a1d;--orange-lite:#ff8a5c;
+  --on-navy:#c9d4d9;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --check:repeating-conic-gradient(var(--cream) 0 25%,var(--navy-ink) 0 50%) 0 0/14px 14px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -28,56 +30,73 @@ body{margin:0;background:var(--cream);color:var(--text);font-family:var(--sans);
 img{max-width:100%;display:block}
 a{color:var(--ink)}
 .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-.rule{border:0;border-top:1px solid var(--line);margin:0}
-
-/* header */
-header{background:var(--paper);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;gap:12px;padding-top:14px;padding-bottom:14px}
-.lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.lockup svg{flex:none}
-.lockup span{font-family:var(--serif);font-size:17px;line-height:1.05;letter-spacing:.01em}
-
-/* hero */
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0}
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);flex:none}
-.hero{padding:30px 0 8px}
-h1{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.1;color:var(--navy-deep);margin:16px 0 18px;letter-spacing:-.01em}
-.lede{font-size:20px;margin:0 0 24px}
-.photo{border:1px solid var(--line);background:var(--paper);margin:0 0 10px}
-.photo img{width:100%;height:auto;aspect-ratio:8/3;object-fit:cover}
-.caption{font-size:15px;color:var(--muted);margin:0 0 26px}
+h2{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.15;color:var(--navy-deep);margin:12px 0 18px;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--orange-dark)}
 
-/* button */
-.cta{display:block;width:100%;text-align:center;text-decoration:none;background:var(--orange-dark);color:#fff;
-  font-weight:600;font-size:21px;line-height:1.25;padding:20px 18px;border:0;border-radius:0;
-  box-shadow:0 3px 0 #a93a14}
-.cta:hover,.cta:focus-visible{background:#b8401a}
-.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+/* ---------- hero (navy) ---------- */
+.top{background:var(--navy-deep);color:var(--cream);position:relative;overflow:hidden}
+.flag{height:14px;background:var(--check);opacity:.9}
+.top header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream)}
+.lockup span{font-family:var(--serif);font-size:17px;line-height:1.05}
+.tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-deep);background:var(--cream);padding:6px 10px;white-space:nowrap}
+.hero{padding:26px 0 30px;position:relative}
+.top .eyebrow{color:var(--orange-lite)}
+.top .eyebrow::before{background:var(--orange-lite)}
+h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.04;margin:16px 0 18px;letter-spacing:-.02em;color:var(--cream)}
+h1 .hl{color:var(--orange-lite);font-style:italic}
+.lede{font-size:20px;margin:0 0 26px;color:var(--on-navy)}
+.lede b{color:var(--cream);font-weight:600}
+.photo{position:relative;margin:0}
+.photo img{width:100%;height:auto;aspect-ratio:8/3.6;object-fit:cover;object-position:center 30%}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,.55) 0%,rgba(21,50,63,0) 35%,rgba(21,50,63,0) 70%,rgba(21,50,63,.85) 100%);pointer-events:none}
+.names{position:absolute;left:0;right:0;bottom:12px;z-index:1;display:flex;justify-content:space-between;padding:0 22px;max-width:680px;margin:0 auto;
+  font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+.names span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:2px}
+.hero-cta{padding:22px 0 30px}
+.hero-cta p{margin:12px 0 0;text-align:center;font-size:16px;color:var(--on-navy)}
+.photo-wrap{max-width:900px;margin:0 auto}
+
+/* ---------- buttons ---------- */
+.cta{display:flex;flex-direction:column;align-items:center;width:100%;text-align:center;text-decoration:none;background:var(--orange-dark);color:#fff;
+  font-weight:600;font-size:21px;line-height:1.25;padding:19px 18px;border:0;border-radius:0;box-shadow:0 4px 0 #a93a14;transition:transform .12s,box-shadow .12s}
+.cta:hover{background:#b8401a}
+.cta:active{transform:translateY(3px);box-shadow:0 1px 0 #a93a14}
+.cta:focus-visible{outline:3px solid var(--orange-lite);outline-offset:3px}
 .cta small{display:block;font-weight:500;font-size:16px;opacity:.95;margin-top:4px}
-.cta-note{font-size:16px;color:var(--muted);text-align:center;margin:12px 0 0}
+.cta .arrow{display:inline-block;margin-left:8px}
 
-/* sections */
-section{padding:34px 0}
-h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.2;color:var(--navy-deep);margin:12px 0 18px}
-ol.get{list-style:none;margin:0;padding:0;counter-reset:g}
-ol.get li{counter-increment:g;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 0;border-top:1px solid var(--line)}
-ol.get li:last-child{border-bottom:1px solid var(--line)}
-ol.get li::before{content:counter(g,decimal-leading-zero);font-family:var(--serif);font-size:24px;color:var(--orange-dark);line-height:1.2}
-ol.get strong{display:block;color:var(--navy-deep);font-weight:600}
-.panel{background:var(--paper);border:1px solid var(--line);padding:24px 22px}
-.panel p{margin:0}
-.proof{font-family:var(--serif);font-size:25px;line-height:1.3;color:var(--navy-deep);margin:0 0 10px}
-.proof-src{font-size:16px;color:var(--muted);margin:0}
-.proof-src a{color:var(--muted)}
-.cap{display:flex;gap:12px;align-items:baseline;margin:22px 0 22px;font-size:18px}
-.cap b{font-family:var(--serif);font-weight:400;font-size:34px;color:var(--orange-dark);line-height:1}
-footer{background:var(--navy-deep);color:#d7e0e4;font-size:15px;padding:28px 0 36px;margin-top:20px}
-footer a{color:#fff}
-footer p{margin:4px 0}
+/* ---------- promise cards ---------- */
+.promises{padding:44px 0 20px}
+.cards{display:grid;gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);padding:18px 18px 20px;position:relative}
+.card .num{position:absolute;top:14px;right:16px;font-family:var(--serif);font-size:15px;color:var(--muted)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.2;color:var(--navy-deep);margin:14px 0 6px}
+.card p{margin:0;font-size:17px;color:var(--muted)}
+.mock{background:#fff;border:1px solid var(--line);padding:12px;font-size:15px;line-height:1.4}
+.mock-row{display:flex;align-items:center;gap:10px}
+.ico{width:34px;height:34px;flex:none;display:grid;place-items:center;background:var(--cream);color:var(--ink)}
+.ico.hot{background:#fde4da;color:var(--orange-dark)}
+.ico.ok{background:#dfeae6;color:#1f5c48}
+.meta{font-size:13px;color:var(--muted)}
+.strong{font-weight:600;color:var(--navy-deep)}
+.bubble{margin:10px 0 0 44px;background:var(--ink);color:#fff;padding:10px 12px;font-size:15px;position:relative}
+.bubble::before{content:"";position:absolute;left:-7px;top:10px;border:7px solid transparent;border-right-color:var(--ink);border-left:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;background:#dfeae6;color:#1f5c48}
+.pill.warn{background:#fde4da;color:#9b2c0e}
+.line{height:8px;background:var(--cream);margin:8px 0 0}
+.chase{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.chase span{font-size:12px;font-weight:600;padding:4px 8px;border:1px solid var(--line);color:var(--muted)}
+.chase span.on{border-color:var(--ink);color:var(--ink)}
+.chase span.paid{background:#1f5c48;border-color:#1f5c48;color:#fff}
 
-/* form */
-.form{background:var(--paper);border:1px solid var(--line);padding:24px 20px 26px;margin:0 0 6px;scroll-margin-top:16px}
-.form h2{margin-top:6px;margin-bottom:6px}
+/* ---------- form ---------- */
+.request{padding:34px 0 10px}
+.form{background:var(--paper);border:1px solid var(--line);border-top:0;padding:0 20px 26px;scroll-margin-top:10px;position:relative}
+.form::before{content:"";display:block;height:10px;margin:0 -20px 22px;background:var(--check);opacity:.85}
+.form h2{margin-top:10px;margin-bottom:6px}
 .form .sub{margin:0 0 20px;color:var(--muted);font-size:17px}
 .field{margin:0 0 18px}
 .field label,.field legend{display:block;font-weight:600;color:var(--navy-deep);font-size:17px;margin:0 0 6px;padding:0}
@@ -89,61 +108,162 @@ footer p{margin:4px 0}
   background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
 .field input:focus,.field select:focus{outline:3px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
 fieldset.field{border:0;margin:0 0 18px;padding:0}
-.checks{display:grid;gap:8px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .check{display:flex;align-items:center;gap:12px;font-size:18px;min-height:44px;padding:4px 0;cursor:pointer}
-.check input{width:24px;height:24px;flex:none;accent-color:var(--orange-dark);margin:0}
-.consent{font-size:16px;color:var(--text);align-items:flex-start}
+.checks .check{border:1px solid var(--line);background:#fff;padding:10px 12px;font-size:16px;line-height:1.3;gap:10px}
+.checks .check:has(input:checked){border-color:var(--orange-dark);background:#fff4ef}
+.check input{width:22px;height:22px;flex:none;accent-color:var(--orange-dark);margin:0}
+.consent{font-size:16px;align-items:flex-start;margin-bottom:6px}
 .consent input{margin-top:3px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-button.cta{font-family:inherit;cursor:pointer;margin-top:6px}
+button.cta{font-family:inherit;cursor:pointer;margin-top:10px}
 button.cta[disabled]{opacity:.7;cursor:wait}
 .status{margin:14px 0 0;font-size:17px;color:#9b2c0e;font-weight:500}
-.thanks{display:none}
+.thanks{display:none;text-align:center;padding:10px 0}
+.thanks .big{width:64px;height:64px;margin:6px auto 6px;display:grid;place-items:center;background:#1f5c48;color:#fff}
 .form.sent form,.form.sent .form-intro{display:none}
 .form.sent .thanks{display:block}
 .thanks p{margin:0 0 12px}
 
+/* ---------- what you get ---------- */
+.get-sec{padding:44px 0 10px}
+.report{background:#fff;border:1px solid var(--line);box-shadow:8px 8px 0 var(--ink);padding:18px 18px 16px;margin:6px 8px 30px 0;transform:rotate(-1.2deg)}
+.report-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--navy-deep);padding-bottom:8px;margin-bottom:10px}
+.report-h b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--navy-deep)}
+.report-h span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rrow{display:grid;grid-template-columns:22px 1fr 34%;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #eee6d6;font-size:14px}
+.rrow i{font-style:normal;font-family:var(--serif);color:var(--orange-dark)}
+.rrow .sk{height:9px;background:#e7e0d0}
+.rrow .bar{height:12px;background:linear-gradient(90deg,var(--orange-dark),var(--orange))}
+.rfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:13px;line-height:1.35;color:var(--muted)}
+.stamp{white-space:nowrap;flex:none;border:2px solid var(--orange-dark);color:var(--orange-dark);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;transform:rotate(-4deg)}
+.sample{font-size:13px;color:var(--muted);margin:-18px 0 22px;text-align:right}
+ol.get{list-style:none;margin:0;padding:0;counter-reset:g}
+ol.get li{counter-increment:g;display:grid;grid-template-columns:56px 1fr;gap:4px 12px;padding:18px 0;border-top:1px solid var(--line)}
+ol.get li:last-child{border-bottom:1px solid var(--line)}
+ol.get li::before{content:counter(g,decimal-leading-zero);font-family:var(--serif);font-size:38px;color:var(--orange-dark);line-height:1}
+ol.get strong{display:block;color:var(--navy-deep);font-weight:600}
+
+/* ---------- who ---------- */
+.who{padding:40px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+.chips span{background:var(--paper);border:1px solid var(--line);padding:8px 12px;font-size:16px;color:var(--navy-deep)}
+.who p{margin:0}
+
+/* ---------- proof (navy) ---------- */
+.proof{background:var(--navy-deep);color:var(--cream);margin-top:44px;position:relative}
+.proof .flag{position:absolute;left:0;right:0;top:0}
+.proof .wrap{padding-top:50px;padding-bottom:44px}
+.proof .eyebrow{color:var(--orange-lite)}
+.proof .eyebrow::before{background:var(--orange-lite)}
+.big-num{font-family:var(--serif);font-size:96px;line-height:.95;color:var(--orange-lite);margin:14px 0 4px;letter-spacing:-.03em}
+.big-sub{font-family:var(--serif);font-size:28px;line-height:1.2;margin:0 0 12px}
+.proof .src{font-size:16px;color:var(--on-navy);margin:0}
+.proof .src a{color:var(--cream)}
+.slots{display:flex;gap:8px;margin:34px 0 10px}
+.slots span{flex:1;height:46px;border:2px solid var(--on-navy);display:grid;place-items:center;font-family:var(--serif);font-size:20px;color:var(--on-navy)}
+.slots-cap{margin:0 0 26px;font-size:18px;color:var(--on-navy)}
+.slots-cap b{color:var(--cream);font-weight:600}
+
+footer{background:var(--navy-ink);color:var(--on-navy);font-size:15px;padding:24px 0 34px}
+footer a{color:var(--cream)}
+footer p{margin:4px 0}
+
+@media (min-width:640px){
+  .cards{grid-template-columns:1fr 1fr 1fr}
+  .wide{max-width:980px}
+}
 @media (min-width:768px){
   body{font-size:20px}
-  h1{font-size:54px}
-  .hero{padding-top:48px}
-  h2{font-size:34px}
+  h1{font-size:62px}
+  h2{font-size:38px}
+  .hero{padding-top:44px}
 }
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:360px){ h1{font-size:38px} .checks{grid-template-columns:1fr} .big-num{font-size:80px} }
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .rise{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
 
-<header>
+<div class="top">
+  <div class="flag" aria-hidden="true"></div>
   <div class="wrap">
-    <a class="lockup" href="/" aria-label="Little Hammer Labs home">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-        <rect x="6" y="5" width="22" height="9" fill="#f25e2c"/>
-        <rect x="14.5" y="14" width="5" height="16" fill="#f25e2c"/>
-      </svg>
-      <span>Little Hammer<br>Labs</span>
-    </a>
+    <header>
+      <a class="lockup" href="/" aria-label="Little Hammer Labs home">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="5" width="22" height="9" fill="#f25e2c"/><rect x="14.5" y="14" width="5" height="16" fill="#f25e2c"/></svg>
+        <span>Little Hammer<br>Labs</span>
+      </a>
+      <span class="tag">Turkey Night 2026</span>
+    </header>
+    <div class="hero">
+      <p class="eyebrow rise">Saw us in the Turkey Night program?</p>
+      <h1 class="rise d1">We automate the back office for <span class="hl">service businesses.</span></h1>
+      <p class="lede rise d2">Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a <b>free Systems Audit</b>: a one-page plan within a week, yours to keep.</p>
+    </div>
   </div>
-</header>
-
-<main>
-  <div class="wrap hero">
-    <p class="eyebrow">Saw us in the Turkey Night program?</p>
-    <h1>We automate the back office for service businesses.</h1>
-    <p class="lede">Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a free Systems Audit: a one-page plan within a week, yours to keep.</p>
-
+  <div class="photo-wrap">
     <figure class="photo">
       <!-- SWAP: replace with the Max & Ryan photo used in the program ad -->
       <img src="/assets/images/founders.jpeg" width="800" height="300" alt="Max (left) and Ryan (right), founders of Little Hammer Labs" fetchpriority="high">
+      <figcaption class="names"><span>Max</span><span>Ryan</span></figcaption>
     </figure>
-    <p class="caption">Max (left) and Ryan (right). You'll talk to both of us.</p>
+  </div>
+  <div class="wrap hero-cta">
+    <a class="cta" href="#request">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></a>
+    <p>Takes a minute. We'll reach out to set up a time.</p>
+  </div>
+</div>
 
-    <div class="form" id="request">
-      <div class="form-intro">
-        <p class="eyebrow">Free Systems Audit</p>
-        <h2>Request your audit.</h2>
-        <p class="sub">Takes a minute. Max or Ryan will reach out to set up a time for your free 45-minute chat.</p>
+<main>
+  <section class="promises">
+    <div class="wrap wide">
+      <p class="eyebrow">What changes</p>
+      <h2>The office work that runs <em>itself.</em></h2>
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico hot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M15 3l6 6M21 3l-6 6"/></svg></span><span><span class="strong">Missed call</span><br><span class="meta">New customer · 4:52 PM</span></span></div>
+            <div class="bubble">Sorry we missed you! What can we help with? Reply here and we'll get you scheduled.</div>
+          </div>
+          <h3>Missed calls, texted back</h3>
+          <p>Every caller gets a reply in seconds, even when nobody can pick up.</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span style="flex:1"><span class="strong">Quote #1048</span><div class="line" style="width:80%"></div><div class="line" style="width:55%"></div></span></div>
+            <div class="mock-row" style="margin-top:10px;justify-content:space-between"><span class="meta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg> Sent to customer</span><span class="pill">Same day</span></div>
+          </div>
+          <h3>Quotes out the same day</h3>
+          <p>Notes from the job turn into a clean quote before the customer cools off.</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <div class="mock" aria-hidden="true">
+            <div class="mock-row"><span class="ico ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span><span><span class="strong">Invoice #2231</span><br><span class="meta">Reminders sent automatically</span></span></div>
+            <div class="chase"><span class="on">Sent</span><span class="on">Day 3</span><span class="on">Day 7</span><span class="paid">Paid</span></div>
+          </div>
+          <h3>Invoices that chase themselves</h3>
+          <p>Polite reminders go out on schedule, so nobody has to make the awkward call.</p>
+        </article>
       </div>
+    </div>
+  </section>
+
+  <section class="request">
+    <div class="wrap">
+      <div class="form" id="request">
+        <div class="form-intro">
+          <p class="eyebrow">Free Systems Audit</p>
+          <h2>Request your audit.</h2>
+          <p class="sub">Takes a minute. Max or Ryan will reach out to set up a time for your free 45-minute chat.</p>
+        </div>
       <form id="audit-form" action="#" method="post" novalidate>
         <div class="field"><label for="f-name">Your name</label>
           <input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -171,18 +291,30 @@ button.cta[disabled]{opacity:.7;cursor:wait}
         <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
         <p class="status" id="f-status" role="alert" hidden></p>
       </form>
-      <div class="thanks" tabindex="-1">
-        <h2>Thanks, we've got it.</h2>
-        <p>Max or Ryan will reach out to set up a time for your free Systems Audit.</p>
-        <p style="color:var(--muted);font-size:17px">Meanwhile, scroll down to see what the audit covers.</p>
+        <div class="thanks" tabindex="-1">
+          <div class="big"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h2>Thanks, we've got it.</h2>
+          <p>Max or Ryan will reach out to set up a time for your free Systems Audit.</p>
+          <p style="color:var(--muted);font-size:17px">Meanwhile, scroll down to see what the audit covers.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <section>
+  <section class="get-sec">
     <div class="wrap">
       <p class="eyebrow">What you get</p>
-      <h2>An honest look at where your office time goes.</h2>
+      <h2>An honest look at where your office time <em>goes.</em></h2>
+      <div class="report" aria-hidden="true">
+        <div class="report-h"><b>Your one-page plan</b><span>Systems Audit</span></div>
+        <div class="rrow"><i>1</i><div class="sk"></div><div class="bar" style="width:100%"></div></div>
+        <div class="rrow"><i>2</i><div class="sk" style="width:85%"></div><div class="bar" style="width:78%"></div></div>
+        <div class="rrow"><i>3</i><div class="sk" style="width:92%"></div><div class="bar" style="width:60%"></div></div>
+        <div class="rrow"><i>4</i><div class="sk" style="width:70%"></div><div class="bar" style="width:42%"></div></div>
+        <div class="rrow"><i>5</i><div class="sk" style="width:80%"></div><div class="bar" style="width:30%"></div></div>
+        <div class="rfoot"><span>Hours and dollars per year, with a fix for each</span><span class="stamp">Yours to keep</span></div>
+      </div>
+      <p class="sample">Sample layout</p>
       <ol class="get">
         <li><span><strong>A 45-minute walkthrough</strong>On site or by video. You show us how calls, quotes, scheduling and invoices move today.</span></li>
         <li><span><strong>A written one-page report within a week</strong>Your top five time sinks, the hours and dollars each costs per year, and the fix for each.</span></li>
@@ -191,35 +323,32 @@ button.cta[disabled]{opacity:.7;cursor:wait}
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="who">
     <div class="wrap">
       <p class="eyebrow">Who it's for</p>
       <h2>San Diego service businesses with 3+ employees.</h2>
-      <p style="margin:0">If your office runs on phone calls, paper, spreadsheets or one person's memory, this is for you.</p>
+      <p style="margin-bottom:14px">If your office runs on any of these, this is for you:</p>
+      <div class="chips"><span>Phone calls</span><span>Paper</span><span>Spreadsheets</span><span>One person's memory</span></div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="proof">
+    <div class="flag" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="panel">
-        <p class="eyebrow" style="margin-bottom:14px">Recent work</p>
-        <p class="proof">1,800 audio recordings transcribed in under an hour.</p>
-        <p class="proof-src">For a San Diego architecture firm. <a href="/casestudy/dga/">Read the case study</a></p>
-      </div>
-
-      <p class="cap"><b>4</b><span>audits a month. That's all we take on, so each one gets real attention.</span></p>
-
-      <a class="cta" href="#request">
-        Request my free audit
-        <small>A free 45-minute chat with Max &amp; Ryan</small>
-      </a>
+      <p class="eyebrow">Recent work</p>
+      <p class="big-num">1,800</p>
+      <p class="big-sub">audio recordings transcribed in under an hour.</p>
+      <p class="src">For a San Diego architecture firm. <a href="/casestudy/dga/">Read the case study</a></p>
+      <div class="slots" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+      <p class="slots-cap"><b>4 audits a month.</b> That's all we take on, so each one gets real attention.</p>
+      <a class="cta" href="#request">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p><strong>Little Hammer Labs</strong> · San Diego, CA</p>
+    <p><strong style="color:var(--cream)">Little Hammer Labs</strong> · San Diego, CA</p>
     <p><a href="/">littlehammerlabs.com</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
   </div>
 </footer>
