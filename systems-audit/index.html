@@ -75,6 +75,34 @@ footer{background:var(--navy-deep);color:#d7e0e4;font-size:15px;padding:28px 0 3
 footer a{color:#fff}
 footer p{margin:4px 0}
 
+/* form */
+.form{background:var(--paper);border:1px solid var(--line);padding:24px 20px 26px;margin:0 0 6px;scroll-margin-top:16px}
+.form h2{margin-top:6px;margin-bottom:6px}
+.form .sub{margin:0 0 20px;color:var(--muted);font-size:17px}
+.field{margin:0 0 18px}
+.field label,.field legend{display:block;font-weight:600;color:var(--navy-deep);font-size:17px;margin:0 0 6px;padding:0}
+.field .opt{font-weight:400;color:var(--muted)}
+.field input[type=text],.field input[type=tel],.field input[type=email],.field select{
+  width:100%;font:inherit;font-size:19px;color:var(--text);background:#fff;border:1px solid #a89f8c;border-radius:0;
+  padding:13px 14px;min-height:54px;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
+.field input:focus,.field select:focus{outline:3px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+fieldset.field{border:0;margin:0 0 18px;padding:0}
+.checks{display:grid;gap:8px}
+.check{display:flex;align-items:center;gap:12px;font-size:18px;min-height:44px;padding:4px 0;cursor:pointer}
+.check input{width:24px;height:24px;flex:none;accent-color:var(--orange-dark);margin:0}
+.consent{font-size:16px;color:var(--text);align-items:flex-start}
+.consent input{margin-top:3px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button.cta{font-family:inherit;cursor:pointer;margin-top:6px}
+button.cta[disabled]{opacity:.7;cursor:wait}
+.status{margin:14px 0 0;font-size:17px;color:#9b2c0e;font-weight:500}
+.thanks{display:none}
+.form.sent form,.form.sent .form-intro{display:none}
+.form.sent .thanks{display:block}
+.thanks p{margin:0 0 12px}
+
 @media (min-width:768px){
   body{font-size:20px}
   h1{font-size:54px}
@@ -110,11 +138,45 @@ footer p{margin:4px 0}
     </figure>
     <p class="caption">Max (left) and Ryan (right). You'll talk to both of us.</p>
 
-    <a class="cta js-book" href="https://cal.com/max-lhl/systems-audit?utm_source=turkeynight&amp;utm_medium=print">
-      Book your free Systems Audit
-      <small>A free 45-minute chat with Max &amp; Ryan</small>
-    </a>
-    <p class="cta-note">Pick a time on the next screen. No cost, no obligation.</p>
+    <div class="form" id="request">
+      <div class="form-intro">
+        <p class="eyebrow">Free Systems Audit</p>
+        <h2>Request your audit.</h2>
+        <p class="sub">Takes a minute. Max or Ryan will reach out to set up a time for your free 45-minute chat.</p>
+      </div>
+      <form id="audit-form" action="#" method="post" novalidate>
+        <div class="field"><label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-biz">Business name</label>
+          <input id="f-biz" name="business" type="text" autocomplete="organization" required></div>
+        <div class="field"><label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+        <div class="field"><label for="f-emp">How many people work there?</label>
+          <select id="f-emp" name="employees" required>
+            <option value="">Choose one</option>
+            <option>1–2</option><option>3–9</option><option>10–24</option><option>25 or more</option>
+          </select></div>
+        <fieldset class="field"><legend>What eats up the most office time? <span class="opt">(optional)</span></legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="headache" value="Missed calls"> Missed calls</label>
+            <label class="check"><input type="checkbox" name="headache" value="Quotes and estimates"> Quotes and estimates</label>
+            <label class="check"><input type="checkbox" name="headache" value="Scheduling"> Scheduling</label>
+            <label class="check"><input type="checkbox" name="headache" value="Invoicing and chasing payment"> Invoicing and chasing payment</label>
+          </div></fieldset>
+        <label class="check consent"><input type="checkbox" name="text_ok" value="yes"> It's OK to text me about scheduling the audit.</label>
+        <div class="hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website_hp" type="text" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+        <button class="cta" type="submit">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></button>
+        <p class="status" id="f-status" role="alert" hidden></p>
+      </form>
+      <div class="thanks" tabindex="-1">
+        <h2>Thanks, we've got it.</h2>
+        <p>Max or Ryan will reach out to set up a time for your free Systems Audit.</p>
+        <p style="color:var(--muted);font-size:17px">Meanwhile, scroll down to see what the audit covers.</p>
+      </div>
+    </div>
   </div>
 
   <section>
@@ -147,8 +209,8 @@ footer p{margin:4px 0}
 
       <p class="cap"><b>4</b><span>audits a month. That's all we take on, so each one gets real attention.</span></p>
 
-      <a class="cta js-book" href="https://cal.com/max-lhl/systems-audit?utm_source=turkeynight&amp;utm_medium=print">
-        Book your free Systems Audit
+      <a class="cta" href="#request">
+        Request my free audit
         <small>A free 45-minute chat with Max &amp; Ryan</small>
       </a>
     </div>
@@ -163,22 +225,62 @@ footer p{margin:4px 0}
 </footer>
 
 <script>
-/* Booking link: one place to change it. Carries the visitor's UTM tags into cal.com
-   (cal.com stores utm_* on the booking and in the webhook payload sent to n8n). */
+/* Form posts to the n8n lead-intake webhook (W1). Set the URL here. */
 (function(){
-  var CAL_URL = 'https://cal.com/max-lhl/systems-audit';
+  var WEBHOOK_URL = 'https://REPLACE-WITH-N8N-WEBHOOK.invalid/webhook/audit-lead'; // TODO: n8n production webhook URL, e.g. https://<n8n-host>/webhook/audit-lead
   var DEFAULTS = {utm_source:'turkeynight', utm_medium:'print'};
-  var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-  var inParams = new URLSearchParams(location.search);
-  var out = new URLSearchParams();
-  var seen = false;
-  keys.forEach(function(k){ var v = inParams.get(k); if (v){ out.set(k, v); seen = true; } });
-  if (!seen){ /* direct visit: only tag as Turkey Night if nothing else came in */
-    Object.keys(DEFAULTS).forEach(function(k){ out.set(k, DEFAULTS[k]); });
-  }
-  out.set('metadata[lead_source]', out.get('utm_source'));
-  var href = CAL_URL + '?' + out.toString();
-  document.querySelectorAll('.js-book').forEach(function(a){ a.href = href; });
+
+  var form = document.getElementById('audit-form');
+  var box = document.getElementById('request');
+  var status = document.getElementById('f-status');
+  var btn = form.querySelector('button[type=submit]');
+
+  // UTM tags: from the QR link, or Turkey Night defaults on a direct visit
+  var q = new URLSearchParams(location.search), any = false;
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+    var v = q.get(k); if (v){ form.elements[k].value = v; any = true; }
+  });
+  if (!any){ Object.keys(DEFAULTS).forEach(function(k){ form.elements[k].value = DEFAULTS[k]; }); }
+
+  function fail(msg, el){ status.textContent = msg; status.hidden = false; if (el) el.focus(); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.hidden = true;
+    var f = form.elements;
+    if (f.website_hp.value) return;                       // bot
+    if (!f.name.value.trim()) return fail('Please enter your name.', f.name);
+    if (!f.business.value.trim()) return fail('Please enter your business name.', f.business);
+    if (f.phone.value.replace(/\D/g,'').length < 10) return fail('Please enter a phone number we can reach you at.', f.phone);
+    if (f.email.value && !f.email.checkValidity()) return fail('That email address doesn\'t look right.', f.email);
+    if (!f.employees.value) return fail('Please choose how many people work there.', f.employees);
+
+    var data = {
+      form: 'systems-audit',
+      tenant_id: 'lhl',
+      name: f.name.value.trim(),
+      business: f.business.value.trim(),
+      phone: f.phone.value.trim(),
+      email: f.email.value.trim(),
+      employees: f.employees.value,
+      headaches: Array.prototype.map.call(form.querySelectorAll('input[name=headache]:checked'), function(c){ return c.value; }),
+      text_consent: f.text_ok.checked,
+      utm_source: f.utm_source.value, utm_medium: f.utm_medium.value,
+      utm_campaign: f.utm_campaign.value, utm_content: f.utm_content.value,
+      page: location.origin + location.pathname,
+      submitted_at: new Date().toISOString()
+    };
+
+    btn.disabled = true;
+    fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); done(); })
+      .catch(function(){ btn.disabled = false; fail('Sorry, that didn\'t go through. Please check your signal and tap the button again.'); });
+
+    function done(){
+      box.classList.add('sent');
+      var t = box.querySelector('.thanks'); t.focus(); box.scrollIntoView({block:'start'});
+    }
+  });
 })();
 </script>
 </body>
