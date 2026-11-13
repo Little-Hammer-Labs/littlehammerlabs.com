@@ -182,18 +182,36 @@ footer a{color:var(--cream)}
 footer p{margin:4px 0}
 
 /* ---------- founders ---------- */
-.founders{padding:40px 0 4px}
-.people{display:grid;gap:16px;margin:4px 0 18px}
-.person{background:var(--paper);border:1px solid var(--line);padding:18px}
-.person-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.person-top img{width:84px;height:84px;object-fit:cover;flex:none;border:3px solid var(--cream);outline:1px solid var(--line)}
-.person h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;color:var(--navy-deep);margin:0}
-.role{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 8px}
-.person p{margin:0 0 10px;font-size:18px}
-.person a.li{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);min-height:44px}
-.promise{background:var(--ink);color:var(--cream);padding:18px 18px;font-family:var(--serif);font-size:23px;line-height:1.3;margin:0}
-.promise b{color:var(--orange-lite);font-weight:400;font-style:italic}
-@media (min-width:640px){.people{grid-template-columns:1fr 1fr}}
+.founders{padding:48px 0 8px}
+.founders .intro{margin:0 0 24px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 4px}
+.pic{position:relative;margin:0;overflow:hidden;background:var(--navy-deep)}
+.pic img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,0) 55%,rgba(21,50,63,.92) 100%)}
+.pic figcaption{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;color:var(--cream)}
+.pic .nm{display:block;font-family:var(--serif);font-size:34px;line-height:1}
+.pic .rl{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--orange-dark);color:#fff;padding:3px 7px}
+.bios{display:grid;gap:0}
+.bio{padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.bio .who{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.bio .hook{font-family:var(--serif);font-size:28px;line-height:1.15;color:var(--navy-deep);margin:0 0 10px}
+.bio .hook em{color:var(--orange-dark)}
+.bio p{margin:0 0 12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px;padding:0;list-style:none}
+.facts li{font-size:15px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:6px 10px}
+.bio a.li{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);min-height:44px}
+.flow{list-style:none;margin:26px 0 0;padding:0;counter-reset:f;background:var(--navy-deep);color:var(--cream)}
+.flow li{counter-increment:f;display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;padding:16px 18px;border-bottom:1px solid rgba(201,212,217,.2);font-size:19px}
+.flow li:last-child{border-bottom:0;background:var(--orange-dark);color:#fff;font-weight:600}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:40px;height:40px;border:2px solid currentColor;font-family:var(--serif);font-size:20px}
+.flow b{font-weight:600;color:#fff}
+.flow-cap{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35;color:var(--navy-deep);margin:16px 0 0}
+@media (min-width:768px){
+  .bios{grid-template-columns:1fr 1fr;gap:28px}
+  .duo{gap:16px}
+  .flow{display:grid;grid-template-columns:1fr 1fr 1fr}
+  .flow li{border-bottom:0;border-right:1px solid rgba(201,212,217,.2);grid-template-columns:1fr;align-items:start;align-content:start;padding:20px 18px 22px;font-size:18px;line-height:1.45}
+}
 
 @media (min-width:640px){
   .cards{grid-template-columns:1fr 1fr 1fr}
@@ -362,27 +380,34 @@ footer p{margin:4px 0}
   <section class="founders" id="founders">
     <div class="wrap">
       <p class="eyebrow">Meet the founders</p>
-      <h2>Two people. <em>Zero handoffs.</em></h2>
-      <p style="margin:0 0 20px">We started Little Hammer Labs because we kept seeing the same problem: businesses buried in repetitive office work that software could handle, but off-the-shelf tools weren't built for how they actually run.</p>
-      <div class="people">
-        <article class="person">
-          <div class="person-top">
-            <img src="/assets/images/headshot-max.webp" width="360" height="360" alt="Max" loading="lazy">
-            <div><h3>Max</h3><span class="role">Operations</span></div>
-          </div>
-          <p>Max maps how your office really runs, finds what's worth automating, and makes sure we fix real problems, not build impressive demos. His background is in business operations and process improvement.</p>
+      <h2>The two guys you'll <em>actually</em> talk to.</h2>
+      <p class="intro">No sales team. No account managers. Just us.</p>
+      <div class="duo">
+        <figure class="pic"><img src="/assets/images/portrait-max.webp" width="480" height="600" alt="Max" loading="lazy"><figcaption><span class="nm">Max</span><span class="rl">Finds it</span></figcaption></figure>
+        <figure class="pic"><img src="/assets/images/portrait-ryan.webp" width="480" height="600" alt="Ryan" loading="lazy"><figcaption><span class="nm">Ryan</span><span class="rl">Builds it</span></figcaption></figure>
+      </div>
+      <div class="bios">
+        <article class="bio">
+          <p class="who">Max · Operations</p>
+          <p class="hook">Finds where your hours are <em>leaking.</em></p>
+          <p>Max runs his own businesses, so he knows what it's like when the office lives on one person's memory. On your audit, he's the one tracing every call, quote and invoice to find what's worth fixing, and what isn't.</p>
+          <ul class="facts"><li>San Diego native</li><li>Business owner</li><li>Operations lead</li></ul>
           <a class="li" href="https://www.linkedin.com/in/max-hammerstrom-363915173/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Max on LinkedIn</a>
         </article>
-        <article class="person">
-          <div class="person-top">
-            <img src="/assets/images/headshot-ryan.webp" width="360" height="360" alt="Ryan" loading="lazy">
-            <div><h3>Ryan</h3><span class="role">Engineering</span></div>
-          </div>
-          <p>Ryan builds the systems and connects them to the tools you already use. Before LHL, he shipped production software and managed complex systems across multiple industries.</p>
+        <article class="bio">
+          <p class="who">Ryan · Engineering</p>
+          <p class="hook">Builds the fix and makes it <em>stick.</em></p>
+          <p>Ryan is the engineer. He builds the systems, hooks them into the tools you already use, and keeps them running. Before LHL, he shipped production software and managed complex systems across multiple industries.</p>
+          <ul class="facts"><li>Engineering lead</li><li>Production software</li><li>Systems that stay up</li></ul>
           <a class="li" href="https://www.linkedin.com/in/rpdlittle/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Ryan on LinkedIn</a>
         </article>
       </div>
-      <p class="promise">The people on your audit call are the people who build it. <b>No handoffs, no junior devs, no bait-and-switch.</b></p>
+      <ol class="flow">
+        <li><span><b>Max</b> walks through your office and finds the leaks.</span></li>
+        <li><span><b>Ryan</b> builds the fix around the tools you already have.</span></li>
+        <li><span>You get your hours back.</span></li>
+      </ol>
+      <p class="flow-cap">The people on your audit call are the people who build it. No handoffs, no junior devs, no bait-and-switch.</p>
     </div>
   </section>
 
