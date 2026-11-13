@@ -164,8 +164,12 @@ ol.get strong{display:block;color:var(--navy-deep);font-weight:600}
 .proof .eyebrow{color:var(--orange-lite)}
 .proof .eyebrow::before{background:var(--orange-lite)}
 .big-num{font-family:var(--serif);font-size:96px;line-height:.95;color:var(--orange-lite);margin:14px 0 4px;letter-spacing:-.03em}
-.big-sub{font-family:var(--serif);font-size:28px;line-height:1.2;margin:0 0 12px}
-.big-detail{font-size:19px;line-height:1.5;color:var(--cream);margin:0 0 14px;max-width:34em}
+.big-sub{font-family:var(--serif);font-size:30px;line-height:1.15;margin:0 0 20px}
+.big-sub .hot{color:var(--orange-lite);font-style:italic}
+.wins{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}
+.wins li{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:600;color:var(--cream);padding:12px 14px;border:1px solid rgba(201,212,217,.35);background:rgba(255,255,255,.04)}
+.wins li::before{content:"";flex:none;width:24px;height:24px;background:var(--orange-dark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/16px no-repeat}
+.kicker{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.25;color:var(--orange-lite);margin:0 0 10px}
 .proof .src{font-size:16px;color:var(--on-navy);margin:0}
 .proof .src a{color:var(--cream)}
 .slots{display:flex;gap:8px;margin:34px 0 10px}
@@ -346,11 +350,16 @@ footer p{margin:4px 0}
     <div class="wrap">
       <p class="eyebrow">Recent work</p>
       <p class="big-num">1,800</p>
-      <p class="big-sub">audio recordings transcribed in under an hour.</p>
-      <p class="big-detail">Each note was matched with the photo taken alongside it, then the report was generated, saved and organized.</p>
-      <p class="src">For a San Diego architecture firm. <a href="/casestudy/dga/">Read the case study</a></p>
+      <p class="big-sub">recordings. Transcribed in <span class="hot">under an hour.</span></p>
+      <ul class="wins">
+        <li>Every note matched to its photo.</li>
+        <li>The report? Generated.</li>
+        <li>Saved, organized, done.</li>
+      </ul>
+      <p class="kicker">That's the kind of time we hand back.</p>
+      <p class="src">For a San Diego architecture firm. <a href="/casestudy/dga/">Read the case study &rarr;</a></p>
       <div class="slots" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
-      <p class="slots-cap"><b>4 audits a month.</b> That's all we take on, so each one gets real attention.</p>
+      <p class="slots-cap"><b>Only 4 audits a month.</b> Each one gets our full attention. When they're gone, they're gone.</p>
       <a class="cta" href="#request">Request my free audit<small>A free 45-minute chat with Max &amp; Ryan</small></a>
     </div>
   </section>
