@@ -9,7 +9,12 @@
 <link rel="canonical" href="https://littlehammerlabs.com/systems-audit">
 <meta property="og:title" content="Free Systems Audit · Little Hammer Labs">
 <meta property="og:description" content="Missed calls texted back, quotes out the same day, invoices that chase themselves. Start with a free Systems Audit.">
-<meta property="og:image" content="https://littlehammerlabs.com/assets/images/founders.jpeg">
+<meta property="og:image" content="https://littlehammerlabs.com/assets/images/og-systems-audit.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://littlehammerlabs.com/systems-audit">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/assets/images/max-ryan-skyline-900.webp" imagesrcset="/assets/images/max-ryan-skyline-900.webp 900w, /assets/images/max-ryan-skyline.webp 1536w" imagesizes="(min-width:900px) 900px, 100vw">
 <link rel="icon" href="/assets/favicons/favicon-png/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/favicons/favicon-png/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,10 +43,11 @@ h2 em{font-style:italic;color:var(--orange-dark)}
 /* ---------- hero (navy) ---------- */
 .top{background:var(--navy-deep);color:var(--cream);position:relative;overflow:hidden}
 .flag{height:14px;background:var(--check);opacity:.9}
-.top header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
-.lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream)}
-.lockup span{font-family:var(--serif);font-size:17px;line-height:1.05}
-.tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-deep);background:var(--cream);padding:6px 10px;white-space:nowrap}
+.masthead{background:var(--paper);border-bottom:1px solid var(--line)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.lockup{display:block;line-height:0}
+.lockup img{height:54px;width:auto}
+.tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--navy-deep);padding:7px 10px;white-space:nowrap}
 .hero{padding:26px 0 30px;position:relative}
 .top .eyebrow{color:var(--orange-lite)}
 .top .eyebrow::before{background:var(--orange-lite)}
@@ -50,8 +56,9 @@ h1 .hl{color:var(--orange-lite);font-style:italic}
 .lede{font-size:20px;margin:0 0 26px;color:var(--on-navy)}
 .lede b{color:var(--cream);font-weight:600}
 .photo{position:relative;margin:0}
-.photo img{width:100%;height:auto;aspect-ratio:8/3.6;object-fit:cover;object-position:center 30%}
-.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,.55) 0%,rgba(21,50,63,0) 35%,rgba(21,50,63,0) 70%,rgba(21,50,63,.85) 100%);pointer-events:none}
+.photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center 20%}
+@media (min-width:768px){.photo img{aspect-ratio:16/9}}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,50,63,0) 0%,rgba(21,50,63,0) 72%,rgba(21,50,63,.8) 100%);pointer-events:none}
 .names{position:absolute;left:0;right:0;bottom:12px;z-index:1;display:flex;justify-content:space-between;padding:0 22px;max-width:680px;margin:0 auto;
   font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
 .names span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:2px}
@@ -190,16 +197,15 @@ footer p{margin:4px 0}
 </head>
 <body>
 
+<div class="masthead">
+  <div class="wrap">
+    <a class="lockup" href="/"><img src="/assets/images/lhl-lockup.webp" width="360" height="165" alt="Little Hammer Labs"></a>
+    <span class="tag">Turkey Night 2026</span>
+  </div>
+</div>
 <div class="top">
   <div class="flag" aria-hidden="true"></div>
   <div class="wrap">
-    <header>
-      <a class="lockup" href="/" aria-label="Little Hammer Labs home">
-        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="5" width="22" height="9" fill="#f25e2c"/><rect x="14.5" y="14" width="5" height="16" fill="#f25e2c"/></svg>
-        <span>Little Hammer<br>Labs</span>
-      </a>
-      <span class="tag">Turkey Night 2026</span>
-    </header>
     <div class="hero">
       <p class="eyebrow rise">Saw us in the Turkey Night program?</p>
       <h1 class="rise d1">We automate the back office for <span class="hl">service businesses.</span></h1>
@@ -208,8 +214,10 @@ footer p{margin:4px 0}
   </div>
   <div class="photo-wrap">
     <figure class="photo">
-      <!-- SWAP: replace with the Max & Ryan photo used in the program ad -->
-      <img src="/assets/images/founders.jpeg" width="800" height="300" alt="Max (left) and Ryan (right), founders of Little Hammer Labs" fetchpriority="high">
+      <img src="/assets/images/max-ryan-skyline-900.webp"
+           srcset="/assets/images/max-ryan-skyline-900.webp 900w, /assets/images/max-ryan-skyline.webp 1536w"
+           sizes="(min-width:900px) 900px, 100vw" width="1536" height="1024"
+           alt="Max (left) and Ryan (right), founders of Little Hammer Labs, in front of the San Diego skyline at sunset" fetchpriority="high">
       <figcaption class="names"><span>Max</span><span>Ryan</span></figcaption>
     </figure>
   </div>
