@@ -181,6 +181,20 @@ footer{background:var(--navy-ink);color:var(--on-navy);font-size:15px;padding:24
 footer a{color:var(--cream)}
 footer p{margin:4px 0}
 
+/* ---------- founders ---------- */
+.founders{padding:40px 0 4px}
+.people{display:grid;gap:16px;margin:4px 0 18px}
+.person{background:var(--paper);border:1px solid var(--line);padding:18px}
+.person-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.person-top img{width:84px;height:84px;object-fit:cover;flex:none;border:3px solid var(--cream);outline:1px solid var(--line)}
+.person h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;color:var(--navy-deep);margin:0}
+.role{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 8px}
+.person p{margin:0 0 10px;font-size:18px}
+.person a.li{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);min-height:44px}
+.promise{background:var(--ink);color:var(--cream);padding:18px 18px;font-family:var(--serif);font-size:23px;line-height:1.3;margin:0}
+.promise b{color:var(--orange-lite);font-weight:400;font-style:italic}
+@media (min-width:640px){.people{grid-template-columns:1fr 1fr}}
+
 @media (min-width:640px){
   .cards{grid-template-columns:1fr 1fr 1fr}
   .wide{max-width:980px}
@@ -342,6 +356,33 @@ footer p{margin:4px 0}
       <h2>Southern California service businesses with 3+ employees.</h2>
       <p style="margin-bottom:14px">If your office runs on any of these, this is for you:</p>
       <div class="chips"><span>Phone calls</span><span>Paper</span><span>Spreadsheets</span><span>One person's memory</span></div>
+    </div>
+  </section>
+
+  <section class="founders" id="founders">
+    <div class="wrap">
+      <p class="eyebrow">Meet the founders</p>
+      <h2>Two people. <em>Zero handoffs.</em></h2>
+      <p style="margin:0 0 20px">We started Little Hammer Labs because we kept seeing the same problem: businesses buried in repetitive office work that software could handle, but off-the-shelf tools weren't built for how they actually run.</p>
+      <div class="people">
+        <article class="person">
+          <div class="person-top">
+            <img src="/assets/images/headshot-max.webp" width="360" height="360" alt="Max" loading="lazy">
+            <div><h3>Max</h3><span class="role">Operations</span></div>
+          </div>
+          <p>Max maps how your office really runs, finds what's worth automating, and makes sure we fix real problems, not build impressive demos. His background is in business operations and process improvement.</p>
+          <a class="li" href="https://www.linkedin.com/in/max-hammerstrom-363915173/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Max on LinkedIn</a>
+        </article>
+        <article class="person">
+          <div class="person-top">
+            <img src="/assets/images/headshot-ryan.webp" width="360" height="360" alt="Ryan" loading="lazy">
+            <div><h3>Ryan</h3><span class="role">Engineering</span></div>
+          </div>
+          <p>Ryan builds the systems and connects them to the tools you already use. Before LHL, he shipped production software and managed complex systems across multiple industries.</p>
+          <a class="li" href="https://www.linkedin.com/in/rpdlittle/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Ryan on LinkedIn</a>
+        </article>
+      </div>
+      <p class="promise">The people on your audit call are the people who build it. <b>No handoffs, no junior devs, no bait-and-switch.</b></p>
     </div>
   </section>
 
