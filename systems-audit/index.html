@@ -574,7 +574,9 @@ footer p{margin:4px 0}
 <script>
 /* Form posts to the n8n lead-intake webhook (W1). Set the URL here. */
 (function(){
-  var WEBHOOK_URL = 'https://hooks.littlehammerlabs.com/webhook/audit-lead'; // LHL n8n (chip), WF-01 Systems Audit intake
+  var WEBHOOK_URL = 'https://hooks.littlehammerlabs.com/webhook/audit-lead'; // LHL n8n (chip), [website] Systems Audit intake
+  var FALLBACK_URL = ''; // Google Apps Script web app (ops/apps-script/audit-fallback.gs); empty = no fallback
+  var PRIMARY_TIMEOUT_MS = 6000;
   var DEFAULTS = {utm_source:'direct', utm_medium:'none'};
 
   var form = document.getElementById('audit-form');
@@ -658,15 +660,27 @@ footer p{margin:4px 0}
     };
 
     btn.disabled = true;
-    fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)})
-      .then(function(r){ if (!r.ok) throw new Error(r.status); done(); })
-      .catch(function(){ btn.disabled = false; fail('Sorry, that didn\'t go through. Please check your signal and tap the button again.'); });
+    // Primary: n8n on the LHL box, 6 s limit. If it is down, slow or errors, re-send the same lead
+    // (same event_id) to the Google Apps Script fallback. That call is no-cors, so it can't be read back.
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, PRIMARY_TIMEOUT_MS) : null;
+    fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined})
+      .then(function(r){ clearTimeout(timer); if (!r.ok) throw new Error(r.status); done(); })
+      .catch(function(){
+        clearTimeout(timer);
+        if (!FALLBACK_URL) return retryMsg();
+        fetch(FALLBACK_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data)})
+          .then(done)
+          .catch(retryMsg);
+      });
+
+    function retryMsg(){ btn.disabled = false; fail('Sorry, that didn\'t go through. Please check your signal and tap the button again.'); }
 
     function done(){
       var first = data.name.split(' ')[0];
       if (first) box.querySelector('.tk-name').textContent = ', ' + first;
       if (data.best_time) box.querySelector('.tk-when').textContent = 'in the ' + data.best_time.toLowerCase().replace('midday','middle of the day');
-      if (window.fbq) fbq('track', 'Lead', {content_name: 'systems-audit'}, {eventID: data.event_id}); // dedupes with the server-side event n8n sends
+      if (window.fbq) fbq('track', 'Lead', {content_name: 'systems-audit'}, {eventID: data.event_id}); // no pixel base code loaded yet, so this is a no-op; event_id is for a future CAPI dedupe
       box.classList.add('sent');
       var t = box.querySelector('.thanks'); t.focus(); box.scrollIntoView({block:'start'});
     }
